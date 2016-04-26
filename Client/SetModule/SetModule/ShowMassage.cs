@@ -26,49 +26,56 @@ namespace SetModule
             temp.Show();
         }
 
+        string connstr = System.Configuration.ConfigurationManager.ConnectionStrings["myconn"].ConnectionString;
+        MySqlConnection mycon;
+        MySqlCommand mycmd;
+        MySqlDataAdapter da;
+        DataTable dt;
+
         private void ShowMassage_Load(object sender, EventArgs e)
         {
-            string connstr = System.Configuration.ConfigurationManager.ConnectionStrings["myconn"].ConnectionString;
+            dataGridView1.AllowUserToAddRows = false;
             MySqlConnection mycon = new MySqlConnection(connstr);
             try
             {
-               
                 mycon.Open();
-                MySqlCommand mycmd = new MySqlCommand("SELECT * FROM `message`", mycon);
-                //mycmd.Parameters.AddWithValue("@username", txtusername.Text);
-                //mycmd.Parameters.AddWithValue("@pwd", txtpassword.Text);
-                MySqlDataAdapter da = new MySqlDataAdapter(mycmd);
-                DataTable dt = new DataTable();
+                mycmd = new MySqlCommand("SELECT * FROM `message`", mycon);
+                da = new MySqlDataAdapter(mycmd);
+                dt = new DataTable();
                 da.Fill(dt);
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dt.Columns.Count; j++)
-                    {
-                        richTextBox1.AppendText(dt.Rows[i][j].ToString() + "     ");
-                    }
-                    richTextBox1.AppendText("\r\n");
-                }
-
+                dataGridView1.DataSource = dt;
             }
             catch
             {
-
             }
             finally
             {
-                mycon.Close();
+                //mycon.Close();
             }
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //定时器事件
+            try
+            {
+                //mycon.Open();
+                dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch
+            {
+            }
+            finally
+            {
+                //mycon.Close();
+            }
+        }
     }
 }
-
-//遍历
-//for (int i = 0; i < dataTable.Rows.Count; i++)
-//{
-//    //for (int j = 0; j < dataTable.Columns.Count; j++)
-//    //{
-//        richTextBox1.AppendText( dataTable.Rows[i][0].ToString()+"     ");
-//    //}
-//} 
