@@ -14,9 +14,9 @@ namespace SetModule
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
-
+    
         private void button2_Click(object sender, EventArgs e)
         {
             ShowMassage show_massage = new ShowMassage(this);

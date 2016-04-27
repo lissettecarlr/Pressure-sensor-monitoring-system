@@ -30,6 +30,9 @@
         {
             this.button_set = new System.Windows.Forms.Button();
             this.button_show = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label_title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_set
@@ -52,17 +55,49 @@
             this.button_show.UseVisualStyleBackColor = true;
             this.button_show.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 279);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(569, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "模块设置：通过连接下位机串口，能够添加；添加或者清空wifi连接信息存储表，可以修改离床最长时间等";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 317);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(281, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "信息显示：通过连接服务器的数据库，显示床铺信息";
+            // 
+            // label_title
+            // 
+            this.label_title.AutoSize = true;
+            this.label_title.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_title.Location = new System.Drawing.Point(170, 45);
+            this.label_title.Name = "label_title";
+            this.label_title.Size = new System.Drawing.Size(303, 35);
+            this.label_title.TabIndex = 4;
+            this.label_title.Text = "床铺状态监控系统";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 361);
+            this.Controls.Add(this.label_title);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_show);
             this.Controls.Add(this.button_set);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,6 +105,9 @@
 
         private System.Windows.Forms.Button button_set;
         private System.Windows.Forms.Button button_show;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_title;
     }
 }
 
