@@ -142,6 +142,8 @@ namespace SetModule
             message[pwd_byte.Length + 2 + name_byte.Length + 1] = 0xff;
             serialCom1.SendBytes(message, message.Length);
 
+            label_WIFIname.Text = name;
+
         }
 
         private void button_SetThreshold_Click(object sender, EventArgs e)
@@ -166,6 +168,7 @@ namespace SetModule
                 SetThreshold[5] += SetThreshold[i];
             }
             serialCom1.SendBytes(SetThreshold, 1);
+            label_connetState.Text = textBox_threshold.Text;
         }
 
 

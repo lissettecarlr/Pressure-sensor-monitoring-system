@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace SetModule
 {
     public partial class ShowMassage : Form
     {
+        private bool state = false;//是否开始监控标志位
         private Form temp;
         public ShowMassage(Form sw)
         {
@@ -52,6 +54,9 @@ namespace SetModule
             {
                 //mycon.Close();
             }
+            ThreadStart ts = new ThreadStart(Method);
+            Thread t = new Thread(ts);
+            t.Start();
 
         }
 
@@ -59,23 +64,74 @@ namespace SetModule
         {
         }
 
+        void Method()
+        {
+            //更新线程
+            while (true)
+            {
+                if (state)
+                {
+                    dt = new DataTable();
+                    da.Fill(dt);
+                    //Console.Write(11);
+                    System.Threading.Thread.Sleep(900);
+                }
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //定时器事件
-            try
+            if (state)
             {
-                //mycon.Open();
-                dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
+                try
+                {
+                    //mycon.Open();
+                    //dt = new DataTable();
+                    //da.Fill(dt);
+                    dataGridView1.DataSource = dt;//更新UI
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    //mycon.Close();
+                }
             }
-            catch
+        }
+
+        private void textBox_bed_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //限制输入只能为整数
+            char result = e.KeyChar;
+            if (char.IsDigit(result) || result == 8)
             {
+                e.Handled = false;
             }
-            finally
+            else
             {
-                //mycon.Close();
+                e.Handled = true;
             }
+        }
+
+        private void ShowMassage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(mycon !=null)
+            if(mycon.State == ConnectionState.Open)
+            mycon.Close();//关闭数据库
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            state = true;
+            label_state.Text = "开始监控";
+        }
+
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            state = false;
+            label_state.Text = "停止监控";
         }
     }
 }

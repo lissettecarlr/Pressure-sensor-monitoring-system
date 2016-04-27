@@ -43,7 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label_connetState = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label_sendState = new System.Windows.Forms.Label();
+            this.label_WIFIname = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_back
@@ -181,21 +181,21 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "已发送WIFI:";
             // 
-            // label_sendState
+            // label_WIFIname
             // 
-            this.label_sendState.AutoSize = true;
-            this.label_sendState.Location = new System.Drawing.Point(399, 326);
-            this.label_sendState.Name = "label_sendState";
-            this.label_sendState.Size = new System.Drawing.Size(53, 12);
-            this.label_sendState.TabIndex = 15;
-            this.label_sendState.Text = "啥都没发";
+            this.label_WIFIname.AutoSize = true;
+            this.label_WIFIname.Location = new System.Drawing.Point(399, 326);
+            this.label_WIFIname.Name = "label_WIFIname";
+            this.label_WIFIname.Size = new System.Drawing.Size(53, 12);
+            this.label_WIFIname.TabIndex = 15;
+            this.label_WIFIname.Text = "啥都没发";
             // 
             // SetSth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 361);
-            this.Controls.Add(this.label_sendState);
+            this.Controls.Add(this.label_WIFIname);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label_connetState);
             this.Controls.Add(this.label2);
@@ -237,6 +237,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_connetState;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label_sendState;
+        private System.Windows.Forms.Label label_WIFIname;
     }
 }
