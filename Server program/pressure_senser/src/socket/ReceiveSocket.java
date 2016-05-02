@@ -12,6 +12,7 @@ public class ReceiveSocket extends Thread{
 	int getCounter = 0;		//定义接收到的数据大小
 	int bedNumber = 0; //床位
 	int state = 0 ; //状态
+	
 	public ReceiveSocket(Socket s){
 		this.socket = s;
 	}
@@ -53,9 +54,8 @@ public class ReceiveSocket extends Thread{
 			  }
 			  //存入数据库
 			  
-			  
-			  //end
 			  System.out.println(getCounter);	//打印出接收到的数据个数
+			  
 			  if(getData[0] == -86 && getData[1] == -86) //0xaa就是-86
 			  {
 				  bedNumber =getData[2];//得到床位数

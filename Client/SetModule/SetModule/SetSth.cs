@@ -46,6 +46,8 @@ namespace SetModule
             //在开启界面的时候建立新线程，实行run方法
             th1 = new Thread(new ThreadStart(this.Run));
             th1.Start();
+            
+
         }
 
         private void Run()
@@ -116,6 +118,7 @@ namespace SetModule
             }
             serialCom1.SendBytes(downWIFI, downWIFI.Length);
 
+            System.Threading.Thread.Sleep(1000);//延时1S
             //发送WIFI消息
 
             string name = textBox_wifiName.Text.ToString();
@@ -169,6 +172,8 @@ namespace SetModule
             }
             serialCom1.SendBytes(SetThreshold, SetThreshold.Length);
 
+            System.Threading.Thread.Sleep(1000);
+
             byte[] SendThreshold = new byte[4];
             SendThreshold[0] = 0xaa;
             SendThreshold[1] = 0xcc;
@@ -178,6 +183,7 @@ namespace SetModule
             {
                 SendThreshold[3] += SendThreshold[i];
             }
+            serialCom1.SendBytes(SendThreshold, SendThreshold.Length);
 
             label_connetState.Text = textBox_threshold.Text;
         }
@@ -196,6 +202,11 @@ namespace SetModule
             {
                 e.Handled = true;
             }
+        }
+
+        private void SetSth_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            temp.Show();
         }
     }
 }

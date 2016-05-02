@@ -120,6 +120,7 @@ namespace SetModule
             if(mycon !=null)
             if(mycon.State == ConnectionState.Open)
             mycon.Close();//关闭数据库
+            temp.Show();
         }
 
         private void button_start_Click(object sender, EventArgs e)

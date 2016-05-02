@@ -214,6 +214,7 @@
             this.Name = "SetSth";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SetSth";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetSth_FormClosing);
             this.Load += new System.EventHandler(this.SetSth_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -31,5 +31,10 @@ namespace SetModule
             set_sth.Show();
             
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);//关闭所有线程
+        }
     }
 }
