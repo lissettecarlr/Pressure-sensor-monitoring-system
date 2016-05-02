@@ -41,6 +41,8 @@ GPIO Beep(GPIOB,5,GPIO_Mode_Out_PP,GPIO_Speed_50MHz);
 GPIO Led_red(GPIOB,8,GPIO_Mode_Out_PP,GPIO_Speed_50MHz);
 GPIO Led_green(GPIOB,7,GPIO_Mode_Out_PP,GPIO_Speed_50MHz);
 
+GPIO MonitoringState_switch(GPIOB,1,GPIO_Mode_IPD,GPIO_Speed_50MHz);
+
 ADC pressure(1); //PA1读取AD值
 
 
@@ -106,7 +108,7 @@ int main(){
 /*END*********************************************************************************/	
 	
 
-/*Hint********************************************************************************/
+	/*Hint**红灯亮起则表明未连上服务器***************************************************/
 	if(!network)
 		Led_red.SetLevel(1); 
 	
@@ -130,12 +132,17 @@ int main(){
 			tskmgr.DelayS(1);
 		}
 		
-		
 		if(network)
 			if(tskmgr.ClockTool(record_alive,30))//30秒发送一次存活确认
 				CMCT_Tool.SendAlive(wifi);
 		
-			
+/*离床监测是否开启判断，插上跳线帽则开启******************************************************/
+		if(MonitoringState_switch.GetLevel() == 1)
+				MonitoringState = true;
+		else 
+				MonitoringState = false;
+/*END*****************************************************************************************/
+		
 		switch(order)
 		{
 	/*获取WIFI信息*********************************************************************************/		
@@ -147,10 +154,14 @@ int main(){
 						{
 							//保存WIFI账号密码
 							wifimemory.Save(WifiName,WifiPassword);
+							SstCom<<"save wifi massage :"<<WifiName<<"\n";
 								break;
 						}
 						if(tskmgr.ClockTool(record_getwifi,60)) //超时60秒退出
+						{
+						  	SstCom<<"outtime quit !!"<<"\n";
 						   break;
+						}
 					}
 			}break;
 	/*END******************************************************************************************/
@@ -166,10 +177,14 @@ int main(){
 							u8 sum = temp[0]+temp[1]+temp[2];
 							if(sum == temp[3])
 								LeaveOutTime = temp[2];
+							SstCom<<"set succeed :Timeout = "<<LeaveOutTime<<"\n";
 							break;
 						}
 						if(tskmgr.ClockTool(record_outtime,60)) //超时60秒退出
+						{
+							SstCom<<"outtime quit !!"<<"\n";
 							break;
+						}
 				 }
 			}break;
 	/*END******************************************************************************************/
@@ -177,15 +192,17 @@ int main(){
 			
 	 /*复位******************************************************************************************/
 			case RST:{//复位
-					wifimemory.ClearAllData(); //清空所有保存信息
+					SstCom<<"restoration !!"<<"\n";
+					tskmgr.DelayMs(200);
 					*((u32 *)0xE000ED0C) = 0x05fa0004;
 			}break;
 	/*END******************************************************************************************/
 		
 					
 	 /*清空wifi信息******************************************************************************************/
-			case CLEARWIFI:{//复位
+			case CLEARWIFI:{
 					wifimemory.ClearAllData(); //清空所有保存信息
+					SstCom<<"clear wifi massage"<<"\n";
 			}break;
 	/*END******************************************************************************************/	
 		

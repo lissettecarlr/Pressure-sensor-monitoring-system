@@ -47,6 +47,7 @@ u8 *Transmission::MonitoringToServer(u8 BadState)
 
 }
 
+// 包头 2字节   床位   命令  保留  校验和
 u8 Transmission::CommandParsing(u8 command[6])
 {
 	if(command[0]==0xaa&&command[1]==0xcc && command[2]== BEDNO) //包头 床位都符合的话
@@ -55,7 +56,7 @@ u8 Transmission::CommandParsing(u8 command[6])
 		for(u8 i=0;i<5;i++)
 			sum+= command[i];
 		if(sum == command[5]) //校验和正确
-			return command[4];
+			return command[3];
 		else
 			return 0;
 	}

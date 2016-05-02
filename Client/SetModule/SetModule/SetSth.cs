@@ -161,13 +161,24 @@ namespace SetModule
             SetThreshold[1] = 0xcc;
             SetThreshold[2] = 0x01;
             SetThreshold[3] = 0x02;
-            SetThreshold[4] = threshold_byte[0];
+            SetThreshold[4] = 0xff;
             SetThreshold[5] = 0;
             for (int i = 0; i < 5; i++)
             {
                 SetThreshold[5] += SetThreshold[i];
             }
-            serialCom1.SendBytes(SetThreshold, 1);
+            serialCom1.SendBytes(SetThreshold, SetThreshold.Length);
+
+            byte[] SendThreshold = new byte[4];
+            SendThreshold[0] = 0xaa;
+            SendThreshold[1] = 0xcc;
+            SendThreshold[2] = threshold_byte[0];
+            SendThreshold[3] = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                SendThreshold[3] += SendThreshold[i];
+            }
+
             label_connetState.Text = textBox_threshold.Text;
         }
 

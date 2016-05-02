@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\transmission.o"
+".\objects\wifi_memory.o"
+".\objects\key.o"
+".\objects\adc.o"
+".\objects\esp8266.o"
+".\objects\gpio.o"
+".\objects\hint.o"
+".\objects\interrupt.o"
+".\objects\memory.o"
+".\objects\taskmanager.o"
+".\objects\usart.o"
+".\objects\misc.o"
+".\objects\stm32f10x_adc.o"
+".\objects\stm32f10x_dma.o"
+".\objects\stm32f10x_exti.o"
+".\objects\stm32f10x_flash.o"
+".\objects\stm32f10x_gpio.o"
+".\objects\stm32f10x_rcc.o"
+".\objects\stm32f10x_tim.o"
+".\objects\stm32f10x_usart.o"
+".\objects\startup_stm32f10x_md.o"
+".\objects\system_stm32f10x.o"
+--strict --scatter ".\Objects\pressure.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\pressure.map" -o .\Objects\pressure.axf
