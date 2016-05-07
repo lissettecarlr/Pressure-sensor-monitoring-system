@@ -351,7 +351,8 @@ u8 esp8266::ConnectNetwork_client(char *WifiName,char* WifiPassword,char *IP,int
 	tskmgr.DelayS(3);
 	if(!joinAP(WifiName,WifiPassword))
 		return 0;//WIFI连接 如果连接失败，返回0
-	if( !ConnectServer("TCP",IP,COM) ) return false;  //服务器连接
+	enableOrDisableMUX(1);
+	if( !ConnectServerID(0,"TCP",IP,COM) ) return false;  //服务器连接
 	return 1;
 }
 

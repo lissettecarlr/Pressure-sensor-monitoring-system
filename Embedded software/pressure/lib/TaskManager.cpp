@@ -52,7 +52,10 @@ bool TaskManager::ClockTool(double &record,double timeout)
 		if(NowTime - record >=timeout)
 		{
 			record = NowTime; //更新记录
-			return true;
+			if(record)
+				return true;
+			else
+				return false;
 		}
 		else
 			return false;

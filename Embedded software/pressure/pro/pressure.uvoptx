@@ -139,6 +139,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
+          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -170,73 +171,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>187</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231338</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\project\鍘嬪姏瀹炴椂鐩戞帶绯荤粺\Embedded software\pressure\usr\main.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>194</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231346</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\project\鍘嬪姏瀹炴椂鐩戞帶绯荤粺\Embedded software\pressure\usr\main.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>170</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231256</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\project\鍘嬪姏瀹炴椂鐩戞帶绯荤粺\Embedded software\pressure\usr\main.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>150</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231196</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\project\鍘嬪姏瀹炴椂鐩戞帶绯荤粺\Embedded software\pressure\usr\main.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\pressure\../usr/main.cpp\150</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
           <LineNumber>79</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134224164</Address>
+          <Address>134224184</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -245,23 +182,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>E:\project\鍘嬪姏瀹炴椂鐩戞帶绯荤粺\Embedded software\pressure\usr\transmission.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\pressure\../usr/transmission.cpp\79</Expression>
-        </Bp>
-        <Bp>
-          <Number>5</Number>
-          <Type>0</Type>
-          <LineNumber>58</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134224288</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>E:\project\鍘嬪姏瀹炴椂鐩戞帶绯荤粺\Embedded software\pressure\usr\transmission.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\\../usr/transmission.cpp\58</Expression>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow2>
@@ -470,7 +391,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>10</FileNumber>
       <FileType>8</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>

@@ -53,9 +53,7 @@ public class ReceiveSocket extends Thread{
 					}
 			  }
 			  //存入数据库
-			  
-			  System.out.println(getCounter);	//打印出接收到的数据个数
-			  
+			  			  			  
 			  if(getData[0] == -86 && getData[1] == -86) //0xaa就是-86
 			  {
 				  bedNumber =getData[2];//得到床位数
@@ -63,6 +61,7 @@ public class ReceiveSocket extends Thread{
 				  System.out.println(bedNumber);
 				  System.out.println(state);
 				  DB_Connection a =new DB_Connection(bedNumber,state);
+				  getData[0] = 0;  //防止再次进入
 			  }
 			  }
 			  

@@ -14,17 +14,17 @@
 
 /*DEFINE********************************************************/
 /*设置*/
-#define GETWIFI					0x01
-#define SETOUTTIME      0x02
-#define RST							0xff
-#define CLEARWIFI       0x03
+#define GETWIFI					0x01  //获取wifi
+#define SETOUTTIME      0x02  //设置阀值
+#define RST							0xff	//复位
+#define CLEARWIFI       0x03	//清空wifi信息
 
 /*状态*/
 
 #define MODULE_IP 			"192.168.1.1"   
 #define MODULE_COM			9000
-#define SERVER_IP				"113.250.110.241"                          //"120.27.119.115"
-#define SERVER_COM 			1111
+#define SERVER_IP				"119.84.190.201"                          //"120.27.119.115"
+#define SERVER_COM 			1111    
 
 /*状态判断的阀值*/
 #define threshold_state   3  //小于该值，判断有人，大于该值判断无人
@@ -54,7 +54,7 @@ Key warning(GPIOB,0);
 
 esp8266 wifi(WIFI);
 
-hint Hint(Led_red,Beep);
+hint Hint(Led_green,Beep);
 
 void EXTI0_IRQ()
 {
@@ -63,10 +63,11 @@ void EXTI0_IRQ()
 
 int main(){
 	
+	SystemInit();
 	u8 order=0;
-	double record_getwifi=0;
-	double record_monitoring_cycle=0;
-	double record_alive = 0;
+	double record_getwifi=0; //wifi命令时间记录
+	double record_monitoring_cycle=0;//离床时间监控记录
+	double record_alive = 0; //存在确认命令时间记录
 	double record_outtime =0;
 	
 	bool MonitoringState = false ; //离床监控状态标志位，false为关闭
@@ -87,22 +88,28 @@ int main(){
 	char *WifiPassword = (char*)calloc(20, sizeof(char*) ); 
 
 /*开机WIFI模式选择*****************************************************************/
+		tskmgr.DelayS(2);
 	if(wifimemory.getWifiSum()!=0)//判断表中是否已经保存wifi信息
 	{
 		while( wifimemory.Load(WifiName,WifiPassword) )
 		 {
-			  if(wifi.ConnectNetwork_client(WifiName,WifiPassword,SERVER_IP,1111)) //每次连接历时20秒
-				{network=true;   break;}
+				SstCom<<"connet "<<WifiName<<"\n";
+			  if(wifi.ConnectNetwork_client(WifiName,WifiPassword,SERVER_IP,9999)) //每次连接历时20秒
+				{
+					SstCom<<"connet succeed"<<"\n";
+					network=true;  
+					break;
+				}
+				else
+					SstCom<<"connet fail!"<<"\n";
 		 }
 		 if(network ==false) {
-			  wifi.ConnectNetwork_server(MODULE_COM,0);
-			 	WIFI.ClearReceiveBuffer();
+				SstCom<<"11111111111111111111111 fail!"<<"\n";
 		 }
 	}
   else
 	{
-		 wifi.ConnectNetwork_server(MODULE_COM,0);
-			WIFI.ClearReceiveBuffer();
+		SstCom<<"222222222222222222222222222 fail!"<<"\n";
 	}
 	
 /*END*********************************************************************************/	
@@ -111,21 +118,33 @@ int main(){
 	/*Hint**红灯亮起则表明未连上服务器***************************************************/
 	if(!network)
 		Led_red.SetLevel(1); 
+	else
+		{
+				for(int i=0;i<5;i++)
+				{
+						Led_red.SetLevel(1);
+						tskmgr.DelayMs(200);
+						Led_red.SetLevel(0);
+						tskmgr.DelayMs(200);
+				}
+		}
 	
 /*END********************************************************************************/	
+	
+	
 	
 	while(1)
 	{		
 		order=CMCT_Tool.GetStateOrder(SstCom);//监控设置模式
 		warmingModuleState=CMCT_Tool.ListeningWarmingModule(SeriaNet); //监控预警模块状态
 	
-		if(warning.LeaveState == true && warmingModuleState ==3)
+		if(warning.LeaveState == true && warmingModuleState ==3)//当检测到需要报警且报警模块处于待机状态
 		{
 			//报警处理
 			SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(2),6);
 			tskmgr.DelayS(1);
 		}
-		if(warning.LeaveState == false && warmingModuleState ==2)
+		if(warning.LeaveState == false && warmingModuleState ==2)//当检测到解除报警且报警模块处于报警状态
 		{
 			//解除报警
 			SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(3),6);
@@ -134,7 +153,10 @@ int main(){
 		
 		if(network)
 			if(tskmgr.ClockTool(record_alive,30))//30秒发送一次存活确认
+			{
 				CMCT_Tool.SendAlive(wifi);
+//				Hint.led_NO_1ms();
+			}
 		
 /*离床监测是否开启判断，插上跳线帽则开启******************************************************/
 		if(MonitoringState_switch.GetLevel() == 1)
@@ -143,6 +165,12 @@ int main(){
 				MonitoringState = false;
 /*END*****************************************************************************************/
 		
+		if(MonitoringState && !BedState) //如果启动了监控且离床了 则将绿灯点亮
+			Led_green.SetLevel(1);
+		else 
+			Led_green.SetLevel(0);
+		
+		
 		switch(order)
 		{
 	/*获取WIFI信息*********************************************************************************/		
@@ -150,7 +178,7 @@ int main(){
 				record_getwifi=tskmgr.Time();
 					while(1)
 					{
-						if(CMCT_Tool.GetWifiNameAndPassword(WifiName,WifiPassword,WIFI) )
+						if(CMCT_Tool.GetWifiNameAndPassword(WifiName,WifiPassword,SstCom) )
 						{
 							//保存WIFI账号密码
 							wifimemory.Save(WifiName,WifiPassword);
@@ -222,7 +250,8 @@ int main(){
 							BedState = false ;
 							//发送离床信息记录
 							if(network)
-								wifi.Send(5,CMCT_Tool.MonitoringToServer(2));
+								wifi.Send(0,5,CMCT_Tool.MonitoringToServer(2));
+							SstCom<<"leave bed!"<<"\n";
 						}
 						if(pressure[1]>threshold_state && BedState == false)  //离床期间
 						{
@@ -230,6 +259,7 @@ int main(){
 							 {
 							   //报警处理
 								 SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(1),6);
+								 SstCom<<"outtime ! send warning"<<"\n";
 							 }
 						}
 						
@@ -238,7 +268,9 @@ int main(){
 							BedState = true ;
 							//发送上床记录
 							if(network)
-								wifi.Send(5,CMCT_Tool.MonitoringToServer(1));
+								wifi.Send(0,5,CMCT_Tool.MonitoringToServer(1));
+							SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(3),6);//解除报警				
+							SstCom<<"go to bed!"<<"\n";
 						}
 											
 					}

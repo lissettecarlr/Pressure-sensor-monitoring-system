@@ -16,6 +16,7 @@ class hint {
 		void beepMode1();
 		void ledFlicker_2s();
 		void led_NO_2s();
+		void led_NO_1ms();
 };
 
 

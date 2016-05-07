@@ -23,11 +23,20 @@ void hint::ledFlicker_2s()
 	}
 }
 
+
 void hint::led_NO_2s()
 {
 		led.SetLevel(0);
 		tskmgr.DelayMs(1000);
 		tskmgr.DelayMs(1000);
 		led.SetLevel(1);
+}
+
+
+void hint::led_NO_1ms()
+{
+		led.SetLevel(1);
+		tskmgr.DelayMs(100);
+		led.SetLevel(0);
 }
 
