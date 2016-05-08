@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SetModule
 {
@@ -67,15 +67,16 @@ namespace SetModule
         void Method()
         {
             //更新线程
-            while (true)
-            {
-                if (state)
-                {
+
+             while (true)
+             {
+                 if (state)
+                 {
                     dt = new DataTable();
                     da.Fill(dt);
                     //Console.Write(11);
-                    System.Threading.Thread.Sleep(900);
-                }
+                 }
+                System.Threading.Thread.Sleep(900);
             }
         }
 
@@ -133,6 +134,31 @@ namespace SetModule
         {
             state = false;
             label_state.Text = "停止监控";
+        }
+
+        private void button_clear_Click(object sender, EventArgs e)
+        {
+            MySqlConnection mycon = new MySqlConnection(connstr);
+            try
+            {
+                mycon.Open();
+                MySqlCommand mycmd_ = new MySqlCommand("truncate table `message`", mycon); 
+                MySqlDataAdapter da_ = new MySqlDataAdapter(mycmd_);
+                DataTable dt_ = new DataTable();
+                da_.Fill(dt_);
+            }
+            catch
+            {
+            }
+            finally
+            {
+                //mycon.Close();
+            }
+        }
+
+        private void button_showall_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

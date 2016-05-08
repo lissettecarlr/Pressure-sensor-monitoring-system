@@ -481,6 +481,51 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>lib_H</GroupName>
+          <Files>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>ESP8266.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\ESP8266.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\GPIO.h</FilePath>
+            </File>
+            <File>
+              <FileName>Hint.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\Hint.h</FilePath>
+            </File>
+            <File>
+              <FileName>Interrupt.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\Interrupt.h</FilePath>
+            </File>
+            <File>
+              <FileName>Memory.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\Memory.h</FilePath>
+            </File>
+            <File>
+              <FileName>TaskManager.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\TaskManager.h</FilePath>
+            </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\lib\USART.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>

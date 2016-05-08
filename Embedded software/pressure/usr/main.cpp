@@ -21,10 +21,8 @@
 
 /*状态*/
 
-#define MODULE_IP 			"192.168.1.1"   
-#define MODULE_COM			9000
-#define SERVER_IP				"119.84.190.201"                          //"120.27.119.115"
-#define SERVER_COM 			1111    
+#define SERVER_IP				"113.250.97.197"                          //"120.27.119.115"
+#define SERVER_COM 			9999    
 
 /*状态判断的阀值*/
 #define threshold_state   3  //小于该值，判断有人，大于该值判断无人
@@ -94,7 +92,7 @@ int main(){
 		while( wifimemory.Load(WifiName,WifiPassword) )
 		 {
 				SstCom<<"connet "<<WifiName<<"\n";
-			  if(wifi.ConnectNetwork_client(WifiName,WifiPassword,SERVER_IP,9999)) //每次连接历时20秒
+			  if(wifi.ConnectNetwork_client(WifiName,WifiPassword,SERVER_IP,SERVER_COM)) //每次连接历时20秒
 				{
 					SstCom<<"connet succeed"<<"\n";
 					network=true;  
@@ -104,12 +102,10 @@ int main(){
 					SstCom<<"connet fail!"<<"\n";
 		 }
 		 if(network ==false) {
-				SstCom<<"11111111111111111111111 fail!"<<"\n";
 		 }
 	}
   else
 	{
-		SstCom<<"222222222222222222222222222 fail!"<<"\n";
 	}
 	
 /*END*********************************************************************************/	
@@ -144,6 +140,7 @@ int main(){
 			SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(2),6);
 			tskmgr.DelayS(1);
 		}
+		
 		if(warning.LeaveState == false && warmingModuleState ==2)//当检测到解除报警且报警模块处于报警状态
 		{
 			//解除报警
@@ -151,12 +148,12 @@ int main(){
 			tskmgr.DelayS(1);
 		}
 		
-		if(network)
-			if(tskmgr.ClockTool(record_alive,30))//30秒发送一次存活确认
-			{
-				CMCT_Tool.SendAlive(wifi);
-//				Hint.led_NO_1ms();
-			}
+//		if(network)
+//			if(tskmgr.ClockTool(record_alive,30))//30秒发送一次存活确认
+//			{
+//				CMCT_Tool.SendAlive(wifi);
+////				Hint.led_NO_1ms();
+//			}
 		
 /*离床监测是否开启判断，插上跳线帽则开启******************************************************/
 		if(MonitoringState_switch.GetLevel() == 1)
@@ -183,12 +180,12 @@ int main(){
 							//保存WIFI账号密码
 							wifimemory.Save(WifiName,WifiPassword);
 							SstCom<<"save wifi massage :"<<WifiName<<"\n";
-								break;
+							break;
 						}
 						if(tskmgr.ClockTool(record_getwifi,60)) //超时60秒退出
 						{
 						  	SstCom<<"outtime quit !!"<<"\n";
-						   break;
+								break;
 						}
 					}
 			}break;

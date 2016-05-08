@@ -27,6 +27,7 @@ namespace SetModule
 
         private void button1_Click(object sender, EventArgs e)
         {
+            serialCom1.Close();
             this.Close();
             temp.Show();    
         }

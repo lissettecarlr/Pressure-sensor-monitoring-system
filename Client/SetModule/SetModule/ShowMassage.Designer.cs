@@ -78,11 +78,12 @@
             this.button_clear.TabIndex = 4;
             this.button_clear.Text = "清空数据";
             this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(36, 74);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(443, 275);
@@ -103,6 +104,7 @@
             this.button_showall.TabIndex = 6;
             this.button_showall.Text = "显示全部";
             this.button_showall.UseVisualStyleBackColor = true;
+            this.button_showall.Click += new System.EventHandler(this.button_showall_Click);
             // 
             // button_start
             // 
