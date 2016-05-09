@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'pressure' 
+ * Project: 'warning' 
  * Target:  'Target 1' 
  */
 

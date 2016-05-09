@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import javax.swing.DefaultDesktopManager;
+
 import dataBase.DB_Connection;
 
 public class ReceiveSocket extends Thread{
@@ -41,28 +43,38 @@ public class ReceiveSocket extends Thread{
 			  {
 					try
 					{
-						getCounter=isTemplet.read(getData, 0, 5);
-						
+						getCounter=isTemplet.read(getData, 0, 5);						
 					}
 					catch(IOException e)
 					{
 						e.printStackTrace();
 						System.out.println("Broken B");
 						connect = false;
-						break;
+						break; 
 					}
 			  }
-			  //存入数据库
-			  			  			  
+			  
+			  //如果接受到的是床位状态信息			  			  
 			  if(getData[0] == -86 && getData[1] == -86) //0xaa就是-86
 			  {
 				  bedNumber =getData[2];//得到床位数
 				  state = getData[3];//得到状态值
 				  System.out.println(bedNumber);
 				  System.out.println(state);
-				  DB_Connection a =new DB_Connection(bedNumber,state);
+				  DB_Connection DB =new DB_Connection();
+				  DB.insert_bed_state(bedNumber, state);
+				  DB.close();
 				  getData[0] = 0;  //防止再次进入
 			  }
+			  
+			  //如果接收到的是报警信息
+			  if(getData[0] == -86 && getData[1] == 17) //0xaa就是-86
+			  {
+				  //检查是否允许报警
+				  //设置该床位的报警状态
+				  //告诉下位机是否能给预警模块发送报警信息
+			  }
+			  
 			  }
 			  
 				
