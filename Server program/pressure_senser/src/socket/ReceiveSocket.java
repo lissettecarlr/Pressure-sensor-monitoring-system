@@ -8,11 +8,13 @@ import java.net.Socket;
 import javax.swing.DefaultDesktopManager;
 
 import dataBase.DB_Connection;
+import dataBase.InsertBedMsg;
+import dataBase.UpdataBedState;
 
 public class ReceiveSocket extends Thread{
 	Socket socket;
-	int getCounter = 0;		//¶¨Òå½ÓÊÕµ½µÄÊı¾İ´óĞ¡
-	int bedNumber = 0; //´²Î»
+	int getCounter = 0;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½İ´ï¿½Ğ¡
+	int bedNumber = 0; //ï¿½ï¿½Î»
 	int state = 0 ; //×´Ì¬
 	
 	public ReceiveSocket(Socket s){
@@ -22,9 +24,9 @@ public class ReceiveSocket extends Thread{
 	public void run()
 	{
 		try {
-			boolean connect = true;						//Á¬½Ó³É¹¦ÁËµÄ
+			boolean connect = true;						
 			byte getData[] = new byte[5];
-			//°üÍ·£¨2£©+´²Î»£¨1£©+×´Ì¬£¨1£©+±£Áô£¨1£© = 5¸ö×Ö½Ú
+
 			InputStream isTemplet = null;
 			OutputStream osTemplet = null;
 			
@@ -39,7 +41,7 @@ public class ReceiveSocket extends Thread{
 					System.out.println("Broken A");
 					break;
 				}
-			  if(socket.isConnected()) //ÅĞ¶ÏÊÇ·ñÔÚÁ¬½ÓÖĞ
+			  if(socket.isConnected())
 			  {
 					try
 					{
@@ -54,25 +56,29 @@ public class ReceiveSocket extends Thread{
 					}
 			  }
 			  
-			  //Èç¹û½ÓÊÜµ½µÄÊÇ´²Î»×´Ì¬ĞÅÏ¢			  			  
-			  if(getData[0] == -86 && getData[1] == -86) //0xaa¾ÍÊÇ-86
+			 		  			  
+			  if(getData[0] == -86 && getData[1] == -86) 
 			  {
-				  bedNumber =getData[2];//µÃµ½´²Î»Êı
-				  state = getData[3];//µÃµ½×´Ì¬Öµ
-				  System.out.println(bedNumber);
+				  bedNumber =getData[2];
+				  state = getData[3];
+				   System.out.println(bedNumber);
 				  System.out.println(state);
-				  DB_Connection DB =new DB_Connection();
-				  DB.insert_bed_state(bedNumber, state);
-				  DB.close();
-				  getData[0] = 0;  //·ÀÖ¹ÔÙ´Î½øÈë
+				  
+//				  DB_Connection DB =new DB_Connection();
+//				  DB.insert_bed_state(bedNumber, state);
+//				  InsertBedMsg.insert(bedNumber, state);
+				  UpdataBedState.Updata(bedNumber, state);		  
+				  
+//				  DB.close();
+				  getData[0] = 0;  
 			  }
 			  
-			  //Èç¹û½ÓÊÕµ½µÄÊÇ±¨¾¯ĞÅÏ¢
-			  if(getData[0] == -86 && getData[1] == 17) //0xaa¾ÍÊÇ-86
+			
+			  if(getData[0] == -86 && getData[1] == 17) //0xaaï¿½ï¿½ï¿½ï¿½-86
 			  {
-				  //¼ì²éÊÇ·ñÔÊĞí±¨¾¯
-				  //ÉèÖÃ¸Ã´²Î»µÄ±¨¾¯×´Ì¬
-				  //¸æËßÏÂÎ»»úÊÇ·ñÄÜ¸øÔ¤¾¯Ä£¿é·¢ËÍ±¨¾¯ĞÅÏ¢
+				  //ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½
+				  //ï¿½ï¿½ï¿½Ã¸Ã´ï¿½Î»ï¿½Ä±ï¿½ï¿½ï¿½×´Ì¬
+				  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ü¸ï¿½Ô¤ï¿½ï¿½Ä£ï¿½é·¢ï¿½Í±ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			  }
 			  
 			  }
@@ -80,7 +86,7 @@ public class ReceiveSocket extends Thread{
 				
 			
 		} catch (Exception e) {
-			e.printStackTrace();//ÔÚÃüÁîĞĞ´òÓ¡Òì³£ĞÅÏ¢ÔÚ³ÌĞòÖĞ³ö´íµÄÎ»ÖÃ¼°Ô­Òò
+			e.printStackTrace();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½Ó¡ï¿½ì³£ï¿½ï¿½Ï¢ï¿½Ú³ï¿½ï¿½ï¿½ï¿½Ğ³ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã¼ï¿½Ô­ï¿½ï¿½
 		}
 	}
 	

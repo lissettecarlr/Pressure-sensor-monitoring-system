@@ -24,17 +24,14 @@ public class DB_Connection {
 	
 	public DB_Connection()
 	{
-		//×¢²áÇý¶¯
 		try {  
             Class.forName("com.mysql.jdbc.Driver");  
         } catch (ClassNotFoundException e) {  
         	System.out.println("Broken driver");
             e.printStackTrace();  
         }  
-		//´´½¨Á¬½Ó
 		 try {
 			 conn = DriverManager.getConnection(connet);
-			 //»ñÈ¡±í´ïÊ½
 			 stmt= conn.createStatement();
 			 
 		} catch (SQLException e) {
@@ -46,9 +43,9 @@ public class DB_Connection {
 	
 	public void insert_bed_state(int bedNumber,int state)
 	{
-		 Date date = new Date();//»ñµÃÏµÍ³Ê±¼ä.
-         String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);//½«Ê±¼ä¸ñÊ½×ª»»³É·ûºÏTimestampÒªÇóµÄ¸ñÊ½.
-         Timestamp Dtime = Timestamp.valueOf(nowTime);//°ÑÊ±¼ä×ª»»
+		 Date date = new Date();
+         String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);//ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ê½×ªï¿½ï¿½ï¿½É·ï¿½ï¿½TimestampÒªï¿½ï¿½Ä¸ï¿½Ê½.
+         Timestamp Dtime = Timestamp.valueOf(nowTime);
          
 		 if(state ==1)
 			 inSql = "insert into message(bed_Number,state,Dtime) values('" + bedNumber + "','back','" + Dtime + "')";
@@ -64,12 +61,12 @@ public class DB_Connection {
 		 
 	}
 	
-	//´²Î»±¨¾¯×´Ì¬(¼ÇÂ¼ÏÂ´²Î»×´Ì¬£¬ÊÇ±¨¾¯£¬»¹ÊÇ·Ç±¨¾¯£¬¶Ô±í½øÐÐÐÞ¸Ä)
+	//ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½×´Ì¬(ï¿½ï¿½Â¼ï¿½Â´ï¿½Î»×´Ì¬ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½)
 	public void SetBedWarningState(int bedNumber,int state) {
 		
 	}
 	
-	//µÃµ½µ±Ç°ÊÇ·ñÓÐ´²Î»´¦ÓÚ±¨¾¯×´Ì¬
+	//ï¿½Ãµï¿½ï¿½ï¿½Ç°ï¿½Ç·ï¿½ï¿½Ð´ï¿½Î»ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½×´Ì¬
 	public boolean GetNowBedWaringState() {
 		
 		return false;

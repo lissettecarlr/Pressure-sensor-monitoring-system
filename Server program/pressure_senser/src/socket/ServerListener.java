@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
 public class ServerListener  extends Thread{
 	public void run() {
 		try {
-			ServerSocket serverSocket = new ServerSocket(9999); //¶Ë¿Ú
+			ServerSocket serverSocket = new ServerSocket(9999); //
 			while(true){
-				//Ã¿µ±ÓĞÒ»¸ö¿Í·ş¶ËÁ¬½Ó¾ÍÓĞÒ»¸ösocket
-				Socket socket =  serverSocket.accept();//×èÈû
-				System.out.println("ÓĞ¿Í·ş¶ËÁ´½Ó-------");
-				ReceiveSocket cs = new ReceiveSocket(socket);//ĞÂÏß³Ì
+				
+				Socket socket =  serverSocket.accept();//
+				System.out.println("å®¢æœç«¯è¿æ¥-------");
+				ReceiveSocket cs = new ReceiveSocket(socket);//
 				cs.start();       	
 			}
 		} catch (IOException e) {
