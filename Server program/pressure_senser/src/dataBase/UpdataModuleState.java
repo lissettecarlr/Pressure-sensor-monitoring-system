@@ -9,7 +9,7 @@ public class UpdataModuleState {
 		String sqlexcu = null;
 
          try {
-         sqlexcu = "update BedState set State=? where Bed=?";
+         sqlexcu = "update ModuleState set State=? where moduleID=?";
          db.preState = db.con.prepareStatement(sqlexcu);
 		 db.preState.setInt(2, warningMdule);
 		 
@@ -22,7 +22,15 @@ public class UpdataModuleState {
 		 if(i==0)
 			 System.out.println("修改失败，模块是："+ warningMdule );
 		 else
-			 System.out.println("修改成功，模块是："+ warningMdule ); 
+		 {
+			 System.out.println("修改成功，修改为："+ state ); 
+			 if(state ==1)
+				 System.out.println("修改成功，修改为：ON" ); 
+			 else
+				 System.out.println("修改成功，修改为：OFF" ); 
+			 
+		 }
+			 
          }
     	catch (SQLException e) {
         e.printStackTrace();
