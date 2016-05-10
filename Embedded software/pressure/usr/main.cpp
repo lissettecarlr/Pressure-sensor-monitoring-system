@@ -65,7 +65,7 @@ int main(){
 	u8 order=0;
 	double record_getwifi=0; //wifi命令时间记录
 	double record_monitoring_cycle=0;//离床时间监控记录
-	double record_alive = 0; //存在确认命令时间记录
+//	double record_alive = 0; //存在确认命令时间记录
 	double record_outtime =0;
 	
 	bool MonitoringState = false ; //离床监控状态标志位，false为关闭
@@ -284,4 +284,40 @@ int main(){
 	}
 }
 
+
+//防冲突的预警命令发送方式
+u8 SendWaring(int order)
+{
+		u8 replay=0;
+		int oldtime = 0,nowtime=0;
+		wifi.Send(0,5,CMCT_Tool.requestWarning(order,1));
+		tskmgr.DelayMs(200);
+		oldtime = tskmgr.Time();
+		while(1) 
+		{
+			 nowtime = tskmgr.Time();
+			 replay=CMCT_Tool.GetReplay(WIFI);
+			 if(replay)
+				 break;
+			if(nowtime - oldtime>1)
+			{
+				replay=0xff;
+				break;
+			}
+		}
+		return replay;
+		
+//			switch(order)
+//			{
+//				case 0x01:
+//						{return 1;}break; //允许
+//				
+//				case 0x02:
+//						{return 2;}break;//拒绝
+//				
+//				case 0xff:
+//					{return 0xff;}break;//超时
+//			}
+
+}
 

@@ -165,3 +165,45 @@ bool Transmission::GetWifiNameAndPassword(char *name,char *password,USART &Liste
 		else
 			return 0;
 }
+
+//add
+u8 *Transmission::requestWarning(u8 order,u8 moduleNumber)//向服务器发送预警请求
+{
+	request[0]=0xaa;
+	request[1]=0x11;
+	request[2]=BEDNO;
+	request[3]=order;
+	request[4]=moduleNumber;
+	return request;
+}
+
+u8 Transmission::GetReplay(USART &ListeningCOM)//监听WIFI端口，得到服务器的应答
+{
+	u8 comand[3]={0};
+	u8 ch=0;
+	u8 num = ListeningCOM.ReceiveBufferSize();
+	if(num>4) 
+	{
+		ListeningCOM.GetReceivedData(&ch,1);
+			if(ch == 0xaa)
+			{
+				ListeningCOM.GetReceivedData(&ch,1);
+				if(ch == 0xdd)
+				{
+					while(ListeningCOM.ReceiveBufferSize()<2);//等待数据
+					ListeningCOM.GetReceivedData(comand,3);					
+					if(comand[0] == BEDNO)
+					{
+						ListeningCOM.ClearReceiveBuffer();
+						return comand[1];				
+					}
+					else 
+						return 0;
+				}
+				return 0;
+			}
+			return 0;
+	}
+	return 0;
+}
+
