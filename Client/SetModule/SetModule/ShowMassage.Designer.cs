@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.button_back = new System.Windows.Forms.Button();
-            this.button_bed = new System.Windows.Forms.Button();
-            this.textBox_bed = new System.Windows.Forms.TextBox();
             this.button_clear = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -40,6 +38,8 @@
             this.button_close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label_state = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,23 +52,6 @@
             this.button_back.Text = "返回";
             this.button_back.UseVisualStyleBackColor = true;
             this.button_back.Click += new System.EventHandler(this.button_back_Click);
-            // 
-            // button_bed
-            // 
-            this.button_bed.Location = new System.Drawing.Point(26, 23);
-            this.button_bed.Name = "button_bed";
-            this.button_bed.Size = new System.Drawing.Size(106, 23);
-            this.button_bed.TabIndex = 2;
-            this.button_bed.Text = "显示该床号信息";
-            this.button_bed.UseVisualStyleBackColor = true;
-            // 
-            // textBox_bed
-            // 
-            this.textBox_bed.Location = new System.Drawing.Point(153, 24);
-            this.textBox_bed.Name = "textBox_bed";
-            this.textBox_bed.Size = new System.Drawing.Size(61, 21);
-            this.textBox_bed.TabIndex = 3;
-            this.textBox_bed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_bed_KeyPress);
             // 
             // button_clear
             // 
@@ -144,11 +127,32 @@
             this.label_state.TabIndex = 10;
             this.label_state.Text = "停止监控";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "报警状态:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(102, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "无报警";
+            // 
             // ShowMassage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 361);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label_state);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_close);
@@ -156,8 +160,6 @@
             this.Controls.Add(this.button_showall);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_clear);
-            this.Controls.Add(this.textBox_bed);
-            this.Controls.Add(this.button_bed);
             this.Controls.Add(this.button_back);
             this.Name = "ShowMassage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -173,8 +175,6 @@
         #endregion
 
         private System.Windows.Forms.Button button_back;
-        private System.Windows.Forms.Button button_bed;
-        private System.Windows.Forms.TextBox textBox_bed;
         private System.Windows.Forms.Button button_clear;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Timer timer;
@@ -183,5 +183,7 @@
         private System.Windows.Forms.Button button_close;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_state;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -16,7 +16,9 @@ namespace SetModule
     {
         private bool state = false;//是否开始监控标志位
         private Form temp;
-        private bool showsth = true;
+        private bool showsth = true;//显示框显示的状态
+        private string ModuleState ;
+
         public ShowMassage(Form sw)
         {
             InitializeComponent();
@@ -59,6 +61,34 @@ namespace SetModule
             Thread t = new Thread(ts);
             t.Start();
 
+
+            //查询是否处于报警状态
+            MySqlConnection mycon2 = new MySqlConnection(connstr);
+            MySqlCommand com = new MySqlCommand("SELECT * FROM `ModuleState`", mycon2);
+            mycon2.Open();
+            MySqlDataReader reader = com.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    if (reader.HasRows) 
+                    {
+                        // Console.WriteLine("模块号:" + reader.GetInt32(0) + "状态:" + reader.GetString(1));
+                        ModuleState = reader.GetString(1);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("查询失败了！");
+            }
+            finally
+            {
+                reader.Close();
+            }
+
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -76,7 +106,36 @@ namespace SetModule
                     dt = new DataTable();
                     da.Fill(dt);
                     //Console.Write(11);
-                 }
+
+                    //更新模块报警状态////////////////////////////////////////////////////////////////////
+                    MySqlConnection mycon2 = new MySqlConnection(connstr);
+                    MySqlCommand com = new MySqlCommand("SELECT * FROM `ModuleState`", mycon2);
+                    mycon2.Open();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    try
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows)
+                            {
+                                // Console.WriteLine("模块号:" + reader.GetInt32(0) + "状态:" + reader.GetString(1));
+                                ModuleState = reader.GetString(1);
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("查询失败了！");
+                    }
+                    finally
+                    {
+                        reader.Close();
+                    }
+                    ///////////////////////////////////////////////////////////////////////////////////
+
+                }
+
                 System.Threading.Thread.Sleep(900);
             }
         }
@@ -92,6 +151,15 @@ namespace SetModule
                     //dt = new DataTable();
                     //da.Fill(dt);
                     dataGridView1.DataSource = dt;//更新UI
+
+                    if (ModuleState == "OFF")
+                    {
+                        label3.Text = "无报警";
+                    }
+                    else
+                    {
+                        label3.Text = "有报警";
+                    }
                 }
                 catch
                 {
@@ -207,6 +275,11 @@ namespace SetModule
                 {
                 }
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
