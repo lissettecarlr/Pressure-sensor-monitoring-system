@@ -209,5 +209,10 @@ namespace SetModule
         {
             temp.Show();
         }
+
+        private void serialCom1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

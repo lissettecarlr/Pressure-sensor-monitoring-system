@@ -16,6 +16,7 @@ namespace SetModule
     {
         private bool state = false;//是否开始监控标志位
         private Form temp;
+        private bool showsth = true;
         public ShowMassage(Form sw)
         {
             InitializeComponent();
@@ -142,7 +143,16 @@ namespace SetModule
             try
             {
                 mycon.Open();
-                MySqlCommand mycmd_ = new MySqlCommand("truncate table `message`", mycon); 
+                MySqlCommand mycmd_;
+                if (showsth)
+                {
+                     mycmd_ = new MySqlCommand("truncate table `message`", mycon);
+                }        
+                else
+                {
+                     mycmd_ = new MySqlCommand("truncate table `warning`", mycon);
+                }
+
                 MySqlDataAdapter da_ = new MySqlDataAdapter(mycmd_);
                 DataTable dt_ = new DataTable();
                 da_.Fill(dt_);
@@ -158,7 +168,45 @@ namespace SetModule
 
         private void button_showall_Click(object sender, EventArgs e)
         {
+            if (showsth)
+            {
+                button_showall.Text = "报警显示";
+                showsth = false;
 
+                MySqlConnection mycon = new MySqlConnection(connstr);
+                try
+                {
+                    mycon.Open();
+                    mycmd = new MySqlCommand("SELECT * FROM `warning`", mycon);
+                    da = new MySqlDataAdapter(mycmd);
+                    dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch
+                {
+                }
+
+            }
+            else
+            {
+                button_showall.Text = "离床显示";
+                showsth = true;
+
+                MySqlConnection mycon = new MySqlConnection(connstr);
+                try
+                {
+                    mycon.Open();
+                    mycmd = new MySqlCommand("SELECT * FROM `message`", mycon);
+                    da = new MySqlDataAdapter(mycmd);
+                    dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch
+                {
+                }
+            }
         }
     }
 }

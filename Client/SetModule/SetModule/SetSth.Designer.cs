@@ -63,6 +63,7 @@
             this.serialCom1.Name = "serialCom1";
             this.serialCom1.Size = new System.Drawing.Size(303, 205);
             this.serialCom1.TabIndex = 1;
+            this.serialCom1.Load += new System.EventHandler(this.serialCom1_Load);
             // 
             // richTextBox_show
             // 

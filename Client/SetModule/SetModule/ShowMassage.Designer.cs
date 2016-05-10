@@ -102,7 +102,7 @@
             this.button_showall.Name = "button_showall";
             this.button_showall.Size = new System.Drawing.Size(82, 35);
             this.button_showall.TabIndex = 6;
-            this.button_showall.Text = "显示全部";
+            this.button_showall.Text = "离床显示";
             this.button_showall.UseVisualStyleBackColor = true;
             this.button_showall.Click += new System.EventHandler(this.button_showall_Click);
             // 
