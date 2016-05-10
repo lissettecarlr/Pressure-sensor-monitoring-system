@@ -13,6 +13,7 @@ import dataBase.InsertWarningMsg;
 import dataBase.UpdataBedState;
 import dataBase.UpdataModuleState;
 import dataBase.selectModuleState;
+import order.SendOrder;
 
 public class ReceiveSocket extends Thread{
 	Socket socket;
@@ -21,6 +22,9 @@ public class ReceiveSocket extends Thread{
 	int state = 0 ; //
 	int order=0;
 	int moduleNumber=0;
+	InputStream isTemplet = null;
+	OutputStream osTemplet = null;
+	
 	public ReceiveSocket(Socket s){
 		this.socket = s;
 	}
@@ -31,8 +35,7 @@ public class ReceiveSocket extends Thread{
 			boolean connect = true;						
 			byte getData[] = new byte[5];
 
-			InputStream isTemplet = null;
-			OutputStream osTemplet = null;
+
 			
 			while(true)
 			{				
@@ -49,7 +52,7 @@ public class ReceiveSocket extends Thread{
 			  {
 					try
 					{
-						getCounter=isTemplet.read(getData, 0, 5);						
+						getCounter=isTemplet.read(getData, 0, 5);			
 					}
 					catch(IOException e)
 					{
@@ -84,22 +87,27 @@ public class ReceiveSocket extends Thread{
 				  order = getData[3];
 				  moduleNumber = getData[4];
 				  int Modstate = selectModuleState.GetModuleState(moduleNumber);
+				  
 				  if ( Modstate==1 && order ==1)  //如果表中是报警，而你发送的是报警 则不允许发送
 				  {
 					  //记录报警信息但不许发送信息
-					  InsertWarningMsg.insert(bedNumber, order);
+					  InsertWarningMsg.insert(bedNumber, order);					
+//					  SendOrder.SendLicense(bedNumber, 2);
+					  osTemplet.write(SendOrder.SendLicense(bedNumber, 2));
 				  }
 				  
 				  else if (Modstate ==2 && order ==2)  //如果表中是待机，而你发送的是待机 则不允许发送
 				  {
 					//记录待机信息但不许发送信息
 					 InsertWarningMsg.insert(bedNumber, order);
+					  osTemplet.write(SendOrder.SendLicense(bedNumber, 2));
 				  }
 					  			
 				  else {
 					  //允许发送且更新表中模块状态
 					  InsertWarningMsg.insert(bedNumber, order);
 					  UpdataModuleState.Updata(getData[2], getData[3]);
+					  osTemplet.write(SendOrder.SendLicense(bedNumber, 1));
 				}
 				  getData[0] = 0;  
 			  }
