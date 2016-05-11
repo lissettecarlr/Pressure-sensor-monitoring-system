@@ -23,11 +23,10 @@ public class UpdataModuleState {
 			 System.out.println("修改失败，模块是："+ warningMdule );
 		 else
 		 {
-			 System.out.println("修改成功，修改为："+ state ); 
 			 if(state ==1)
-				 System.out.println("修改成功，修改为：ON" ); 
+				 System.out.println("修改成功，预警模块状态被修改为：ON" ); 
 			 else
-				 System.out.println("修改成功，修改为：OFF" ); 
+				 System.out.println("修改成功，预警模块状态被修改为：OFF" ); 
 			 
 		 }
 			 

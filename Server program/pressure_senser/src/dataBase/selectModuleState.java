@@ -38,7 +38,7 @@ public class selectModuleState {
 			e.printStackTrace();
 		}
 		
-		if(state == "ON")
+		if(state.equals("ON"))
 			return 1;   //预警中
 		else
 			return 2;  //待机中

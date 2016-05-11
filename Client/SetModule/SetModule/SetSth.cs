@@ -177,7 +177,7 @@ namespace SetModule
 
             byte[] SendThreshold = new byte[4];
             SendThreshold[0] = 0xaa;
-            SendThreshold[1] = 0xcc;
+            SendThreshold[1] = 0x01;
             SendThreshold[2] = threshold_byte[0];
             SendThreshold[3] = 0;
             for (int i = 0; i < 3; i++)

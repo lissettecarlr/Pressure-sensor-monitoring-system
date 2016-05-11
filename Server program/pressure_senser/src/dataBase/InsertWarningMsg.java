@@ -29,9 +29,9 @@ public class InsertWarningMsg {
 				 
 			 int i=  db.preState.executeUpdate(); //执行sql语句 返回成功的条数
 			 if(i==0)
-				 System.out.println("命令添加失败");
+				 System.out.println("请求命令添加失败");
 			 else
-				 System.out.println("命令添加成功");
+				 System.out.println("请求命令添加成功");
 	         }
 	    	catch (SQLException e) {
 	        e.printStackTrace();

@@ -21,7 +21,7 @@
 
 /*状态*/
 
-#define SERVER_IP				"113.250.97.197"                          //"120.27.119.115"
+#define SERVER_IP				"113.250.101.228"                          //"120.27.119.115"
 #define SERVER_COM 			9999    
 
 /*状态判断的阀值*/
@@ -59,12 +59,15 @@ void EXTI0_IRQ()
 	warning.IRQ();
 }
 
+u8 SendWaring(int order,int ToModuleOrder);
+
 int main(){
 	
 	SystemInit();
 	u8 order=0;
 	double record_getwifi=0; //wifi命令时间记录
 	double record_monitoring_cycle=0;//离床时间监控记录
+	double record_getModuleState = 0 ;//得到模块状态监控间隔
 //	double record_alive = 0; //存在确认命令时间记录
 	double record_outtime =0;
 	
@@ -131,21 +134,35 @@ int main(){
 	
 	while(1)
 	{		
+		
 		order=CMCT_Tool.GetStateOrder(SstCom);//监控设置模式
+		
+	if(tskmgr.ClockTool(record_getModuleState,10)) //一秒检查一次
 		warmingModuleState=CMCT_Tool.ListeningWarmingModule(SeriaNet); //监控预警模块状态
 	
 		if(warning.LeaveState == true && warmingModuleState ==3)//当检测到需要报警且报警模块处于待机状态
 		{
 			//报警处理
-			SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(2),6);
-			tskmgr.DelayS(1);
+			if(network)
+			{
+				u8 tempRelay1 = SendWaring(1,2);
+				if(tempRelay1 == 2 || tempRelay1 ==1) //如果被拒绝
+				{
+					warmingModuleState =2; //标记为待机状态
+//					tskmgr.DelayS(5);
+				}
+			}
+
 		}
 		
 		if(warning.LeaveState == false && warmingModuleState ==2)//当检测到解除报警且报警模块处于报警状态
 		{
-			//解除报警
-			SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(3),6);
-			tskmgr.DelayS(1);
+				if(network)
+			{
+				u8 tempRelay2 = SendWaring(2,3);
+				if(tempRelay2 == 2 ||tempRelay2 ==1) //如果被拒绝
+					warmingModuleState =3; //标记为待机状态
+			}
 		}
 		
 //		if(network)
@@ -182,7 +199,7 @@ int main(){
 							SstCom<<"save wifi massage :"<<WifiName<<"\n";
 							break;
 						}
-						if(tskmgr.ClockTool(record_getwifi,60)) //超时60秒退出
+						if(tskmgr.ClockTool(record_getwifi,30)) //超时60秒退出
 						{
 						  	SstCom<<"outtime quit !!"<<"\n";
 								break;
@@ -193,19 +210,23 @@ int main(){
 			
 	/*设置阀值*************************************************************************************/
 			case SETOUTTIME:{
-				 u8 temp[4];
+				 u8 ch =0;
 				 while(1)
 				 {
 						if(SstCom.ReceiveBufferSize()>=4)
 						{
-							SstCom.GetReceivedData(temp,4);
-							u8 sum = temp[0]+temp[1]+temp[2];
-							if(sum == temp[3])
-								LeaveOutTime = temp[2];
+							SstCom.GetReceivedData(&ch,1);
+						if(ch == 0xaa)
+						{
+								SstCom.GetReceivedData(&ch,1);
+							if(ch == 0x01)
+								SstCom.GetReceivedData(&ch,1);
+						}						
+								LeaveOutTime =ch;
 							SstCom<<"set succeed :Timeout = "<<LeaveOutTime<<"\n";
 							break;
 						}
-						if(tskmgr.ClockTool(record_outtime,60)) //超时60秒退出
+						if(tskmgr.ClockTool(record_outtime,30)) //超时60秒退出
 						{
 							SstCom<<"outtime quit !!"<<"\n";
 							break;
@@ -247,7 +268,7 @@ int main(){
 							BedState = false ;
 							//发送离床信息记录
 							if(network)
-								wifi.Send(0,5,CMCT_Tool.MonitoringToServer(2));
+								wifi.Send(5,CMCT_Tool.MonitoringToServer(2));
 							SstCom<<"leave bed!"<<"\n";
 						}
 						if(pressure[1]>threshold_state && BedState == false)  //离床期间
@@ -256,7 +277,8 @@ int main(){
 							 {
 							   //报警处理
 								 SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(1),6);
-								 SstCom<<"outtime ! send warning"<<"\n";
+//								 if(SendWaring(1,1))
+										SstCom<<"outtime ! send warning"<<"\n";
 							 }
 						}
 						
@@ -265,9 +287,10 @@ int main(){
 							BedState = true ;
 							//发送上床记录
 							if(network)
-								wifi.Send(0,5,CMCT_Tool.MonitoringToServer(1));
-							SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(3),6);//解除报警				
-							SstCom<<"go to bed!"<<"\n";
+								wifi.Send(5,CMCT_Tool.MonitoringToServer(1));
+							  SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(3),6);//解除报警	
+//								if(SendWaring(2,3))						
+										SstCom<<"go to bed!"<<"\n";
 						}
 											
 					}
@@ -286,25 +309,40 @@ int main(){
 
 
 //防冲突的预警命令发送方式
-u8 SendWaring(int order)
+//order:发送给服务器的请求命令  1：请求预警 2：请求停止
+//ToModuleOrder：发送给预警模块的命令 1-超时报警  2-手动报警  3-解除报警
+u8 SendWaring(int order,int ToModuleOrder)
 {
 		u8 replay=0;
-		int oldtime = 0,nowtime=0;
-		wifi.Send(0,5,CMCT_Tool.requestWarning(order,1));
+		double oldtime = 0,nowtime=0;
+		wifi.Send(5,CMCT_Tool.requestWarning(order,1));
 		tskmgr.DelayMs(200);
 		oldtime = tskmgr.Time();
 		while(1) 
 		{
 			 nowtime = tskmgr.Time();
 			 replay=CMCT_Tool.GetReplay(WIFI);
-			 if(replay)
+			 if(replay ==1 ||replay ==2)
 				 break;
-			if(nowtime - oldtime>1)
+			if(nowtime - oldtime>5)
 			{
 				replay=0xff;
 				break;
 			}
 		}
+		
+		if(replay == 1) //如果允许
+				SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(ToModuleOrder),6);
+		else if(replay == 0xff)
+			{
+				SstCom<<"outtime!!"<<"\n";
+			}
+		else
+			{
+				SstCom<<"Forbidden send!!"<<"\n";
+			}
+		
+		
 		return replay;
 		
 //			switch(order)
