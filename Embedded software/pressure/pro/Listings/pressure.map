@@ -34,10 +34,8 @@ Section Cross References
     main.o(i.main) refers to system_stm32f10x.o(i.SystemInit) for SystemInit
     main.o(i.main) refers to calloc.o(.text) for calloc
     main.o(i.main) refers to taskmanager.o(i._ZN11TaskManager6DelaySEt) for TaskManager::DelayS(unsigned short)
-    main.o(i.main) refers to wifi_memory.o(i._ZN10WifiMemory10getWifiSumEv) for WifiMemory::getWifiSum()
+    main.o(i.main) refers to esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa) for esp8266::CreateConnectMode(char*, short, signed char)
     main.o(i.main) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    main.o(i.main) refers to esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) for esp8266::ConnectNetwork_client(char*, char*, char*, int)
-    main.o(i.main) refers to wifi_memory.o(i._ZN10WifiMemory4LoadEPcS0_) for WifiMemory::Load(char*, char*)
     main.o(i.main) refers to gpio.o(i._ZN4GPIO8SetLevelEh) for GPIO::SetLevel(unsigned char)
     main.o(i.main) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
     main.o(i.main) refers to transmission.o(i._ZN12Transmission13GetStateOrderER5USART) for Transmission::GetStateOrder(USART&)
@@ -47,7 +45,7 @@ Section Cross References
     main.o(i.main) refers to gpio.o(i._ZN4GPIO8GetLevelEv) for GPIO::GetLevel()
     main.o(i.main) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
     main.o(i.main) refers to transmission.o(i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART) for Transmission::GetWifiNameAndPassword(char*, char*, USART&)
-    main.o(i.main) refers to wifi_memory.o(i._ZN10WifiMemory4SaveEPcS0_) for WifiMemory::Save(char*, char*)
+    main.o(i.main) refers to esp8266.o(i._ZN7esp82666JoinAPEPcS0_) for esp8266::JoinAP(char*, char*)
     main.o(i.main) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
     main.o(i.main) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
     main.o(i.main) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
@@ -61,7 +59,7 @@ Section Cross References
     main.o(i.main) refers to usart.o(i._ZN5USART8SendDataEPhj) for USART::SendData(unsigned char*, unsigned)
     main.o(i.main) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
     main.o(i.main) refers to taskmanager.o(.data) for tskmgr
-    main.o(i.main) refers to main.o(.bss) for wifimemory
+    main.o(i.main) refers to main.o(.bss) for wifi
     main.o(i.main) refers to transmission.o(.bss) for CMCT_Tool
     main.o(i.main) refers to main.o(.data) for warning
     main.o(.ARM.exidx) refers to main.o(i._Z9EXTI0_IRQv) for i._Z9EXTI0_IRQv
@@ -153,176 +151,98 @@ Section Cross References
     adc.o(i._ZN3ADCixEh) refers to adc.o(.bss) for ADC::_enCh
     adc.o(.ARM.exidx) refers to adc.o(i._ZN3ADCC1Ehhhhhhhhhh) for i._ZN3ADCC1Ehhhhhhhhhh
     adc.o(.ARM.exidx) refers to adc.o(i._ZN3ADCixEh) for i._ZN3ADCixEh
-    esp8266.o(i._ZN7esp826610OpenServerEi) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826610OpenServerEi) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826610OpenServerEi) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp826610OpenServerEi) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826610OpenServerEi) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826610SetTimeoutEi) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826610SetTimeoutEi) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826610SetTimeoutEi) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp826610SetTimeoutEi) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826610SetTimeoutEi) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE3PutERKc) for FIFOBuffer<char, (unsigned short)1000>::Put(const char&)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to f2d.o(x$fpl$f2d) for __aeabi_f2d
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv) for FIFOBuffer<char, (unsigned short)1000>::Size()
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE3PutERKc) for FIFOBuffer<char, (unsigned short)1000>::Put(const char&)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to f2d.o(x$fpl$f2d) for __aeabi_f2d
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
-    esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv) for FIFOBuffer<char, (unsigned short)1000>::Size()
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE3PutERKc) for FIFOBuffer<char, (unsigned short)1000>::Put(const char&)
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to f2d.o(x$fpl$f2d) for __aeabi_f2d
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
-    esp8266.o(i._ZN7esp826610recvStringEPKcf) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv) for FIFOBuffer<char, (unsigned short)1000>::Size()
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp826614setOprToSoftAPEv) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826614setOprToSoftAPEv) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826614setOprToSoftAPEv) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826614setOprToSoftAPEv) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826615setOprToStationEv) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826615setOprToStationEv) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826615setOprToStationEv) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826615setOprToStationEv) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826617recvFindAndFilterEPKcS1_S1_PPcf) refers to esp8266.o(i._ZN7esp826610recvStringEPKcf) for esp8266::recvString(const char*, float)
-    esp8266.o(i._ZN7esp826617recvFindAndFilterEPKcS1_S1_PPcf) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826617recvFindAndFilterEPKcS1_S1_PPcf) refers to strlen.o(.text) for strlen
-    esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to esp8266.o(i._ZN7esp82664kickEv) for esp8266::kick()
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to esp8266.o(i._ZN7esp82667setEchoEh) for esp8266::setEcho(unsigned char)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to esp8266.o(i._ZN7esp826615setOprToStationEv) for esp8266::setOprToStation()
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to esp8266.o(i._ZN7esp82667restartEv) for esp8266::restart()
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to taskmanager.o(i._ZN11TaskManager6DelaySEt) for TaskManager::DelayS(unsigned short)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to esp8266.o(i._ZN7esp82666joinAPEPcS0_) for esp8266::joinAP(char*, char*)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) for esp8266::ConnectServer(char*, char*, int)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to esp8266.o(i._ZN7esp82664kickEv) for esp8266::kick()
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to esp8266.o(i._ZN7esp826614setOprToSoftAPEv) for esp8266::setOprToSoftAP()
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to esp8266.o(i._ZN7esp82667restartEv) for esp8266::restart()
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to taskmanager.o(i._ZN11TaskManager6DelaySEt) for TaskManager::DelayS(unsigned short)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) for esp8266::enableOrDisableMUX(unsigned char)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to esp8266.o(i._ZN7esp826610OpenServerEi) for esp8266::OpenServer(int)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to esp8266.o(i._ZN7esp826610SetTimeoutEi) for esp8266::SetTimeout(int)
-    esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp826621setOprToStationSoftAPEv) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp826621setOprToStationSoftAPEv) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp826621setOprToStationSoftAPEv) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp826621setOprToStationSoftAPEv) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp82664SendEPc) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to esp8266.o(i._ZN7esp826611ClearBufferEv) for esp8266::ClearBuffer()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to esp8266.o(i._ZN7esp826611ClearBufferEv) for esp8266::ClearBuffer()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to esp8266.o(i._ZN7esp826611ClearBufferEv) for esp8266::ClearBuffer()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to taskmanager.o(i._ZN11TaskManager4TimeEv) for TaskManager::Time()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to usart.o(i._ZN5USART15GetReceivedDataEPht) for USART::GetReceivedData(unsigned char*, unsigned short)
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to usart.o(i._ZN5USART17ReceiveBufferSizeEv) for USART::ReceiveBufferSize()
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
+    esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
+    esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
+    esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
+    esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa) refers to esp8266.o(i._ZN7esp82668RecvFindEPKcS1_h) for esp8266::RecvFind(const char*, const char*, unsigned char)
+    esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf) refers to ffixu.o(x$fpl$ffixu) for __aeabi_f2uiz
+    esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) for esp8266::ReceiveAndWait(const char*, unsigned char)
+    esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
+    esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf) refers to strlen.o(.text) for strlen
+    esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf) refers to strcpy.o(.text) for strcpy
     esp8266.o(i._ZN7esp82664SendEPc) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
     esp8266.o(i._ZN7esp82664SendEPc) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
     esp8266.o(i._ZN7esp82664SendEPc) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
     esp8266.o(i._ZN7esp82664SendEPc) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp82664SendEcPc) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
     esp8266.o(i._ZN7esp82664SendEcPc) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
     esp8266.o(i._ZN7esp82664SendEcPc) refers to usart.o(i._ZN5USARTlsEc) for USART::operator <<(char)
     esp8266.o(i._ZN7esp82664SendEcPc) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
     esp8266.o(i._ZN7esp82664SendEcPc) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
     esp8266.o(i._ZN7esp82664SendEcPc) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp82664SendEciPh) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
     esp8266.o(i._ZN7esp82664SendEciPh) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
     esp8266.o(i._ZN7esp82664SendEciPh) refers to usart.o(i._ZN5USARTlsEc) for USART::operator <<(char)
     esp8266.o(i._ZN7esp82664SendEciPh) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
     esp8266.o(i._ZN7esp82664SendEciPh) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
     esp8266.o(i._ZN7esp82664SendEciPh) refers to usart.o(i._ZN5USART8SendDataEPhj) for USART::SendData(unsigned char*, unsigned)
     esp8266.o(i._ZN7esp82664SendEciPh) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp82664SendEiPh) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
     esp8266.o(i._ZN7esp82664SendEiPh) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
     esp8266.o(i._ZN7esp82664SendEiPh) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
     esp8266.o(i._ZN7esp82664SendEiPh) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
     esp8266.o(i._ZN7esp82664SendEiPh) refers to usart.o(i._ZN5USART8SendDataEPhj) for USART::SendData(unsigned char*, unsigned)
     esp8266.o(i._ZN7esp82664SendEiPh) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp82664kickEv) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
     esp8266.o(i._ZN7esp82664kickEv) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp82664kickEv) refers to esp8266.o(i._ZN7esp82668recvFindEPKcf) for esp8266::recvFind(const char*, float)
-    esp8266.o(i._ZN7esp82666joinAPEPcS0_) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp82666joinAPEPcS0_) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp82666joinAPEPcS0_) refers to taskmanager.o(i._ZN11TaskManager7DelayMsEt) for TaskManager::DelayMs(unsigned short)
-    esp8266.o(i._ZN7esp82666joinAPEPcS0_) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp82666joinAPEPcS0_) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp82666joinAPEPcS0_) refers to taskmanager.o(.data) for tskmgr
-    esp8266.o(i._ZN7esp82667restartEv) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
+    esp8266.o(i._ZN7esp82664kickEv) refers to esp8266.o(i._ZN7esp82668RecvFindEPKch) for esp8266::RecvFind(const char*, unsigned char)
+    esp8266.o(i._ZN7esp82666JoinAPEPcS0_) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
+    esp8266.o(i._ZN7esp82666JoinAPEPcS0_) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) for esp8266::ReceiveAndWait(const char*, const char*, unsigned char)
+    esp8266.o(i._ZN7esp82666JoinAPEPcS0_) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
+    esp8266.o(i._ZN7esp82666SetMUXEb) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
+    esp8266.o(i._ZN7esp82666SetMUXEb) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
+    esp8266.o(i._ZN7esp82666SetMUXEb) refers to esp8266.o(i._ZN7esp82668RecvFindEPKch) for esp8266::RecvFind(const char*, unsigned char)
+    esp8266.o(i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
+    esp8266.o(i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
+    esp8266.o(i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) for esp8266::ReceiveAndWait(const char*, const char*, unsigned char)
+    esp8266.o(i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
     esp8266.o(i._ZN7esp82667restartEv) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp82667restartEv) refers to esp8266.o(i._ZN7esp82668recvFindEPKcf) for esp8266::recvFind(const char*, float)
-    esp8266.o(i._ZN7esp82667setEchoEh) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp82667setEchoEh) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp82667setEchoEh) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
-    esp8266.o(i._ZN7esp82667setEchoEh) refers to esp8266.o(i._ZN7esp82668recvFindEPKcf) for esp8266::recvFind(const char*, float)
-    esp8266.o(i._ZN7esp82668recvFindEPKcf) refers to esp8266.o(i._ZN7esp826610recvStringEPKcf) for esp8266::recvString(const char*, float)
-    esp8266.o(i._ZN7esp82668recvFindEPKcf) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp82668rx_emptyEv) refers to usart.o(i._ZN5USART18ClearReceiveBufferEv) for USART::ClearReceiveBuffer()
-    esp8266.o(i._ZN7esp82668rx_emptyEv) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv) for FIFOBuffer<char, (unsigned short)1000>::Size()
-    esp8266.o(i._ZN7esp82668rx_emptyEv) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE5ClearEv) for FIFOBuffer<char, (unsigned short)1000>::Clear()
-    esp8266.o(i._ZN7esp82669SetIpAddrEPc) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(i._ZN7esp82669SetIpAddrEPc) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
-    esp8266.o(i._ZN7esp82669SetIpAddrEPc) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for esp8266::recvString(const char*, const char*, float)
-    esp8266.o(i._ZN7esp82669SetIpAddrEPc) refers to esp8266.o(i._ZSt6strstrPcPKc) for std::strstr(char*, const char*)
-    esp8266.o(i._ZN7esp8266C1ER5USART) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EEC1Ev) for FIFOBuffer<char, (unsigned short)1000>::FIFOBuffer()
-    esp8266.o(i._ZN7esp8266C1ER5USART) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for esp8266::rx_empty()
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82668rx_emptyEv) for i._ZN7esp82668rx_emptyEv
+    esp8266.o(i._ZN7esp82667restartEv) refers to esp8266.o(i._ZN7esp82668RecvFindEPKch) for esp8266::RecvFind(const char*, unsigned char)
+    esp8266.o(i._ZN7esp82667setEchoEb) refers to usart.o(i._ZN5USARTlsEPKc) for USART::operator <<(const char*)
+    esp8266.o(i._ZN7esp82667setEchoEb) refers to usart.o(i._ZN5USARTlsEi) for USART::operator <<(int)
+    esp8266.o(i._ZN7esp82667setEchoEb) refers to esp8266.o(i._ZN7esp82668RecvFindEPKch) for esp8266::RecvFind(const char*, unsigned char)
+    esp8266.o(i._ZN7esp82668RecvFindEPKcS1_S1_h) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) for esp8266::ReceiveAndWait(const char*, const char*, const char*, unsigned char)
+    esp8266.o(i._ZN7esp82668RecvFindEPKcS1_h) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) for esp8266::ReceiveAndWait(const char*, const char*, unsigned char)
+    esp8266.o(i._ZN7esp82668RecvFindEPKch) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) for esp8266::ReceiveAndWait(const char*, unsigned char)
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826611ClearBufferEv) for i._ZN7esp826611ClearBufferEv
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp8266C1ER5USART) for i._ZN7esp8266C1ER5USART
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826610recvStringEPKcf) for i._ZN7esp826610recvStringEPKcf
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82668recvFindEPKcf) for i._ZN7esp82668recvFindEPKcf
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch) for i._ZN7esp826614ReceiveAndWaitEPKch
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82668RecvFindEPKch) for i._ZN7esp82668RecvFindEPKch
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82664kickEv) for i._ZN7esp82664kickEv
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82667restartEv) for i._ZN7esp82667restartEv
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82667setEchoEh) for i._ZN7esp82667setEchoEh
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_f) for i._ZN7esp826610recvStringEPKcS1_f
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826615setOprToStationEv) for i._ZN7esp826615setOprToStationEv
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826614setOprToSoftAPEv) for i._ZN7esp826614setOprToSoftAPEv
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826621setOprToStationSoftAPEv) for i._ZN7esp826621setOprToStationSoftAPEv
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82666joinAPEPcS0_) for i._ZN7esp82666joinAPEPcS0_
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh) for i._ZN7esp826614setSoftAPParamEPcS0_hh
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826618enableOrDisableMUXEh) for i._ZN7esp826618enableOrDisableMUXEh
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i) for i._ZN7esp826613ConnectServerEPcS0_i
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i) for i._ZN7esp826615ConnectServerIDEiPcS0_i
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82667setEchoEb) for i._ZN7esp82667setEchoEb
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h) for i._ZN7esp826614ReceiveAndWaitEPKcS1_h
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE) for i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82666SetMUXEb) for i._ZN7esp82666SetMUXEb
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82666JoinAPEPcS0_) for i._ZN7esp82666JoinAPEPcS0_
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82668RecvFindEPKcS1_h) for i._ZN7esp82668RecvFindEPKcS1_h
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa) for i._ZN7esp826617CreateConnectModeEPcsa
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82664SendEciPh) for i._ZN7esp82664SendEciPh
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82664SendEiPh) for i._ZN7esp82664SendEiPh
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82664SendEcPc) for i._ZN7esp82664SendEcPc
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82664SendEPc) for i._ZN7esp82664SendEPc
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826610SetTimeoutEi) for i._ZN7esp826610SetTimeoutEi
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826610OpenServerEi) for i._ZN7esp826610OpenServerEi
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82669SetIpAddrEPc) for i._ZN7esp82669SetIpAddrEPc
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i) for i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii) for i._ZN7esp826621ConnectNetwork_serverEii
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f) for i._ZN7esp826610recvStringEPKcS1_S1_f
-    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826617recvFindAndFilterEPKcS1_S1_PPcf) for i._ZN7esp826617recvFindAndFilterEPKcS1_S1_PPcf
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h) for i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp82668RecvFindEPKcS1_S1_h) for i._ZN7esp82668RecvFindEPKcS1_S1_h
+    esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf) for i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf
     gpio.o(i._ZN4GPIO10ChangeModeE16GPIOMode_TypeDef) refers to stm32f10x_gpio.o(i.GPIO_Init) for GPIO_Init
     gpio.o(i._ZN4GPIO10ChangeModeE16GPIOMode_TypeDef) refers to gpio.o(.constdata) for GPIO::mPin
     gpio.o(i._ZN4GPIO17RCC_ConfigurationEv) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
@@ -658,9 +578,10 @@ Section Cross References
     dmul.o(x$fpl$dmul) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
     drleqf.o(x$fpl$drleqf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     drleqf.o(x$fpl$drleqf) refers to dleqf.o(x$fpl$dleqf) for __fpl_dcmple_InfNaN
-    f2d.o(x$fpl$f2d) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
-    f2d.o(x$fpl$f2d) refers to fnaninf.o(x$fpl$fnaninf) for __fpl_fnaninf
-    f2d.o(x$fpl$f2d) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
+    ffixu.o(x$fpl$ffixu) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    ffixu.o(x$fpl$ffixu) refers to fnaninf.o(x$fpl$fnaninf) for __fpl_fnaninf
+    ffixu.o(x$fpl$ffixur) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    ffixu.o(x$fpl$ffixur) refers to fnaninf.o(x$fpl$fnaninf) for __fpl_fnaninf
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
@@ -864,10 +785,6 @@ Section Cross References
     defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
     defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
     defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
-    esp8266.o(.ARM.exidx) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EEC1Ev) for t._ZN10FIFOBufferIcLt1000EEC1Ev
-    esp8266.o(.ARM.exidx) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE3PutERKc) for t._ZN10FIFOBufferIcLt1000EE3PutERKc
-    esp8266.o(.ARM.exidx) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv) for t._ZN10FIFOBufferIcLt1000EE4SizeEv
-    esp8266.o(.ARM.exidx) refers to esp8266.o(t._ZN10FIFOBufferIcLt1000EE5ClearEv) for t._ZN10FIFOBufferIcLt1000EE5ClearEv
     esp8266.o(i._ZSt6strstrPcPKc) refers to strstr.o(.text) for strstr
     esp8266.o(.ARM.exidx) refers to esp8266.o(i._ZSt6strstrPcPKc) for i._ZSt6strstrPcPKc
     usart.o(.ARM.exidx) refers to usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev) for t._ZN10FIFOBufferIhLt50EEC1Ev
@@ -908,6 +825,9 @@ Removing Unused input sections from the image.
     Removing wifi_memory.o(.rev16_text), (4 bytes).
     Removing wifi_memory.o(.revsh_text), (4 bytes).
     Removing wifi_memory.o(.rrx_text), (6 bytes).
+    Removing wifi_memory.o(i._ZN10WifiMemory10getWifiSumEv), (6 bytes).
+    Removing wifi_memory.o(i._ZN10WifiMemory4LoadEPcS0_), (236 bytes).
+    Removing wifi_memory.o(i._ZN10WifiMemory4SaveEPcS0_), (264 bytes).
     Removing wifi_memory.o(.ARM.exidx), (8 bytes).
     Removing wifi_memory.o(.ARM.exidx), (8 bytes).
     Removing wifi_memory.o(.ARM.exidx), (8 bytes).
@@ -928,27 +848,19 @@ Removing Unused input sections from the image.
     Removing esp8266.o(.rev16_text), (4 bytes).
     Removing esp8266.o(.revsh_text), (4 bytes).
     Removing esp8266.o(.rrx_text), (6 bytes).
-    Removing esp8266.o(i._ZN7esp826610OpenServerEi), (108 bytes).
-    Removing esp8266.o(i._ZN7esp826610SetTimeoutEi), (104 bytes).
-    Removing esp8266.o(i._ZN7esp826610recvStringEPKcS1_S1_f), (184 bytes).
-    Removing esp8266.o(i._ZN7esp826614setOprToSoftAPEv), (92 bytes).
-    Removing esp8266.o(i._ZN7esp826614setSoftAPParamEPcS0_hh), (188 bytes).
-    Removing esp8266.o(i._ZN7esp826615ConnectServerIDEiPcS0_i), (192 bytes).
-    Removing esp8266.o(i._ZN7esp826617recvFindAndFilterEPKcS1_S1_PPcf), (94 bytes).
-    Removing esp8266.o(i._ZN7esp826618enableOrDisableMUXEh), (104 bytes).
-    Removing esp8266.o(i._ZN7esp826621ConnectNetwork_serverEii), (124 bytes).
-    Removing esp8266.o(i._ZN7esp826621setOprToStationSoftAPEv), (92 bytes).
-    Removing esp8266.o(i._ZN7esp82664SendEPc), (96 bytes).
-    Removing esp8266.o(i._ZN7esp82664SendEcPc), (116 bytes).
-    Removing esp8266.o(i._ZN7esp82664SendEciPh), (112 bytes).
-    Removing esp8266.o(i._ZN7esp82669SetIpAddrEPc), (92 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
+    Removing esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_S1_h), (184 bytes).
+    Removing esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKch), (168 bytes).
+    Removing esp8266.o(i._ZN7esp826617RecvFindAndFilterEPKcS1_S1_Pcf), (100 bytes).
+    Removing esp8266.o(i._ZN7esp82664SendEPc), (88 bytes).
+    Removing esp8266.o(i._ZN7esp82664SendEcPc), (112 bytes).
+    Removing esp8266.o(i._ZN7esp82664SendEciPh), (104 bytes).
+    Removing esp8266.o(i._ZN7esp82664kickEv), (36 bytes).
+    Removing esp8266.o(i._ZN7esp82666SetMUXEb), (68 bytes).
+    Removing esp8266.o(i._ZN7esp82667SetModeENS_12esp8266_MODEENS_15esp8266_patternE), (172 bytes).
+    Removing esp8266.o(i._ZN7esp82667restartEv), (40 bytes).
+    Removing esp8266.o(i._ZN7esp82667setEchoEb), (60 bytes).
+    Removing esp8266.o(i._ZN7esp82668RecvFindEPKcS1_S1_h), (44 bytes).
+    Removing esp8266.o(i._ZN7esp82668RecvFindEPKch), (28 bytes).
     Removing esp8266.o(.ARM.exidx), (8 bytes).
     Removing esp8266.o(.ARM.exidx), (8 bytes).
     Removing esp8266.o(.ARM.exidx), (8 bytes).
@@ -1012,8 +924,10 @@ Removing Unused input sections from the image.
     Removing memory.o(.revsh_text), (4 bytes).
     Removing memory.o(.rrx_text), (6 bytes).
     Removing memory.o(i._ZN6Memory4ReadEtPjt), (70 bytes).
+    Removing memory.o(i._ZN6Memory4ReadEttPc), (100 bytes).
     Removing memory.o(i._ZN6Memory5WriteEtPht), (136 bytes).
     Removing memory.o(i._ZN6Memory5WriteEtPjt), (138 bytes).
+    Removing memory.o(i._ZN6Memory5WriteEttPc), (190 bytes).
     Removing memory.o(.ARM.exidx), (8 bytes).
     Removing memory.o(.ARM.exidx), (8 bytes).
     Removing memory.o(.ARM.exidx), (8 bytes).
@@ -1304,10 +1218,6 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (164 bytes).
     Removing system_stm32f10x.o(.data), (20 bytes).
     Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
-    Removing esp8266.o(.ARM.exidx), (8 bytes).
     Removing usart.o(.ARM.exidx), (8 bytes).
     Removing usart.o(.ARM.exidx), (8 bytes).
     Removing usart.o(.ARM.exidx), (8 bytes).
@@ -1316,7 +1226,7 @@ Removing Unused input sections from the image.
     Removing usart.o(.ARM.exidx), (8 bytes).
     Removing usart.o(.ARM.exidx), (8 bytes).
 
-432 unused section(s) (total 11766 bytes) removed from the image.
+425 unused section(s) (total 11980 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1327,93 +1237,94 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     ../../../edgfe/lib_src/dtor_list.c       0x00000000   Number         0  cxa_finalize.o ABSOLUTE
-    ../../../edgfe/lib_src/dtor_list.c       0x00000000   Number         0  aeabi_atexit.o ABSOLUTE
     ../../../edgfe/lib_src/dtor_list.c       0x00000000   Number         0  cxa_atexit.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../../../edgfe/lib_src/dtor_list.c       0x00000000   Number         0  aeabi_atexit.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor_intlibspace.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_ddtor_pointer_addr_intlibspace.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor_intlibspace.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_ddtor_pointer_addr.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  mutex_dummy.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  mutex_dummy.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/arm_runtime.c                    0x00000000   Number         0  init_aeabi.o ABSOLUTE
     ../clib/arm_runtime.c                    0x00000000   Number         0  init_aeabi.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_init.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_extend_mt.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_extend.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_final_mt.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_alloc.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_alloc_mt.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_free_mt.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_init_mt.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_init.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_final.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_final_mt.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_free.o ABSOLUTE
-    ../clib/heap2.c                          0x00000000   Number         0  heap2mt.o ABSOLUTE
-    ../clib/heap2.c                          0x00000000   Number         0  fdtree.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_extend.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_extend_mt.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_alloc_mt.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_init_mt.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_free_mt.o ABSOLUTE
     ../clib/heap2.c                          0x00000000   Number         0  heap2.o ABSOLUTE
+    ../clib/heap2.c                          0x00000000   Number         0  fdtree.o ABSOLUTE
+    ../clib/heap2.c                          0x00000000   Number         0  heap2mt.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  heapstubs.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc2.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc2.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc1.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  free.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc1.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  term_alloc.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  calloc.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  init_alloc.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hguard.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  term_alloc.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc1.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  malloc.o ABSOLUTE
-    ../clib/heapaux.c                        0x00000000   Number         0  heapauxa.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  free.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  init_alloc.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc2.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc2.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc1.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/heapaux.c                        0x00000000   Number         0  heapauxa.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  atexit_cpp.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strstr.o ABSOLUTE
+    ../clib/string.c                         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strlen.o ABSOLUTE
     ../fplib/daddsub.s                       0x00000000   Number         0  daddsub_clz.o ABSOLUTE
     ../fplib/dcmpi.s                         0x00000000   Number         0  dcmpi.o ABSOLUTE
@@ -1426,7 +1337,7 @@ Image Symbol Table
     ../fplib/dnaninf.s                       0x00000000   Number         0  dnaninf.o ABSOLUTE
     ../fplib/dretinf.s                       0x00000000   Number         0  dretinf.o ABSOLUTE
     ../fplib/drleqf.s                        0x00000000   Number         0  drleqf.o ABSOLUTE
-    ../fplib/f2d.s                           0x00000000   Number         0  f2d.o ABSOLUTE
+    ../fplib/ffixu.s                         0x00000000   Number         0  ffixu.o ABSOLUTE
     ../fplib/fnaninf.s                       0x00000000   Number         0  fnaninf.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     ../fplib/usenofp.s                       0x00000000   Number         0  usenofp.o ABSOLUTE
@@ -1621,111 +1532,94 @@ Image Symbol Table
     i.USART_SendData                         0x0800146e   Section        0  stm32f10x_usart.o(i.USART_SendData)
     i._Z10SendWaringii                       0x08001478   Section        0  main.o(i._Z10SendWaringii)
     i._Z9EXTI0_IRQv                          0x08001574   Section        0  main.o(i._Z9EXTI0_IRQv)
-    i._ZN10WifiMemory10getWifiSumEv          0x08001584   Section        0  wifi_memory.o(i._ZN10WifiMemory10getWifiSumEv)
-    i._ZN10WifiMemory12ClearAllDataEv        0x0800158a   Section        0  wifi_memory.o(i._ZN10WifiMemory12ClearAllDataEv)
-    i._ZN10WifiMemory12LoadSaveInfoEv        0x080015ce   Section        0  wifi_memory.o(i._ZN10WifiMemory12LoadSaveInfoEv)
-    i._ZN10WifiMemory14UpdataSaveInfoEv      0x08001632   Section        0  wifi_memory.o(i._ZN10WifiMemory14UpdataSaveInfoEv)
-    i._ZN10WifiMemory4LoadEPcS0_             0x08001672   Section        0  wifi_memory.o(i._ZN10WifiMemory4LoadEPcS0_)
-    i._ZN10WifiMemory4SaveEPcS0_             0x0800175e   Section        0  wifi_memory.o(i._ZN10WifiMemory4SaveEPcS0_)
-    i._ZN10WifiMemoryC1ER6Memory             0x08001866   Section        0  wifi_memory.o(i._ZN10WifiMemoryC1ER6Memory)
-    i._ZN11TaskManager4TimeEv                0x08001878   Section        0  taskmanager.o(i._ZN11TaskManager4TimeEv)
-    i._ZN11TaskManager6DelaySEt              0x08001908   Section        0  taskmanager.o(i._ZN11TaskManager6DelaySEt)
-    i._ZN11TaskManager7DelayMsEt             0x08001944   Section        0  taskmanager.o(i._ZN11TaskManager7DelayMsEt)
-    i._ZN11TaskManager9ClockToolERdd         0x08001990   Section        0  taskmanager.o(i._ZN11TaskManager9ClockToolERdd)
-    i._ZN11TaskManagerC1Ev                   0x080019e4   Section        0  taskmanager.o(i._ZN11TaskManagerC1Ev)
-    i._ZN12Transmission13GetStateOrderER5USART 0x08001a08   Section        0  transmission.o(i._ZN12Transmission13GetStateOrderER5USART)
-    i._ZN12Transmission14CommandParsingEPh   0x08001a86   Section        0  transmission.o(i._ZN12Transmission14CommandParsingEPh)
-    i._ZN12Transmission14requestWarningEhh   0x08001ac2   Section        0  transmission.o(i._ZN12Transmission14requestWarningEhh)
-    i._ZN12Transmission18MonitoringToServerEh 0x08001adc   Section        0  transmission.o(i._ZN12Transmission18MonitoringToServerEh)
-    i._ZN12Transmission19MonitoringToWarningEh 0x08001af4   Section        0  transmission.o(i._ZN12Transmission19MonitoringToWarningEh)
-    i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART 0x08001b24   Section        0  transmission.o(i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART)
-    i._ZN12Transmission22ListeningWarmingModuleER5USART 0x08001bd0   Section        0  transmission.o(i._ZN12Transmission22ListeningWarmingModuleER5USART)
-    i._ZN12Transmission9GetReplayER5USART    0x08001c58   Section        0  transmission.o(i._ZN12Transmission9GetReplayER5USART)
-    i._ZN12TransmissionC1Ev                  0x08001cce   Section        0  transmission.o(i._ZN12TransmissionC1Ev)
-    i._ZN3ADCC1Ehhhhhhhhhh                   0x08001cf4   Section        0  adc.o(i._ZN3ADCC1Ehhhhhhhhhh)
-    i._ZN3ADCixEh                            0x08001f1c   Section        0  adc.o(i._ZN3ADCixEh)
-    i._ZN3Key3IRQEv                          0x08001f68   Section        0  key.o(i._ZN3Key3IRQEv)
-    i._ZN3KeyC1EP12GPIO_TypeDefhhhh          0x08001f84   Section        0  key.o(i._ZN3KeyC1EP12GPIO_TypeDefhhhh)
-    i._ZN4GPIO17RCC_ConfigurationEv          0x08002114   Section        0  gpio.o(i._ZN4GPIO17RCC_ConfigurationEv)
-    i._ZN4GPIO8GetLevelEv                    0x080021b4   Section        0  gpio.o(i._ZN4GPIO8GetLevelEv)
-    i._ZN4GPIO8SetLevelEh                    0x080021d4   Section        0  gpio.o(i._ZN4GPIO8SetLevelEh)
-    i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef 0x08002204   Section        0  gpio.o(i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef)
-    i._ZN4hintC1E4GPIOS0_                    0x08002248   Section        0  hint.o(i._ZN4hintC1E4GPIOS0_)
-    i._ZN5USART15GetReceivedDataEPht         0x08002260   Section        0  usart.o(i._ZN5USART15GetReceivedDataEPht)
-    i._ZN5USART17ReceiveBufferSizeEv         0x08002288   Section        0  usart.o(i._ZN5USART17ReceiveBufferSizeEv)
-    i._ZN5USART18ClearReceiveBufferEv        0x08002296   Section        0  usart.o(i._ZN5USART18ClearReceiveBufferEv)
-    i._ZN5USART3IrqEv                        0x080022a4   Section        0  usart.o(i._ZN5USART3IrqEv)
-    i._ZN5USART6DmaIrqEv                     0x08002374   Section        0  usart.o(i._ZN5USART6DmaIrqEv)
-    i._ZN5USART8SendDataEPhj                 0x080023fc   Section        0  usart.o(i._ZN5USART8SendDataEPhj)
-    i._ZN5USARTC1Ehjbhhhhhttt                0x080024d0   Section        0  usart.o(i._ZN5USARTC1Ehjbhhhhhttt)
-    i._ZN5USARTD1Ev                          0x08002868   Section        0  usart.o(i._ZN5USARTD1Ev)
-    i._ZN5USARTlsEPKc                        0x080028b8   Section        0  usart.o(i._ZN5USARTlsEPKc)
-    i._ZN5USARTlsEd                          0x080028dc   Section        0  usart.o(i._ZN5USARTlsEd)
-    i._ZN5USARTlsEi                          0x080029a8   Section        0  usart.o(i._ZN5USARTlsEi)
-    i._ZN6Memory4ReadEttPc                   0x08002a06   Section        0  memory.o(i._ZN6Memory4ReadEttPc)
-    i._ZN6Memory4ReadEttPtt                  0x08002a6a   Section        0  memory.o(i._ZN6Memory4ReadEttPtt)
-    i._ZN6Memory5ClearEt                     0x08002ab6   Section        0  memory.o(i._ZN6Memory5ClearEt)
-    i._ZN6Memory5WriteEttPc                  0x08002ade   Section        0  memory.o(i._ZN6Memory5WriteEttPc)
-    i._ZN6Memory5WriteEttPtt                 0x08002b9c   Section        0  memory.o(i._ZN6Memory5WriteEttPtt)
-    i._ZN6MemoryC1Ejb                        0x08002c44   Section        0  memory.o(i._ZN6MemoryC1Ejb)
-    i._ZN7esp826610recvStringEPKcS1_f        0x08002c5a   Section        0  esp8266.o(i._ZN7esp826610recvStringEPKcS1_f)
-    i._ZN7esp826610recvStringEPKcf           0x08002d04   Section        0  esp8266.o(i._ZN7esp826610recvStringEPKcf)
-    i._ZN7esp826613ConnectServerEPcS0_i      0x08002da8   Section        0  esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i)
-    i._ZN7esp826615setOprToStationEv         0x08002e5c   Section        0  esp8266.o(i._ZN7esp826615setOprToStationEv)
-    i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i 0x08002eb8   Section        0  esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i)
-    i._ZN7esp82664SendEiPh                   0x08002f40   Section        0  esp8266.o(i._ZN7esp82664SendEiPh)
-    i._ZN7esp82664kickEv                     0x08002f94   Section        0  esp8266.o(i._ZN7esp82664kickEv)
-    i._ZN7esp82666joinAPEPcS0_               0x08002fc4   Section        0  esp8266.o(i._ZN7esp82666joinAPEPcS0_)
-    i._ZN7esp82667restartEv                  0x08003068   Section        0  esp8266.o(i._ZN7esp82667restartEv)
-    i._ZN7esp82667setEchoEh                  0x0800309c   Section        0  esp8266.o(i._ZN7esp82667setEchoEh)
-    i._ZN7esp82668recvFindEPKcf              0x080030e0   Section        0  esp8266.o(i._ZN7esp82668recvFindEPKcf)
-    i._ZN7esp82668rx_emptyEv                 0x0800310a   Section        0  esp8266.o(i._ZN7esp82668rx_emptyEv)
-    i._ZN7esp8266C1ER5USART                  0x08003136   Section        0  esp8266.o(i._ZN7esp8266C1ER5USART)
-    i._ZSt6strstrPcPKc                       0x08003150   Section        0  esp8266.o(i._ZSt6strstrPcPKc)
-    i.__aeabi_atexit                         0x08003160   Section        0  aeabi_atexit.o(i.__aeabi_atexit)
-    i.__cxa_finalize                         0x08003192   Section        0  cxa_finalize.o(i.__cxa_finalize)
-    i.__sti___15_TaskManager_cpp_tskmgr      0x080031d4   Section        0  taskmanager.o(i.__sti___15_TaskManager_cpp_tskmgr)
-    __sti___15_TaskManager_cpp_tskmgr        0x080031d5   Thumb Code    10  taskmanager.o(i.__sti___15_TaskManager_cpp_tskmgr)
-    i.__sti___16_transmission_cpp_4ab4cfbc   0x080031e4   Section        0  transmission.o(i.__sti___16_transmission_cpp_4ab4cfbc)
-    __sti___16_transmission_cpp_4ab4cfbc     0x080031e5   Thumb Code    10  transmission.o(i.__sti___16_transmission_cpp_4ab4cfbc)
-    i.__sti___8_main_cpp_SstCom              0x080031f4   Section        0  main.o(i.__sti___8_main_cpp_SstCom)
-    __sti___8_main_cpp_SstCom                0x080031f5   Thumb Code   326  main.o(i.__sti___8_main_cpp_SstCom)
-    i.main                                   0x08003380   Section        0  main.o(i.main)
-    t._ZN10FIFOBufferIcLt1000EE3PutERKc      0x08003874   Section        0  esp8266.o(t._ZN10FIFOBufferIcLt1000EE3PutERKc)
-    t._ZN10FIFOBufferIcLt1000EE4SizeEv       0x080038a8   Section        0  esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv)
-    t._ZN10FIFOBufferIcLt1000EE5ClearEv      0x080038ae   Section        0  esp8266.o(t._ZN10FIFOBufferIcLt1000EE5ClearEv)
-    t._ZN10FIFOBufferIcLt1000EEC1Ev          0x080038b8   Section        0  esp8266.o(t._ZN10FIFOBufferIcLt1000EEC1Ev)
-    t._ZN10FIFOBufferIhLt50EE3GetERh         0x080038c8   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE3GetERh)
-    t._ZN10FIFOBufferIhLt50EE3PutERKh        0x080038f8   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE3PutERKh)
-    t._ZN10FIFOBufferIhLt50EE4GetsEPht       0x0800392c   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE4GetsEPht)
-    t._ZN10FIFOBufferIhLt50EE4PutsEPht       0x0800396a   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE4PutsEPht)
-    t._ZN10FIFOBufferIhLt50EE4SizeEv         0x080039ac   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE4SizeEv)
-    t._ZN10FIFOBufferIhLt50EE5ClearEv        0x080039b2   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE5ClearEv)
-    t._ZN10FIFOBufferIhLt50EEC1Ev            0x080039bc   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev)
-    x$fpl$dadd                               0x080039cc   Section      336  daddsub_clz.o(x$fpl$dadd)
-    _dadd1                                   0x080039dd   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
-    x$fpl$dcmpinf                            0x08003b1c   Section       24  dcmpi.o(x$fpl$dcmpinf)
-    x$fpl$ddiv                               0x08003b34   Section      688  ddiv.o(x$fpl$ddiv)
-    ddiv_entry                               0x08003b3b   Thumb Code     0  ddiv.o(x$fpl$ddiv)
-    x$fpl$deqf                               0x08003de4   Section      120  deqf.o(x$fpl$deqf)
-    x$fpl$dfixu                              0x08003e5c   Section       90  dfixu.o(x$fpl$dfixu)
-    x$fpl$dfltu                              0x08003eb6   Section       38  dflt_clz.o(x$fpl$dfltu)
-    x$fpl$dleqf                              0x08003edc   Section      120  dleqf.o(x$fpl$dleqf)
-    x$fpl$dmul                               0x08003f54   Section      340  dmul.o(x$fpl$dmul)
-    x$fpl$dnaninf                            0x080040a8   Section      156  dnaninf.o(x$fpl$dnaninf)
-    x$fpl$dretinf                            0x08004144   Section       12  dretinf.o(x$fpl$dretinf)
-    x$fpl$drleqf                             0x08004150   Section      108  drleqf.o(x$fpl$drleqf)
-    x$fpl$dsub                               0x080041bc   Section      468  daddsub_clz.o(x$fpl$dsub)
-    _dsub1                                   0x080041cd   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
-    x$fpl$f2d                                0x08004390   Section       86  f2d.o(x$fpl$f2d)
-    x$fpl$fnaninf                            0x080043e6   Section      140  fnaninf.o(x$fpl$fnaninf)
-    x$fpl$usenofp                            0x08004472   Section        0  usenofp.o(x$fpl$usenofp)
-    .constdata                               0x08004474   Section       20  key.o(.constdata)
-    .constdata                               0x08004488   Section       32  gpio.o(.constdata)
-    .init_array                              0x080044c8   Section        4  main.o(.init_array)
-    .init_array                              0x080044cc   Section        4  transmission.o(.init_array)
-    .init_array                              0x080044d0   Section        4  taskmanager.o(.init_array)
-    .init_array                              0x080044d4   Section        0  init_aeabi.o(.init_array)
+    i._ZN10WifiMemory12ClearAllDataEv        0x08001584   Section        0  wifi_memory.o(i._ZN10WifiMemory12ClearAllDataEv)
+    i._ZN10WifiMemory12LoadSaveInfoEv        0x080015c8   Section        0  wifi_memory.o(i._ZN10WifiMemory12LoadSaveInfoEv)
+    i._ZN10WifiMemory14UpdataSaveInfoEv      0x0800162c   Section        0  wifi_memory.o(i._ZN10WifiMemory14UpdataSaveInfoEv)
+    i._ZN10WifiMemoryC1ER6Memory             0x0800166c   Section        0  wifi_memory.o(i._ZN10WifiMemoryC1ER6Memory)
+    i._ZN11TaskManager4TimeEv                0x08001680   Section        0  taskmanager.o(i._ZN11TaskManager4TimeEv)
+    i._ZN11TaskManager6DelaySEt              0x08001710   Section        0  taskmanager.o(i._ZN11TaskManager6DelaySEt)
+    i._ZN11TaskManager7DelayMsEt             0x0800174c   Section        0  taskmanager.o(i._ZN11TaskManager7DelayMsEt)
+    i._ZN11TaskManager9ClockToolERdd         0x08001798   Section        0  taskmanager.o(i._ZN11TaskManager9ClockToolERdd)
+    i._ZN11TaskManagerC1Ev                   0x080017ec   Section        0  taskmanager.o(i._ZN11TaskManagerC1Ev)
+    i._ZN12Transmission13GetStateOrderER5USART 0x08001810   Section        0  transmission.o(i._ZN12Transmission13GetStateOrderER5USART)
+    i._ZN12Transmission14CommandParsingEPh   0x0800188e   Section        0  transmission.o(i._ZN12Transmission14CommandParsingEPh)
+    i._ZN12Transmission14requestWarningEhh   0x080018ca   Section        0  transmission.o(i._ZN12Transmission14requestWarningEhh)
+    i._ZN12Transmission18MonitoringToServerEh 0x080018e4   Section        0  transmission.o(i._ZN12Transmission18MonitoringToServerEh)
+    i._ZN12Transmission19MonitoringToWarningEh 0x080018fc   Section        0  transmission.o(i._ZN12Transmission19MonitoringToWarningEh)
+    i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART 0x0800192c   Section        0  transmission.o(i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART)
+    i._ZN12Transmission22ListeningWarmingModuleER5USART 0x080019d8   Section        0  transmission.o(i._ZN12Transmission22ListeningWarmingModuleER5USART)
+    i._ZN12Transmission9GetReplayER5USART    0x08001a60   Section        0  transmission.o(i._ZN12Transmission9GetReplayER5USART)
+    i._ZN12TransmissionC1Ev                  0x08001ad6   Section        0  transmission.o(i._ZN12TransmissionC1Ev)
+    i._ZN3ADCC1Ehhhhhhhhhh                   0x08001afc   Section        0  adc.o(i._ZN3ADCC1Ehhhhhhhhhh)
+    i._ZN3ADCixEh                            0x08001d24   Section        0  adc.o(i._ZN3ADCixEh)
+    i._ZN3Key3IRQEv                          0x08001d70   Section        0  key.o(i._ZN3Key3IRQEv)
+    i._ZN3KeyC1EP12GPIO_TypeDefhhhh          0x08001d8c   Section        0  key.o(i._ZN3KeyC1EP12GPIO_TypeDefhhhh)
+    i._ZN4GPIO17RCC_ConfigurationEv          0x08001f1c   Section        0  gpio.o(i._ZN4GPIO17RCC_ConfigurationEv)
+    i._ZN4GPIO8GetLevelEv                    0x08001fbc   Section        0  gpio.o(i._ZN4GPIO8GetLevelEv)
+    i._ZN4GPIO8SetLevelEh                    0x08001fdc   Section        0  gpio.o(i._ZN4GPIO8SetLevelEh)
+    i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef 0x0800200c   Section        0  gpio.o(i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef)
+    i._ZN4hintC1E4GPIOS0_                    0x08002050   Section        0  hint.o(i._ZN4hintC1E4GPIOS0_)
+    i._ZN5USART15GetReceivedDataEPht         0x08002068   Section        0  usart.o(i._ZN5USART15GetReceivedDataEPht)
+    i._ZN5USART17ReceiveBufferSizeEv         0x08002090   Section        0  usart.o(i._ZN5USART17ReceiveBufferSizeEv)
+    i._ZN5USART18ClearReceiveBufferEv        0x0800209e   Section        0  usart.o(i._ZN5USART18ClearReceiveBufferEv)
+    i._ZN5USART3IrqEv                        0x080020ac   Section        0  usart.o(i._ZN5USART3IrqEv)
+    i._ZN5USART6DmaIrqEv                     0x0800217c   Section        0  usart.o(i._ZN5USART6DmaIrqEv)
+    i._ZN5USART8SendDataEPhj                 0x08002204   Section        0  usart.o(i._ZN5USART8SendDataEPhj)
+    i._ZN5USARTC1Ehjbhhhhhttt                0x080022d8   Section        0  usart.o(i._ZN5USARTC1Ehjbhhhhhttt)
+    i._ZN5USARTD1Ev                          0x08002670   Section        0  usart.o(i._ZN5USARTD1Ev)
+    i._ZN5USARTlsEPKc                        0x080026c0   Section        0  usart.o(i._ZN5USARTlsEPKc)
+    i._ZN5USARTlsEd                          0x080026e4   Section        0  usart.o(i._ZN5USARTlsEd)
+    i._ZN5USARTlsEi                          0x080027b0   Section        0  usart.o(i._ZN5USARTlsEi)
+    i._ZN6Memory4ReadEttPtt                  0x0800280e   Section        0  memory.o(i._ZN6Memory4ReadEttPtt)
+    i._ZN6Memory5ClearEt                     0x0800285a   Section        0  memory.o(i._ZN6Memory5ClearEt)
+    i._ZN6Memory5WriteEttPtt                 0x08002882   Section        0  memory.o(i._ZN6Memory5WriteEttPtt)
+    i._ZN6MemoryC1Ejb                        0x0800292a   Section        0  memory.o(i._ZN6MemoryC1Ejb)
+    i._ZN7esp826611ClearBufferEv             0x08002940   Section        0  esp8266.o(i._ZN7esp826611ClearBufferEv)
+    i._ZN7esp826614ReceiveAndWaitEPKcS1_h    0x08002958   Section        0  esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h)
+    i._ZN7esp826617CreateConnectModeEPcsa    0x08002a04   Section        0  esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa)
+    i._ZN7esp82664SendEiPh                   0x08002af4   Section        0  esp8266.o(i._ZN7esp82664SendEiPh)
+    i._ZN7esp82666JoinAPEPcS0_               0x08002b40   Section        0  esp8266.o(i._ZN7esp82666JoinAPEPcS0_)
+    i._ZN7esp82668RecvFindEPKcS1_h           0x08002bc8   Section        0  esp8266.o(i._ZN7esp82668RecvFindEPKcS1_h)
+    i._ZN7esp8266C1ER5USART                  0x08002bec   Section        0  esp8266.o(i._ZN7esp8266C1ER5USART)
+    i._ZSt6strstrPcPKc                       0x08002bf0   Section        0  esp8266.o(i._ZSt6strstrPcPKc)
+    i.__aeabi_atexit                         0x08002c00   Section        0  aeabi_atexit.o(i.__aeabi_atexit)
+    i.__cxa_finalize                         0x08002c32   Section        0  cxa_finalize.o(i.__cxa_finalize)
+    i.__sti___15_TaskManager_cpp_tskmgr      0x08002c74   Section        0  taskmanager.o(i.__sti___15_TaskManager_cpp_tskmgr)
+    __sti___15_TaskManager_cpp_tskmgr        0x08002c75   Thumb Code    10  taskmanager.o(i.__sti___15_TaskManager_cpp_tskmgr)
+    i.__sti___16_transmission_cpp_4ab4cfbc   0x08002c84   Section        0  transmission.o(i.__sti___16_transmission_cpp_4ab4cfbc)
+    __sti___16_transmission_cpp_4ab4cfbc     0x08002c85   Thumb Code    10  transmission.o(i.__sti___16_transmission_cpp_4ab4cfbc)
+    i.__sti___8_main_cpp_SstCom              0x08002c94   Section        0  main.o(i.__sti___8_main_cpp_SstCom)
+    __sti___8_main_cpp_SstCom                0x08002c95   Thumb Code   326  main.o(i.__sti___8_main_cpp_SstCom)
+    i.main                                   0x08002e20   Section        0  main.o(i.main)
+    t._ZN10FIFOBufferIhLt50EE3GetERh         0x08003318   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE3GetERh)
+    t._ZN10FIFOBufferIhLt50EE3PutERKh        0x08003348   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE3PutERKh)
+    t._ZN10FIFOBufferIhLt50EE4GetsEPht       0x0800337c   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE4GetsEPht)
+    t._ZN10FIFOBufferIhLt50EE4PutsEPht       0x080033ba   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE4PutsEPht)
+    t._ZN10FIFOBufferIhLt50EE4SizeEv         0x080033fc   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE4SizeEv)
+    t._ZN10FIFOBufferIhLt50EE5ClearEv        0x08003402   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EE5ClearEv)
+    t._ZN10FIFOBufferIhLt50EEC1Ev            0x0800340c   Section        0  usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev)
+    x$fpl$dadd                               0x0800341c   Section      336  daddsub_clz.o(x$fpl$dadd)
+    _dadd1                                   0x0800342d   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
+    x$fpl$dcmpinf                            0x0800356c   Section       24  dcmpi.o(x$fpl$dcmpinf)
+    x$fpl$ddiv                               0x08003584   Section      688  ddiv.o(x$fpl$ddiv)
+    ddiv_entry                               0x0800358b   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    x$fpl$deqf                               0x08003834   Section      120  deqf.o(x$fpl$deqf)
+    x$fpl$dfixu                              0x080038ac   Section       90  dfixu.o(x$fpl$dfixu)
+    x$fpl$dfltu                              0x08003906   Section       38  dflt_clz.o(x$fpl$dfltu)
+    x$fpl$dleqf                              0x0800392c   Section      120  dleqf.o(x$fpl$dleqf)
+    x$fpl$dmul                               0x080039a4   Section      340  dmul.o(x$fpl$dmul)
+    x$fpl$dnaninf                            0x08003af8   Section      156  dnaninf.o(x$fpl$dnaninf)
+    x$fpl$dretinf                            0x08003b94   Section       12  dretinf.o(x$fpl$dretinf)
+    x$fpl$drleqf                             0x08003ba0   Section      108  drleqf.o(x$fpl$drleqf)
+    x$fpl$dsub                               0x08003c0c   Section      468  daddsub_clz.o(x$fpl$dsub)
+    _dsub1                                   0x08003c1d   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
+    .constdata                               0x08003de0   Section       20  key.o(.constdata)
+    x$fpl$usenofp                            0x08003de0   Section        0  usenofp.o(x$fpl$usenofp)
+    .constdata                               0x08003df4   Section       32  gpio.o(.constdata)
+    .init_array                              0x08003e34   Section        4  main.o(.init_array)
+    .init_array                              0x08003e38   Section        4  transmission.o(.init_array)
+    .init_array                              0x08003e3c   Section        4  taskmanager.o(.init_array)
+    .init_array                              0x08003e40   Section        0  init_aeabi.o(.init_array)
     .data                                    0x20000000   Section       20  main.o(.data)
     .data                                    0x20000014   Section       20  adc.o(.data)
     .data                                    0x20000028   Section       12  interrupt.o(.data)
@@ -1737,15 +1631,15 @@ Image Symbol Table
     .data                                    0x2000005b   Section       20  stm32f10x_rcc.o(.data)
     APBAHBPrescTable                         0x2000005b   Data          16  stm32f10x_rcc.o(.data)
     ADCPrescTable                            0x2000006b   Data           4  stm32f10x_rcc.o(.data)
-    .bss                                     0x20000070   Section     1568  main.o(.bss)
-    .bss                                     0x20000690   Section       17  transmission.o(.bss)
-    .bss                                     0x200006a2   Section       40  adc.o(.bss)
-    .bss                                     0x200006cc   Section       96  libspace.o(.bss)
-    HEAP                                     0x20000730   Section      512  startup_stm32f10x_md.o(HEAP)
-    Heap_Mem                                 0x20000730   Data         512  startup_stm32f10x_md.o(HEAP)
-    STACK                                    0x20000930   Section     1024  startup_stm32f10x_md.o(STACK)
-    Stack_Mem                                0x20000930   Data        1024  startup_stm32f10x_md.o(STACK)
-    __initial_sp                             0x20000d30   Data           0  startup_stm32f10x_md.o(STACK)
+    .bss                                     0x20000070   Section     1564  main.o(.bss)
+    .bss                                     0x2000068c   Section       17  transmission.o(.bss)
+    .bss                                     0x2000069e   Section       40  adc.o(.bss)
+    .bss                                     0x200006c8   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000728   Section      512  startup_stm32f10x_md.o(HEAP)
+    Heap_Mem                                 0x20000728   Data         512  startup_stm32f10x_md.o(HEAP)
+    STACK                                    0x20000928   Section     1024  startup_stm32f10x_md.o(STACK)
+    Stack_Mem                                0x20000928   Data        1024  startup_stm32f10x_md.o(STACK)
+    __initial_sp                             0x20000d28   Data           0  startup_stm32f10x_md.o(STACK)
 
     Global Symbols
 
@@ -1984,125 +1878,106 @@ Image Symbol Table
     USART_SendData                           0x0800146f   Thumb Code     8  stm32f10x_usart.o(i.USART_SendData)
     SendWaring(int, int)                     0x08001479   Thumb Code   188  main.o(i._Z10SendWaringii)
     EXTI0_IRQ()                              0x08001575   Thumb Code    10  main.o(i._Z9EXTI0_IRQv)
-    WifiMemory::getWifiSum()                 0x08001585   Thumb Code     6  wifi_memory.o(i._ZN10WifiMemory10getWifiSumEv)
-    WifiMemory::ClearAllData()               0x0800158b   Thumb Code    68  wifi_memory.o(i._ZN10WifiMemory12ClearAllDataEv)
-    WifiMemory::LoadSaveInfo()               0x080015cf   Thumb Code   100  wifi_memory.o(i._ZN10WifiMemory12LoadSaveInfoEv)
-    WifiMemory::UpdataSaveInfo()             0x08001633   Thumb Code    64  wifi_memory.o(i._ZN10WifiMemory14UpdataSaveInfoEv)
-    WifiMemory::Load(char*, char*)           0x08001673   Thumb Code   236  wifi_memory.o(i._ZN10WifiMemory4LoadEPcS0_)
-    WifiMemory::Save(char*, char*)           0x0800175f   Thumb Code   264  wifi_memory.o(i._ZN10WifiMemory4SaveEPcS0_)
-    WifiMemory::WifiMemory(Memory&)          0x08001867   Thumb Code    18  wifi_memory.o(i._ZN10WifiMemoryC1ER6Memory)
-    WifiMemory::WifiMemory__sub_object(Memory&) 0x08001867   Thumb Code     0  wifi_memory.o(i._ZN10WifiMemoryC1ER6Memory)
-    TaskManager::Time()                      0x08001879   Thumb Code   110  taskmanager.o(i._ZN11TaskManager4TimeEv)
-    TaskManager::DelayS(unsigned short)      0x08001909   Thumb Code    60  taskmanager.o(i._ZN11TaskManager6DelaySEt)
-    TaskManager::DelayMs(unsigned short)     0x08001945   Thumb Code    70  taskmanager.o(i._ZN11TaskManager7DelayMsEt)
-    TaskManager::ClockTool(double&, double)  0x08001991   Thumb Code    82  taskmanager.o(i._ZN11TaskManager9ClockToolERdd)
-    TaskManager::TaskManager()               0x080019e5   Thumb Code    32  taskmanager.o(i._ZN11TaskManagerC1Ev)
-    TaskManager::TaskManager__sub_object()   0x080019e5   Thumb Code     0  taskmanager.o(i._ZN11TaskManagerC1Ev)
-    Transmission::GetStateOrder(USART&)      0x08001a09   Thumb Code   126  transmission.o(i._ZN12Transmission13GetStateOrderER5USART)
-    Transmission::CommandParsing(unsigned char*) 0x08001a87   Thumb Code    60  transmission.o(i._ZN12Transmission14CommandParsingEPh)
-    Transmission::requestWarning(unsigned char, unsigned char) 0x08001ac3   Thumb Code    26  transmission.o(i._ZN12Transmission14requestWarningEhh)
-    Transmission::MonitoringToServer(unsigned char) 0x08001add   Thumb Code    24  transmission.o(i._ZN12Transmission18MonitoringToServerEh)
-    Transmission::MonitoringToWarning(unsigned char) 0x08001af5   Thumb Code    46  transmission.o(i._ZN12Transmission19MonitoringToWarningEh)
-    Transmission::GetWifiNameAndPassword(char*, char*, USART&) 0x08001b25   Thumb Code   166  transmission.o(i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART)
-    Transmission::ListeningWarmingModule(USART&) 0x08001bd1   Thumb Code   136  transmission.o(i._ZN12Transmission22ListeningWarmingModuleER5USART)
-    Transmission::GetReplay(USART&)          0x08001c59   Thumb Code   118  transmission.o(i._ZN12Transmission9GetReplayER5USART)
-    Transmission::Transmission()             0x08001ccf   Thumb Code    36  transmission.o(i._ZN12TransmissionC1Ev)
-    Transmission::Transmission__sub_object() 0x08001ccf   Thumb Code     0  transmission.o(i._ZN12TransmissionC1Ev)
-    ADC::ADC(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001cf5   Thumb Code   518  adc.o(i._ZN3ADCC1Ehhhhhhhhhh)
-    ADC::ADC__sub_object(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001cf5   Thumb Code     0  adc.o(i._ZN3ADCC1Ehhhhhhhhhh)
-    ADC::operator [](unsigned char)          0x08001f1d   Thumb Code    60  adc.o(i._ZN3ADCixEh)
-    Key::IRQ()                               0x08001f69   Thumb Code    26  key.o(i._ZN3Key3IRQEv)
-    Key::Key(GPIO_TypeDef*, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001f85   Thumb Code   372  key.o(i._ZN3KeyC1EP12GPIO_TypeDefhhhh)
-    Key::Key__sub_object(GPIO_TypeDef*, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001f85   Thumb Code     0  key.o(i._ZN3KeyC1EP12GPIO_TypeDefhhhh)
-    GPIO::RCC_Configuration()                0x08002115   Thumb Code   130  gpio.o(i._ZN4GPIO17RCC_ConfigurationEv)
-    GPIO::GetLevel()                         0x080021b5   Thumb Code    28  gpio.o(i._ZN4GPIO8GetLevelEv)
-    GPIO::SetLevel(unsigned char)            0x080021d5   Thumb Code    42  gpio.o(i._ZN4GPIO8SetLevelEh)
-    GPIO::GPIO(GPIO_TypeDef*, unsigned short, GPIOMode_TypeDef, GPIOSpeed_TypeDef) 0x08002205   Thumb Code    64  gpio.o(i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef)
-    GPIO::GPIO__sub_object(GPIO_TypeDef*, unsigned short, GPIOMode_TypeDef, GPIOSpeed_TypeDef) 0x08002205   Thumb Code     0  gpio.o(i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef)
-    hint::hint(GPIO, GPIO)                   0x08002249   Thumb Code    24  hint.o(i._ZN4hintC1E4GPIOS0_)
-    hint::hint__sub_object(GPIO, GPIO)       0x08002249   Thumb Code     0  hint.o(i._ZN4hintC1E4GPIOS0_)
-    USART::GetReceivedData(unsigned char*, unsigned short) 0x08002261   Thumb Code    40  usart.o(i._ZN5USART15GetReceivedDataEPht)
-    USART::ReceiveBufferSize()               0x08002289   Thumb Code    14  usart.o(i._ZN5USART17ReceiveBufferSizeEv)
-    USART::ClearReceiveBuffer()              0x08002297   Thumb Code    14  usart.o(i._ZN5USART18ClearReceiveBufferEv)
-    USART::Irq()                             0x080022a5   Thumb Code   200  usart.o(i._ZN5USART3IrqEv)
-    USART::DmaIrq()                          0x08002375   Thumb Code   134  usart.o(i._ZN5USART6DmaIrqEv)
-    USART::SendData(unsigned char*, unsigned) 0x080023fd   Thumb Code   208  usart.o(i._ZN5USART8SendDataEPhj)
-    USART::USART(unsigned char, unsigned, bool, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned short) 0x080024d1   Thumb Code   870  usart.o(i._ZN5USARTC1Ehjbhhhhhttt)
-    USART::USART__sub_object(unsigned char, unsigned, bool, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned short) 0x080024d1   Thumb Code     0  usart.o(i._ZN5USARTC1Ehjbhhhhhttt)
-    USART::~USART()                          0x08002869   Thumb Code    54  usart.o(i._ZN5USARTD1Ev)
-    USART::~USART__sub_object()              0x08002869   Thumb Code     0  usart.o(i._ZN5USARTD1Ev)
-    USART::operator <<(const char*)          0x080028b9   Thumb Code    36  usart.o(i._ZN5USARTlsEPKc)
-    USART::operator <<(double)               0x080028dd   Thumb Code   198  usart.o(i._ZN5USARTlsEd)
-    USART::operator <<(int)                  0x080029a9   Thumb Code    94  usart.o(i._ZN5USARTlsEi)
-    Memory::Read(unsigned short, unsigned short, char*) 0x08002a07   Thumb Code   100  memory.o(i._ZN6Memory4ReadEttPc)
-    Memory::Read(unsigned short, unsigned short, unsigned short*, unsigned short) 0x08002a6b   Thumb Code    76  memory.o(i._ZN6Memory4ReadEttPtt)
-    Memory::Clear(unsigned short)            0x08002ab7   Thumb Code    40  memory.o(i._ZN6Memory5ClearEt)
-    Memory::Write(unsigned short, unsigned short, char*) 0x08002adf   Thumb Code   190  memory.o(i._ZN6Memory5WriteEttPc)
-    Memory::Write(unsigned short, unsigned short, unsigned short*, unsigned short) 0x08002b9d   Thumb Code   168  memory.o(i._ZN6Memory5WriteEttPtt)
-    Memory::Memory(unsigned, bool)           0x08002c45   Thumb Code    22  memory.o(i._ZN6MemoryC1Ejb)
-    Memory::Memory__sub_object(unsigned, bool) 0x08002c45   Thumb Code     0  memory.o(i._ZN6MemoryC1Ejb)
-    esp8266::recvString(const char*, const char*, float) 0x08002c5b   Thumb Code   170  esp8266.o(i._ZN7esp826610recvStringEPKcS1_f)
-    esp8266::recvString(const char*, float)  0x08002d05   Thumb Code   164  esp8266.o(i._ZN7esp826610recvStringEPKcf)
-    esp8266::ConnectServer(char*, char*, int) 0x08002da9   Thumb Code   126  esp8266.o(i._ZN7esp826613ConnectServerEPcS0_i)
-    esp8266::setOprToStation()               0x08002e5d   Thumb Code    58  esp8266.o(i._ZN7esp826615setOprToStationEv)
-    esp8266::ConnectNetwork_client(char*, char*, char*, int) 0x08002eb9   Thumb Code   126  esp8266.o(i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i)
-    esp8266::Send(int, unsigned char*)       0x08002f41   Thumb Code    62  esp8266.o(i._ZN7esp82664SendEiPh)
-    esp8266::kick()                          0x08002f95   Thumb Code    30  esp8266.o(i._ZN7esp82664kickEv)
-    esp8266::joinAP(char*, char*)            0x08002fc5   Thumb Code   118  esp8266.o(i._ZN7esp82666joinAPEPcS0_)
-    esp8266::restart()                       0x08003069   Thumb Code    30  esp8266.o(i._ZN7esp82667restartEv)
-    esp8266::setEcho(unsigned char)          0x0800309d   Thumb Code    52  esp8266.o(i._ZN7esp82667setEchoEh)
-    esp8266::recvFind(const char*, float)    0x080030e1   Thumb Code    42  esp8266.o(i._ZN7esp82668recvFindEPKcf)
-    esp8266::rx_empty()                      0x0800310b   Thumb Code    44  esp8266.o(i._ZN7esp82668rx_emptyEv)
-    esp8266::esp8266(USART&)                 0x08003137   Thumb Code    26  esp8266.o(i._ZN7esp8266C1ER5USART)
-    esp8266::esp8266__sub_object(USART&)     0x08003137   Thumb Code     0  esp8266.o(i._ZN7esp8266C1ER5USART)
-    std::strstr(char*, const char*)          0x08003151   Thumb Code    16  esp8266.o(i._ZSt6strstrPcPKc)
-    __aeabi_atexit                           0x08003161   Thumb Code    50  aeabi_atexit.o(i.__aeabi_atexit)
-    __cxa_finalize                           0x08003193   Thumb Code    66  cxa_finalize.o(i.__cxa_finalize)
-    main                                     0x08003381   Thumb Code   996  main.o(i.main)
-    FIFOBuffer<char, (unsigned short)1000>::Put(const char&) 0x08003875   Thumb Code    52  esp8266.o(t._ZN10FIFOBufferIcLt1000EE3PutERKc)
-    FIFOBuffer<char, (unsigned short)1000>::Size() 0x080038a9   Thumb Code     6  esp8266.o(t._ZN10FIFOBufferIcLt1000EE4SizeEv)
-    FIFOBuffer<char, (unsigned short)1000>::Clear() 0x080038af   Thumb Code    10  esp8266.o(t._ZN10FIFOBufferIcLt1000EE5ClearEv)
-    FIFOBuffer<char, (unsigned short)1000>::FIFOBuffer() 0x080038b9   Thumb Code    16  esp8266.o(t._ZN10FIFOBufferIcLt1000EEC1Ev)
-    FIFOBuffer<char, (unsigned short)1000>::FIFOBuffer__sub_object() 0x080038b9   Thumb Code     0  esp8266.o(t._ZN10FIFOBufferIcLt1000EEC1Ev)
-    FIFOBuffer<unsigned char, (unsigned short)50>::Get(unsigned char&) 0x080038c9   Thumb Code    48  usart.o(t._ZN10FIFOBufferIhLt50EE3GetERh)
-    FIFOBuffer<unsigned char, (unsigned short)50>::Put(const unsigned char&) 0x080038f9   Thumb Code    52  usart.o(t._ZN10FIFOBufferIhLt50EE3PutERKh)
-    FIFOBuffer<unsigned char, (unsigned short)50>::Gets(unsigned char*, unsigned short) 0x0800392d   Thumb Code    62  usart.o(t._ZN10FIFOBufferIhLt50EE4GetsEPht)
-    FIFOBuffer<unsigned char, (unsigned short)50>::Puts(unsigned char*, unsigned short) 0x0800396b   Thumb Code    66  usart.o(t._ZN10FIFOBufferIhLt50EE4PutsEPht)
-    FIFOBuffer<unsigned char, (unsigned short)50>::Size() 0x080039ad   Thumb Code     6  usart.o(t._ZN10FIFOBufferIhLt50EE4SizeEv)
-    FIFOBuffer<unsigned char, (unsigned short)50>::Clear() 0x080039b3   Thumb Code    10  usart.o(t._ZN10FIFOBufferIhLt50EE5ClearEv)
-    FIFOBuffer<unsigned char, (unsigned short)50>::FIFOBuffer() 0x080039bd   Thumb Code    14  usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev)
-    FIFOBuffer<unsigned char, (unsigned short)50>::FIFOBuffer__sub_object() 0x080039bd   Thumb Code     0  usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev)
-    __aeabi_dadd                             0x080039cd   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
-    _dadd                                    0x080039cd   Thumb Code   332  daddsub_clz.o(x$fpl$dadd)
-    __fpl_dcmp_Inf                           0x08003b1d   Thumb Code    24  dcmpi.o(x$fpl$dcmpinf)
-    __aeabi_ddiv                             0x08003b35   Thumb Code     0  ddiv.o(x$fpl$ddiv)
-    _ddiv                                    0x08003b35   Thumb Code   552  ddiv.o(x$fpl$ddiv)
-    __aeabi_cdcmpeq                          0x08003de5   Thumb Code     0  deqf.o(x$fpl$deqf)
-    _dcmpeq                                  0x08003de5   Thumb Code   120  deqf.o(x$fpl$deqf)
-    __aeabi_d2uiz                            0x08003e5d   Thumb Code     0  dfixu.o(x$fpl$dfixu)
-    _dfixu                                   0x08003e5d   Thumb Code    90  dfixu.o(x$fpl$dfixu)
-    __aeabi_ui2d                             0x08003eb7   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
-    _dfltu                                   0x08003eb7   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
-    __aeabi_cdcmple                          0x08003edd   Thumb Code     0  dleqf.o(x$fpl$dleqf)
-    _dcmple                                  0x08003edd   Thumb Code   120  dleqf.o(x$fpl$dleqf)
-    __fpl_dcmple_InfNaN                      0x08003f3f   Thumb Code     0  dleqf.o(x$fpl$dleqf)
-    __aeabi_dmul                             0x08003f55   Thumb Code     0  dmul.o(x$fpl$dmul)
-    _dmul                                    0x08003f55   Thumb Code   332  dmul.o(x$fpl$dmul)
-    __fpl_dnaninf                            0x080040a9   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
-    __fpl_dretinf                            0x08004145   Thumb Code    12  dretinf.o(x$fpl$dretinf)
-    __aeabi_cdrcmple                         0x08004151   Thumb Code     0  drleqf.o(x$fpl$drleqf)
-    _drcmple                                 0x08004151   Thumb Code   108  drleqf.o(x$fpl$drleqf)
-    __aeabi_dsub                             0x080041bd   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
-    _dsub                                    0x080041bd   Thumb Code   464  daddsub_clz.o(x$fpl$dsub)
-    __aeabi_f2d                              0x08004391   Thumb Code     0  f2d.o(x$fpl$f2d)
-    _f2d                                     0x08004391   Thumb Code    86  f2d.o(x$fpl$f2d)
-    __fpl_fnaninf                            0x080043e7   Thumb Code   140  fnaninf.o(x$fpl$fnaninf)
-    __I$use$fp                               0x08004472   Number         0  usenofp.o(x$fpl$usenofp)
-    GPIO::mPin                               0x08004488   Data          32  gpio.o(.constdata)
-    Region$$Table$$Base                      0x080044a8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080044c8   Number         0  anon$$obj.o(Region$$Table)
-    SHT$$INIT_ARRAY$$Base                    0x080044c8   Number         0  main.o(.init_array)
-    SHT$$INIT_ARRAY$$Limit                   0x080044d4   Number         0  init_aeabi.o(.init_array)
+    WifiMemory::ClearAllData()               0x08001585   Thumb Code    68  wifi_memory.o(i._ZN10WifiMemory12ClearAllDataEv)
+    WifiMemory::LoadSaveInfo()               0x080015c9   Thumb Code   100  wifi_memory.o(i._ZN10WifiMemory12LoadSaveInfoEv)
+    WifiMemory::UpdataSaveInfo()             0x0800162d   Thumb Code    64  wifi_memory.o(i._ZN10WifiMemory14UpdataSaveInfoEv)
+    WifiMemory::WifiMemory(Memory&)          0x0800166d   Thumb Code    18  wifi_memory.o(i._ZN10WifiMemoryC1ER6Memory)
+    WifiMemory::WifiMemory__sub_object(Memory&) 0x0800166d   Thumb Code     0  wifi_memory.o(i._ZN10WifiMemoryC1ER6Memory)
+    TaskManager::Time()                      0x08001681   Thumb Code   110  taskmanager.o(i._ZN11TaskManager4TimeEv)
+    TaskManager::DelayS(unsigned short)      0x08001711   Thumb Code    60  taskmanager.o(i._ZN11TaskManager6DelaySEt)
+    TaskManager::DelayMs(unsigned short)     0x0800174d   Thumb Code    70  taskmanager.o(i._ZN11TaskManager7DelayMsEt)
+    TaskManager::ClockTool(double&, double)  0x08001799   Thumb Code    82  taskmanager.o(i._ZN11TaskManager9ClockToolERdd)
+    TaskManager::TaskManager()               0x080017ed   Thumb Code    32  taskmanager.o(i._ZN11TaskManagerC1Ev)
+    TaskManager::TaskManager__sub_object()   0x080017ed   Thumb Code     0  taskmanager.o(i._ZN11TaskManagerC1Ev)
+    Transmission::GetStateOrder(USART&)      0x08001811   Thumb Code   126  transmission.o(i._ZN12Transmission13GetStateOrderER5USART)
+    Transmission::CommandParsing(unsigned char*) 0x0800188f   Thumb Code    60  transmission.o(i._ZN12Transmission14CommandParsingEPh)
+    Transmission::requestWarning(unsigned char, unsigned char) 0x080018cb   Thumb Code    26  transmission.o(i._ZN12Transmission14requestWarningEhh)
+    Transmission::MonitoringToServer(unsigned char) 0x080018e5   Thumb Code    24  transmission.o(i._ZN12Transmission18MonitoringToServerEh)
+    Transmission::MonitoringToWarning(unsigned char) 0x080018fd   Thumb Code    46  transmission.o(i._ZN12Transmission19MonitoringToWarningEh)
+    Transmission::GetWifiNameAndPassword(char*, char*, USART&) 0x0800192d   Thumb Code   166  transmission.o(i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART)
+    Transmission::ListeningWarmingModule(USART&) 0x080019d9   Thumb Code   136  transmission.o(i._ZN12Transmission22ListeningWarmingModuleER5USART)
+    Transmission::GetReplay(USART&)          0x08001a61   Thumb Code   118  transmission.o(i._ZN12Transmission9GetReplayER5USART)
+    Transmission::Transmission()             0x08001ad7   Thumb Code    36  transmission.o(i._ZN12TransmissionC1Ev)
+    Transmission::Transmission__sub_object() 0x08001ad7   Thumb Code     0  transmission.o(i._ZN12TransmissionC1Ev)
+    ADC::ADC(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001afd   Thumb Code   518  adc.o(i._ZN3ADCC1Ehhhhhhhhhh)
+    ADC::ADC__sub_object(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001afd   Thumb Code     0  adc.o(i._ZN3ADCC1Ehhhhhhhhhh)
+    ADC::operator [](unsigned char)          0x08001d25   Thumb Code    60  adc.o(i._ZN3ADCixEh)
+    Key::IRQ()                               0x08001d71   Thumb Code    26  key.o(i._ZN3Key3IRQEv)
+    Key::Key(GPIO_TypeDef*, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001d8d   Thumb Code   372  key.o(i._ZN3KeyC1EP12GPIO_TypeDefhhhh)
+    Key::Key__sub_object(GPIO_TypeDef*, unsigned char, unsigned char, unsigned char, unsigned char) 0x08001d8d   Thumb Code     0  key.o(i._ZN3KeyC1EP12GPIO_TypeDefhhhh)
+    GPIO::RCC_Configuration()                0x08001f1d   Thumb Code   130  gpio.o(i._ZN4GPIO17RCC_ConfigurationEv)
+    GPIO::GetLevel()                         0x08001fbd   Thumb Code    28  gpio.o(i._ZN4GPIO8GetLevelEv)
+    GPIO::SetLevel(unsigned char)            0x08001fdd   Thumb Code    42  gpio.o(i._ZN4GPIO8SetLevelEh)
+    GPIO::GPIO(GPIO_TypeDef*, unsigned short, GPIOMode_TypeDef, GPIOSpeed_TypeDef) 0x0800200d   Thumb Code    64  gpio.o(i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef)
+    GPIO::GPIO__sub_object(GPIO_TypeDef*, unsigned short, GPIOMode_TypeDef, GPIOSpeed_TypeDef) 0x0800200d   Thumb Code     0  gpio.o(i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef)
+    hint::hint(GPIO, GPIO)                   0x08002051   Thumb Code    24  hint.o(i._ZN4hintC1E4GPIOS0_)
+    hint::hint__sub_object(GPIO, GPIO)       0x08002051   Thumb Code     0  hint.o(i._ZN4hintC1E4GPIOS0_)
+    USART::GetReceivedData(unsigned char*, unsigned short) 0x08002069   Thumb Code    40  usart.o(i._ZN5USART15GetReceivedDataEPht)
+    USART::ReceiveBufferSize()               0x08002091   Thumb Code    14  usart.o(i._ZN5USART17ReceiveBufferSizeEv)
+    USART::ClearReceiveBuffer()              0x0800209f   Thumb Code    14  usart.o(i._ZN5USART18ClearReceiveBufferEv)
+    USART::Irq()                             0x080020ad   Thumb Code   200  usart.o(i._ZN5USART3IrqEv)
+    USART::DmaIrq()                          0x0800217d   Thumb Code   134  usart.o(i._ZN5USART6DmaIrqEv)
+    USART::SendData(unsigned char*, unsigned) 0x08002205   Thumb Code   208  usart.o(i._ZN5USART8SendDataEPhj)
+    USART::USART(unsigned char, unsigned, bool, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned short) 0x080022d9   Thumb Code   870  usart.o(i._ZN5USARTC1Ehjbhhhhhttt)
+    USART::USART__sub_object(unsigned char, unsigned, bool, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned short, unsigned short, unsigned short) 0x080022d9   Thumb Code     0  usart.o(i._ZN5USARTC1Ehjbhhhhhttt)
+    USART::~USART()                          0x08002671   Thumb Code    54  usart.o(i._ZN5USARTD1Ev)
+    USART::~USART__sub_object()              0x08002671   Thumb Code     0  usart.o(i._ZN5USARTD1Ev)
+    USART::operator <<(const char*)          0x080026c1   Thumb Code    36  usart.o(i._ZN5USARTlsEPKc)
+    USART::operator <<(double)               0x080026e5   Thumb Code   198  usart.o(i._ZN5USARTlsEd)
+    USART::operator <<(int)                  0x080027b1   Thumb Code    94  usart.o(i._ZN5USARTlsEi)
+    Memory::Read(unsigned short, unsigned short, unsigned short*, unsigned short) 0x0800280f   Thumb Code    76  memory.o(i._ZN6Memory4ReadEttPtt)
+    Memory::Clear(unsigned short)            0x0800285b   Thumb Code    40  memory.o(i._ZN6Memory5ClearEt)
+    Memory::Write(unsigned short, unsigned short, unsigned short*, unsigned short) 0x08002883   Thumb Code   168  memory.o(i._ZN6Memory5WriteEttPtt)
+    Memory::Memory(unsigned, bool)           0x0800292b   Thumb Code    22  memory.o(i._ZN6MemoryC1Ejb)
+    Memory::Memory__sub_object(unsigned, bool) 0x0800292b   Thumb Code     0  memory.o(i._ZN6MemoryC1Ejb)
+    esp8266::ClearBuffer()                   0x08002941   Thumb Code    24  esp8266.o(i._ZN7esp826611ClearBufferEv)
+    esp8266::ReceiveAndWait(const char*, const char*, unsigned char) 0x08002959   Thumb Code   170  esp8266.o(i._ZN7esp826614ReceiveAndWaitEPKcS1_h)
+    esp8266::CreateConnectMode(char*, short, signed char) 0x08002a05   Thumb Code   178  esp8266.o(i._ZN7esp826617CreateConnectModeEPcsa)
+    esp8266::Send(int, unsigned char*)       0x08002af5   Thumb Code    56  esp8266.o(i._ZN7esp82664SendEiPh)
+    esp8266::JoinAP(char*, char*)            0x08002b41   Thumb Code    98  esp8266.o(i._ZN7esp82666JoinAPEPcS0_)
+    esp8266::RecvFind(const char*, const char*, unsigned char) 0x08002bc9   Thumb Code    36  esp8266.o(i._ZN7esp82668RecvFindEPKcS1_h)
+    esp8266::esp8266(USART&)                 0x08002bed   Thumb Code     4  esp8266.o(i._ZN7esp8266C1ER5USART)
+    esp8266::esp8266__sub_object(USART&)     0x08002bed   Thumb Code     0  esp8266.o(i._ZN7esp8266C1ER5USART)
+    std::strstr(char*, const char*)          0x08002bf1   Thumb Code    16  esp8266.o(i._ZSt6strstrPcPKc)
+    __aeabi_atexit                           0x08002c01   Thumb Code    50  aeabi_atexit.o(i.__aeabi_atexit)
+    __cxa_finalize                           0x08002c33   Thumb Code    66  cxa_finalize.o(i.__cxa_finalize)
+    main                                     0x08002e21   Thumb Code   968  main.o(i.main)
+    FIFOBuffer<unsigned char, (unsigned short)50>::Get(unsigned char&) 0x08003319   Thumb Code    48  usart.o(t._ZN10FIFOBufferIhLt50EE3GetERh)
+    FIFOBuffer<unsigned char, (unsigned short)50>::Put(const unsigned char&) 0x08003349   Thumb Code    52  usart.o(t._ZN10FIFOBufferIhLt50EE3PutERKh)
+    FIFOBuffer<unsigned char, (unsigned short)50>::Gets(unsigned char*, unsigned short) 0x0800337d   Thumb Code    62  usart.o(t._ZN10FIFOBufferIhLt50EE4GetsEPht)
+    FIFOBuffer<unsigned char, (unsigned short)50>::Puts(unsigned char*, unsigned short) 0x080033bb   Thumb Code    66  usart.o(t._ZN10FIFOBufferIhLt50EE4PutsEPht)
+    FIFOBuffer<unsigned char, (unsigned short)50>::Size() 0x080033fd   Thumb Code     6  usart.o(t._ZN10FIFOBufferIhLt50EE4SizeEv)
+    FIFOBuffer<unsigned char, (unsigned short)50>::Clear() 0x08003403   Thumb Code    10  usart.o(t._ZN10FIFOBufferIhLt50EE5ClearEv)
+    FIFOBuffer<unsigned char, (unsigned short)50>::FIFOBuffer() 0x0800340d   Thumb Code    14  usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev)
+    FIFOBuffer<unsigned char, (unsigned short)50>::FIFOBuffer__sub_object() 0x0800340d   Thumb Code     0  usart.o(t._ZN10FIFOBufferIhLt50EEC1Ev)
+    __aeabi_dadd                             0x0800341d   Thumb Code     0  daddsub_clz.o(x$fpl$dadd)
+    _dadd                                    0x0800341d   Thumb Code   332  daddsub_clz.o(x$fpl$dadd)
+    __fpl_dcmp_Inf                           0x0800356d   Thumb Code    24  dcmpi.o(x$fpl$dcmpinf)
+    __aeabi_ddiv                             0x08003585   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    _ddiv                                    0x08003585   Thumb Code   552  ddiv.o(x$fpl$ddiv)
+    __aeabi_cdcmpeq                          0x08003835   Thumb Code     0  deqf.o(x$fpl$deqf)
+    _dcmpeq                                  0x08003835   Thumb Code   120  deqf.o(x$fpl$deqf)
+    __aeabi_d2uiz                            0x080038ad   Thumb Code     0  dfixu.o(x$fpl$dfixu)
+    _dfixu                                   0x080038ad   Thumb Code    90  dfixu.o(x$fpl$dfixu)
+    __aeabi_ui2d                             0x08003907   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
+    _dfltu                                   0x08003907   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
+    __aeabi_cdcmple                          0x0800392d   Thumb Code     0  dleqf.o(x$fpl$dleqf)
+    _dcmple                                  0x0800392d   Thumb Code   120  dleqf.o(x$fpl$dleqf)
+    __fpl_dcmple_InfNaN                      0x0800398f   Thumb Code     0  dleqf.o(x$fpl$dleqf)
+    __aeabi_dmul                             0x080039a5   Thumb Code     0  dmul.o(x$fpl$dmul)
+    _dmul                                    0x080039a5   Thumb Code   332  dmul.o(x$fpl$dmul)
+    __fpl_dnaninf                            0x08003af9   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    __fpl_dretinf                            0x08003b95   Thumb Code    12  dretinf.o(x$fpl$dretinf)
+    __aeabi_cdrcmple                         0x08003ba1   Thumb Code     0  drleqf.o(x$fpl$drleqf)
+    _drcmple                                 0x08003ba1   Thumb Code   108  drleqf.o(x$fpl$drleqf)
+    __aeabi_dsub                             0x08003c0d   Thumb Code     0  daddsub_clz.o(x$fpl$dsub)
+    _dsub                                    0x08003c0d   Thumb Code   464  daddsub_clz.o(x$fpl$dsub)
+    __I$use$fp                               0x08003de0   Number         0  usenofp.o(x$fpl$usenofp)
+    GPIO::mPin                               0x08003df4   Data          32  gpio.o(.constdata)
+    Region$$Table$$Base                      0x08003e14   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08003e34   Number         0  anon$$obj.o(Region$$Table)
+    SHT$$INIT_ARRAY$$Base                    0x08003e34   Number         0  main.o(.init_array)
+    SHT$$INIT_ARRAY$$Limit                   0x08003e40   Number         0  init_aeabi.o(.init_array)
     pressure                                 0x20000000   Data           1  main.o(.data)
     InfoStore                                0x20000004   Data           8  main.o(.data)
     warning                                  0x2000000c   Data           8  main.o(.data)
@@ -2122,14 +1997,14 @@ Image Symbol Table
     Led_green                                0x2000025c   Data          12  main.o(.bss)
     MonitoringState_switch                   0x20000268   Data          12  main.o(.bss)
     wifimemory                               0x20000274   Data          16  main.o(.bss)
-    wifi                                     0x20000284   Data        1012  main.o(.bss)
-    Hint                                     0x20000678   Data          24  main.o(.bss)
-    CMCT_Tool                                0x20000690   Data          17  transmission.o(.bss)
-    ADC::_enCh                               0x200006a2   Data          10  adc.o(.bss)
-    ADC::_chMap                              0x200006ac   Data          10  adc.o(.bss)
-    ADC::_adcValue                           0x200006b6   Data          20  adc.o(.bss)
-    __libspace_start                         0x200006cc   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x2000072c   Data           0  libspace.o(.bss)
+    wifi                                     0x20000284   Data        1008  main.o(.bss)
+    Hint                                     0x20000674   Data          24  main.o(.bss)
+    CMCT_Tool                                0x2000068c   Data          17  transmission.o(.bss)
+    ADC::_enCh                               0x2000069e   Data          10  adc.o(.bss)
+    ADC::_chMap                              0x200006a8   Data          10  adc.o(.bss)
+    ADC::_adcValue                           0x200006b2   Data          20  adc.o(.bss)
+    __libspace_start                         0x200006c8   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000728   Data           0  libspace.o(.bss)
 
 
 
@@ -2139,293 +2014,276 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004544, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003eb0, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x000044d4, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00003e40, Max: 0x00010000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x000000ec   Data   RO         2894    RESET               startup_stm32f10x_md.o
-    0x080000ec   0x00000008   Code   RO         2960  * !!!main             c_w.l(__main.o)
-    0x080000f4   0x00000034   Code   RO         3285    !!!scatter          c_w.l(__scatter.o)
-    0x08000128   0x0000001a   Code   RO         3287    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x000000ec   Data   RO          563    RESET               startup_stm32f10x_md.o
+    0x080000ec   0x00000008   Code   RO          583  * !!!main             c_w.l(__main.o)
+    0x080000f4   0x00000034   Code   RO          800    !!!scatter          c_w.l(__scatter.o)
+    0x08000128   0x0000001a   Code   RO          801    !!handler_copy      c_w.l(__scatter_copy.o)
     0x08000142   0x00000002   PAD
-    0x08000144   0x0000001c   Code   RO         3289    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x08000160   0x00000002   Code   RO         3229    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x08000162   0x00000000   Code   RO         3066    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x08000162   0x00000000   Code   RO         3068    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x08000162   0x00000008   Code   RO         3069    .ARM.Collect$$libinit$$00000005  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3071    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3073    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3075    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3078    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3080    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3082    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3084    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3086    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3088    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3090    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3092    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3094    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3096    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3098    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3102    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3104    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0800016a   0x00000000   Code   RO         3106    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0800016a   0x00000004   Code   RO         3107    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x0800016e   0x00000000   Code   RO         3108    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x0800016e   0x00000002   Code   RO         3109    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x08000170   0x00000002   Code   RO         3266    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000172   0x00000006   Code   RO         3110    .ARM.Collect$$libshutdown$$00000001  c_w.l(libshutdown2.o)
-    0x08000178   0x00000000   Code   RO         3112    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
-    0x08000178   0x00000000   Code   RO         3115    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x08000178   0x00000000   Code   RO         3118    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x08000178   0x00000000   Code   RO         3120    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
-    0x08000178   0x00000000   Code   RO         3123    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x08000178   0x00000002   Code   RO         3124    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x0800017a   0x00000000   Code   RO         3001    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x0800017a   0x00000000   Code   RO         3146    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x0800017a   0x00000006   Code   RO         3158    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x08000180   0x00000000   Code   RO         3148    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x08000180   0x00000004   Code   RO         3149    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x08000184   0x00000000   Code   RO         3151    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x08000184   0x00000008   Code   RO         3152    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0800018c   0x00000002   Code   RO         3233    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0800018e   0x00000000   Code   RO         3246    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0800018e   0x00000004   Code   RO         3247    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000192   0x00000006   Code   RO         3248    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
-    0x08000198   0x00000000   Code   RO         3205    .emb_text           c_w.l(maybetermalloc1.o)
-    0x08000198   0x00000040   Code   RO         2895    .text               startup_stm32f10x_md.o
-    0x080001d8   0x00000028   Code   RO         2947    .text               c_w.l(calloc.o)
-    0x08000200   0x00000024   Code   RO         2952    .text               c_w.l(strstr.o)
-    0x08000224   0x00000064   Code   RO         2956    .text               c_w.l(rt_memcpy_w.o)
-    0x08000288   0x00000006   Code   RO         2958    .text               c_w.l(heapauxi.o)
+    0x08000144   0x0000001c   Code   RO          802    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x08000160   0x00000002   Code   RO          765    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x08000162   0x00000000   Code   RO          642    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x08000162   0x00000000   Code   RO          644    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x08000162   0x00000008   Code   RO          645    .ARM.Collect$$libinit$$00000005  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          647    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          649    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          651    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          654    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          656    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          658    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          660    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          662    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          664    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          666    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          668    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          670    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          672    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          674    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          678    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          680    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0800016a   0x00000000   Code   RO          682    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0800016a   0x00000004   Code   RO          683    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x0800016e   0x00000000   Code   RO          684    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x0800016e   0x00000002   Code   RO          685    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x08000170   0x00000002   Code   RO          789    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000172   0x00000006   Code   RO          686    .ARM.Collect$$libshutdown$$00000001  c_w.l(libshutdown2.o)
+    0x08000178   0x00000000   Code   RO          688    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x08000178   0x00000000   Code   RO          691    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x08000178   0x00000000   Code   RO          694    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x08000178   0x00000000   Code   RO          696    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x08000178   0x00000000   Code   RO          699    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x08000178   0x00000002   Code   RO          700    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x0800017a   0x00000000   Code   RO          607    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x0800017a   0x00000000   Code   RO          714    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x0800017a   0x00000006   Code   RO          726    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x08000180   0x00000000   Code   RO          716    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x08000180   0x00000004   Code   RO          717    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000184   0x00000000   Code   RO          719    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000184   0x00000008   Code   RO          720    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0800018c   0x00000002   Code   RO          768    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0800018e   0x00000000   Code   RO          776    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0800018e   0x00000004   Code   RO          777    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000192   0x00000006   Code   RO          778    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x08000198   0x00000000   Code   RO          751    .emb_text           c_w.l(maybetermalloc1.o)
+    0x08000198   0x00000040   Code   RO          564    .text               startup_stm32f10x_md.o
+    0x080001d8   0x00000028   Code   RO          575    .text               c_w.l(calloc.o)
+    0x08000200   0x00000024   Code   RO          578    .text               c_w.l(strstr.o)
+    0x08000224   0x00000064   Code   RO          581    .text               c_w.l(rt_memcpy_w.o)
+    0x08000288   0x00000006   Code   RO          582    .text               c_w.l(heapauxi.o)
     0x0800028e   0x00000002   PAD
-    0x08000290   0x00000024   Code   RO         2965    .text               c_w.l(init_aeabi.o)
-    0x080002b4   0x00000008   Code   RO         3005    .text               c_w.l(rt_ddtor_pointer_addr_intlibspace.o)
-    0x080002bc   0x0000005e   Code   RO         3009    .text               c_w.l(h1_alloc.o)
-    0x0800031a   0x00000044   Code   RO         3063    .text               c_w.l(rt_memclr.o)
+    0x08000290   0x00000024   Code   RO          587    .text               c_w.l(init_aeabi.o)
+    0x080002b4   0x00000008   Code   RO          610    .text               c_w.l(rt_ddtor_pointer_addr_intlibspace.o)
+    0x080002bc   0x0000005e   Code   RO          612    .text               c_w.l(h1_alloc.o)
+    0x0800031a   0x00000044   Code   RO          640    .text               c_w.l(rt_memclr.o)
     0x0800035e   0x00000002   PAD
-    0x08000360   0x00000008   Code   RO         3140    .text               c_w.l(libspace.o)
-    0x08000368   0x00000008   Code   RO         3163    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
-    0x08000370   0x00000004   Code   RO         3165    .text               c_w.l(hguard.o)
-    0x08000374   0x0000008a   Code   RO         3167    .text               c_w.l(init_alloc.o)
-    0x080003fe   0x0000000e   Code   RO         3173    .text               c_w.l(h1_init.o)
-    0x0800040c   0x0000004e   Code   RO         3175    .text               c_w.l(h1_free.o)
-    0x0800045a   0x0000004e   Code   RO         3191    .text               c_w.l(rt_memclr_w.o)
-    0x080004a8   0x0000004a   Code   RO         3201    .text               c_w.l(sys_stackheap_outer.o)
-    0x080004f2   0x00000034   Code   RO         3207    .text               c_w.l(h1_extend.o)
-    0x08000526   0x0000000c   Code   RO         3211    .text               c_w.l(exit.o)
-    0x08000532   0x0000000e   Code   RO         3213    .text               c_w.l(defsig_rtmem_outer.o)
-    0x08000540   0x00000002   Code   RO         3230    .text               c_w.l(use_no_semi.o)
-    0x08000542   0x00000000   Code   RO         3232    .text               c_w.l(indicate_semi.o)
-    0x08000542   0x0000000a   Code   RO         3239    .text               c_w.l(defsig_exit.o)
-    0x0800054c   0x00000050   Code   RO         3241    .text               c_w.l(defsig_rtmem_inner.o)
-    0x0800059c   0x0000000c   Code   RO         3243    .text               c_w.l(sys_exit.o)
-    0x080005a8   0x00000032   Code   RO         3258    .text               c_w.l(defsig_general.o)
-    0x080005da   0x0000000e   Code   RO         3260    .text               c_w.l(sys_wrch.o)
-    0x080005e8   0x00000016   Code   RO         1241    i.ADC_Cmd           stm32f10x_adc.o
-    0x080005fe   0x00000016   Code   RO         1242    i.ADC_DMACmd        stm32f10x_adc.o
-    0x08000614   0x00000014   Code   RO         1249    i.ADC_GetCalibrationStatus  stm32f10x_adc.o
-    0x08000628   0x00000014   Code   RO         1255    i.ADC_GetResetCalibrationStatus  stm32f10x_adc.o
-    0x0800063c   0x00000050   Code   RO         1259    i.ADC_Init          stm32f10x_adc.o
-    0x0800068c   0x000000b8   Code   RO         1263    i.ADC_RegularChannelConfig  stm32f10x_adc.o
-    0x08000744   0x0000000a   Code   RO         1264    i.ADC_ResetCalibration  stm32f10x_adc.o
-    0x0800074e   0x00000016   Code   RO         1266    i.ADC_SoftwareStartConvCmd  stm32f10x_adc.o
-    0x08000764   0x0000000a   Code   RO         1268    i.ADC_StartCalibration  stm32f10x_adc.o
+    0x08000360   0x00000008   Code   RO          710    .text               c_w.l(libspace.o)
+    0x08000368   0x00000008   Code   RO          730    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
+    0x08000370   0x00000004   Code   RO          731    .text               c_w.l(hguard.o)
+    0x08000374   0x0000008a   Code   RO          732    .text               c_w.l(init_alloc.o)
+    0x080003fe   0x0000000e   Code   RO          735    .text               c_w.l(h1_init.o)
+    0x0800040c   0x0000004e   Code   RO          736    .text               c_w.l(h1_free.o)
+    0x0800045a   0x0000004e   Code   RO          744    .text               c_w.l(rt_memclr_w.o)
+    0x080004a8   0x0000004a   Code   RO          749    .text               c_w.l(sys_stackheap_outer.o)
+    0x080004f2   0x00000034   Code   RO          753    .text               c_w.l(h1_extend.o)
+    0x08000526   0x0000000c   Code   RO          755    .text               c_w.l(exit.o)
+    0x08000532   0x0000000e   Code   RO          756    .text               c_w.l(defsig_rtmem_outer.o)
+    0x08000540   0x00000002   Code   RO          766    .text               c_w.l(use_no_semi.o)
+    0x08000542   0x00000000   Code   RO          767    .text               c_w.l(indicate_semi.o)
+    0x08000542   0x0000000a   Code   RO          772    .text               c_w.l(defsig_exit.o)
+    0x0800054c   0x00000050   Code   RO          773    .text               c_w.l(defsig_rtmem_inner.o)
+    0x0800059c   0x0000000c   Code   RO          774    .text               c_w.l(sys_exit.o)
+    0x080005a8   0x00000032   Code   RO          785    .text               c_w.l(defsig_general.o)
+    0x080005da   0x0000000e   Code   RO          786    .text               c_w.l(sys_wrch.o)
+    0x080005e8   0x00000016   Code   RO          292    i.ADC_Cmd           stm32f10x_adc.o
+    0x080005fe   0x00000016   Code   RO          293    i.ADC_DMACmd        stm32f10x_adc.o
+    0x08000614   0x00000014   Code   RO          300    i.ADC_GetCalibrationStatus  stm32f10x_adc.o
+    0x08000628   0x00000014   Code   RO          306    i.ADC_GetResetCalibrationStatus  stm32f10x_adc.o
+    0x0800063c   0x00000050   Code   RO          310    i.ADC_Init          stm32f10x_adc.o
+    0x0800068c   0x000000b8   Code   RO          314    i.ADC_RegularChannelConfig  stm32f10x_adc.o
+    0x08000744   0x0000000a   Code   RO          315    i.ADC_ResetCalibration  stm32f10x_adc.o
+    0x0800074e   0x00000016   Code   RO          317    i.ADC_SoftwareStartConvCmd  stm32f10x_adc.o
+    0x08000764   0x0000000a   Code   RO          319    i.ADC_StartCalibration  stm32f10x_adc.o
     0x0800076e   0x00000002   PAD
-    0x08000770   0x00000018   Code   RO          708    i.DMA1_Channel2_IRQHandler  interrupt.o
-    0x08000788   0x00000018   Code   RO          709    i.DMA1_Channel4_IRQHandler  interrupt.o
-    0x080007a0   0x00000018   Code   RO          710    i.DMA1_Channel7_IRQHandler  interrupt.o
-    0x080007b8   0x0000001c   Code   RO         1469    i.DMA_ClearFlag     stm32f10x_dma.o
-    0x080007d4   0x0000001c   Code   RO         1470    i.DMA_ClearITPendingBit  stm32f10x_dma.o
-    0x080007f0   0x00000018   Code   RO         1471    i.DMA_Cmd           stm32f10x_dma.o
-    0x08000808   0x0000014c   Code   RO         1472    i.DMA_DeInit        stm32f10x_dma.o
-    0x08000954   0x0000002c   Code   RO         1474    i.DMA_GetFlagStatus  stm32f10x_dma.o
-    0x08000980   0x0000003c   Code   RO         1477    i.DMA_Init          stm32f10x_dma.o
-    0x080009bc   0x0000000e   Code   RO          711    i.EXTI0_IRQHandler  interrupt.o
-    0x080009ca   0x00000070   Code   RO          712    i.EXTI15_10_IRQHandler  interrupt.o
-    0x08000a3a   0x0000000a   Code   RO          713    i.EXTI1_IRQHandler  interrupt.o
-    0x08000a44   0x0000000a   Code   RO          714    i.EXTI2_IRQHandler  interrupt.o
-    0x08000a4e   0x0000000a   Code   RO          715    i.EXTI3_IRQHandler  interrupt.o
-    0x08000a58   0x0000000a   Code   RO          716    i.EXTI4_IRQHandler  interrupt.o
-    0x08000a62   0x00000052   Code   RO          717    i.EXTI9_5_IRQHandler  interrupt.o
-    0x08000ab4   0x0000000c   Code   RO         1554    i.EXTI_ClearITPendingBit  stm32f10x_exti.o
-    0x08000ac0   0x00000028   Code   RO         1558    i.EXTI_GetITStatus  stm32f10x_exti.o
-    0x08000ae8   0x00000094   Code   RO         1559    i.EXTI_Init         stm32f10x_exti.o
-    0x08000b7c   0x0000000c   Code   RO         1619    i.FLASH_ClearFlag   stm32f10x_flash.o
-    0x08000b88   0x0000004c   Code   RO         1624    i.FLASH_ErasePage   stm32f10x_flash.o
-    0x08000bd4   0x00000034   Code   RO         1625    i.FLASH_GetBank1Status  stm32f10x_flash.o
-    0x08000c08   0x00000014   Code   RO         1634    i.FLASH_Lock        stm32f10x_flash.o
-    0x08000c1c   0x00000040   Code   RO         1637    i.FLASH_ProgramHalfWord  stm32f10x_flash.o
-    0x08000c5c   0x0000006c   Code   RO         1639    i.FLASH_ProgramWord  stm32f10x_flash.o
-    0x08000cc8   0x00000018   Code   RO         1642    i.FLASH_Unlock      stm32f10x_flash.o
-    0x08000ce0   0x00000026   Code   RO         1646    i.FLASH_WaitForLastOperation  stm32f10x_flash.o
+    0x08000770   0x00000018   Code   RO          154    i.DMA1_Channel2_IRQHandler  interrupt.o
+    0x08000788   0x00000018   Code   RO          155    i.DMA1_Channel4_IRQHandler  interrupt.o
+    0x080007a0   0x00000018   Code   RO          156    i.DMA1_Channel7_IRQHandler  interrupt.o
+    0x080007b8   0x0000001c   Code   RO          325    i.DMA_ClearFlag     stm32f10x_dma.o
+    0x080007d4   0x0000001c   Code   RO          326    i.DMA_ClearITPendingBit  stm32f10x_dma.o
+    0x080007f0   0x00000018   Code   RO          327    i.DMA_Cmd           stm32f10x_dma.o
+    0x08000808   0x0000014c   Code   RO          328    i.DMA_DeInit        stm32f10x_dma.o
+    0x08000954   0x0000002c   Code   RO          330    i.DMA_GetFlagStatus  stm32f10x_dma.o
+    0x08000980   0x0000003c   Code   RO          333    i.DMA_Init          stm32f10x_dma.o
+    0x080009bc   0x0000000e   Code   RO          157    i.EXTI0_IRQHandler  interrupt.o
+    0x080009ca   0x00000070   Code   RO          158    i.EXTI15_10_IRQHandler  interrupt.o
+    0x08000a3a   0x0000000a   Code   RO          159    i.EXTI1_IRQHandler  interrupt.o
+    0x08000a44   0x0000000a   Code   RO          160    i.EXTI2_IRQHandler  interrupt.o
+    0x08000a4e   0x0000000a   Code   RO          161    i.EXTI3_IRQHandler  interrupt.o
+    0x08000a58   0x0000000a   Code   RO          162    i.EXTI4_IRQHandler  interrupt.o
+    0x08000a62   0x00000052   Code   RO          163    i.EXTI9_5_IRQHandler  interrupt.o
+    0x08000ab4   0x0000000c   Code   RO          340    i.EXTI_ClearITPendingBit  stm32f10x_exti.o
+    0x08000ac0   0x00000028   Code   RO          344    i.EXTI_GetITStatus  stm32f10x_exti.o
+    0x08000ae8   0x00000094   Code   RO          345    i.EXTI_Init         stm32f10x_exti.o
+    0x08000b7c   0x0000000c   Code   RO          350    i.FLASH_ClearFlag   stm32f10x_flash.o
+    0x08000b88   0x0000004c   Code   RO          355    i.FLASH_ErasePage   stm32f10x_flash.o
+    0x08000bd4   0x00000034   Code   RO          356    i.FLASH_GetBank1Status  stm32f10x_flash.o
+    0x08000c08   0x00000014   Code   RO          365    i.FLASH_Lock        stm32f10x_flash.o
+    0x08000c1c   0x00000040   Code   RO          368    i.FLASH_ProgramHalfWord  stm32f10x_flash.o
+    0x08000c5c   0x0000006c   Code   RO          370    i.FLASH_ProgramWord  stm32f10x_flash.o
+    0x08000cc8   0x00000018   Code   RO          373    i.FLASH_Unlock      stm32f10x_flash.o
+    0x08000ce0   0x00000026   Code   RO          377    i.FLASH_WaitForLastOperation  stm32f10x_flash.o
     0x08000d06   0x00000002   PAD
-    0x08000d08   0x00000040   Code   RO         1808    i.GPIO_EXTILineConfig  stm32f10x_gpio.o
-    0x08000d48   0x00000116   Code   RO         1811    i.GPIO_Init         stm32f10x_gpio.o
+    0x08000d08   0x00000040   Code   RO          384    i.GPIO_EXTILineConfig  stm32f10x_gpio.o
+    0x08000d48   0x00000116   Code   RO          387    i.GPIO_Init         stm32f10x_gpio.o
     0x08000e5e   0x00000002   PAD
-    0x08000e60   0x00000090   Code   RO         1813    i.GPIO_PinRemapConfig  stm32f10x_gpio.o
-    0x08000ef0   0x00000012   Code   RO         1815    i.GPIO_ReadInputDataBit  stm32f10x_gpio.o
-    0x08000f02   0x00000004   Code   RO         1818    i.GPIO_ResetBits    stm32f10x_gpio.o
-    0x08000f06   0x00000004   Code   RO         1819    i.GPIO_SetBits      stm32f10x_gpio.o
+    0x08000e60   0x00000090   Code   RO          389    i.GPIO_PinRemapConfig  stm32f10x_gpio.o
+    0x08000ef0   0x00000012   Code   RO          391    i.GPIO_ReadInputDataBit  stm32f10x_gpio.o
+    0x08000f02   0x00000004   Code   RO          394    i.GPIO_ResetBits    stm32f10x_gpio.o
+    0x08000f06   0x00000004   Code   RO          395    i.GPIO_SetBits      stm32f10x_gpio.o
     0x08000f0a   0x00000002   PAD
-    0x08000f0c   0x00000070   Code   RO         1133    i.NVIC_Init         misc.o
-    0x08000f7c   0x00000014   Code   RO         1134    i.NVIC_PriorityGroupConfig  misc.o
-    0x08000f90   0x00000018   Code   RO         1931    i.RCC_ADCCLKConfig  stm32f10x_rcc.o
-    0x08000fa8   0x00000020   Code   RO         1932    i.RCC_AHBPeriphClockCmd  stm32f10x_rcc.o
-    0x08000fc8   0x00000020   Code   RO         1933    i.RCC_APB1PeriphClockCmd  stm32f10x_rcc.o
-    0x08000fe8   0x00000020   Code   RO         1935    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08001008   0x000000d4   Code   RO         1943    i.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x080010dc   0x00000008   Code   RO         2902    i.SetSysClock       system_stm32f10x.o
-    0x080010e4   0x000000e0   Code   RO         2903    i.SetSysClockTo72   system_stm32f10x.o
-    0x080011c4   0x00000020   Code   RO          895    i.SysTick_Handler   taskmanager.o
-    0x080011e4   0x00000060   Code   RO         2905    i.SystemInit        system_stm32f10x.o
-    0x08001244   0x00000018   Code   RO          718    i.USART1_IRQHandler  interrupt.o
-    0x0800125c   0x00000018   Code   RO          719    i.USART2_IRQHandler  interrupt.o
-    0x08001274   0x00000018   Code   RO          720    i.USART3_IRQHandler  interrupt.o
-    0x0800128c   0x0000001e   Code   RO         2704    i.USART_ClearITPendingBit  stm32f10x_usart.o
-    0x080012aa   0x00000018   Code   RO         2707    i.USART_Cmd         stm32f10x_usart.o
-    0x080012c2   0x00000012   Code   RO         2708    i.USART_DMACmd      stm32f10x_usart.o
-    0x080012d4   0x0000001a   Code   RO         2710    i.USART_GetFlagStatus  stm32f10x_usart.o
-    0x080012ee   0x00000054   Code   RO         2711    i.USART_GetITStatus  stm32f10x_usart.o
-    0x08001342   0x0000004a   Code   RO         2713    i.USART_ITConfig    stm32f10x_usart.o
-    0x0800138c   0x000000d8   Code   RO         2714    i.USART_Init        stm32f10x_usart.o
-    0x08001464   0x0000000a   Code   RO         2721    i.USART_ReceiveData  stm32f10x_usart.o
-    0x0800146e   0x00000008   Code   RO         2724    i.USART_SendData    stm32f10x_usart.o
+    0x08000f0c   0x00000070   Code   RO          278    i.NVIC_Init         misc.o
+    0x08000f7c   0x00000014   Code   RO          279    i.NVIC_PriorityGroupConfig  misc.o
+    0x08000f90   0x00000018   Code   RO          402    i.RCC_ADCCLKConfig  stm32f10x_rcc.o
+    0x08000fa8   0x00000020   Code   RO          403    i.RCC_AHBPeriphClockCmd  stm32f10x_rcc.o
+    0x08000fc8   0x00000020   Code   RO          404    i.RCC_APB1PeriphClockCmd  stm32f10x_rcc.o
+    0x08000fe8   0x00000020   Code   RO          406    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x08001008   0x000000d4   Code   RO          414    i.RCC_GetClocksFreq  stm32f10x_rcc.o
+    0x080010dc   0x00000008   Code   RO          568    i.SetSysClock       system_stm32f10x.o
+    0x080010e4   0x000000e0   Code   RO          569    i.SetSysClockTo72   system_stm32f10x.o
+    0x080011c4   0x00000020   Code   RO          205    i.SysTick_Handler   taskmanager.o
+    0x080011e4   0x00000060   Code   RO          571    i.SystemInit        system_stm32f10x.o
+    0x08001244   0x00000018   Code   RO          164    i.USART1_IRQHandler  interrupt.o
+    0x0800125c   0x00000018   Code   RO          165    i.USART2_IRQHandler  interrupt.o
+    0x08001274   0x00000018   Code   RO          166    i.USART3_IRQHandler  interrupt.o
+    0x0800128c   0x0000001e   Code   RO          533    i.USART_ClearITPendingBit  stm32f10x_usart.o
+    0x080012aa   0x00000018   Code   RO          536    i.USART_Cmd         stm32f10x_usart.o
+    0x080012c2   0x00000012   Code   RO          537    i.USART_DMACmd      stm32f10x_usart.o
+    0x080012d4   0x0000001a   Code   RO          539    i.USART_GetFlagStatus  stm32f10x_usart.o
+    0x080012ee   0x00000054   Code   RO          540    i.USART_GetITStatus  stm32f10x_usart.o
+    0x08001342   0x0000004a   Code   RO          542    i.USART_ITConfig    stm32f10x_usart.o
+    0x0800138c   0x000000d8   Code   RO          543    i.USART_Init        stm32f10x_usart.o
+    0x08001464   0x0000000a   Code   RO          550    i.USART_ReceiveData  stm32f10x_usart.o
+    0x0800146e   0x00000008   Code   RO          553    i.USART_SendData    stm32f10x_usart.o
     0x08001476   0x00000002   PAD
     0x08001478   0x000000fc   Code   RO            4    i._Z10SendWaringii  main.o
     0x08001574   0x00000010   Code   RO            5    i._Z9EXTI0_IRQv     main.o
-    0x08001584   0x00000006   Code   RO          254    i._ZN10WifiMemory10getWifiSumEv  wifi_memory.o
-    0x0800158a   0x00000044   Code   RO          255    i._ZN10WifiMemory12ClearAllDataEv  wifi_memory.o
-    0x080015ce   0x00000064   Code   RO          256    i._ZN10WifiMemory12LoadSaveInfoEv  wifi_memory.o
-    0x08001632   0x00000040   Code   RO          257    i._ZN10WifiMemory14UpdataSaveInfoEv  wifi_memory.o
-    0x08001672   0x000000ec   Code   RO          258    i._ZN10WifiMemory4LoadEPcS0_  wifi_memory.o
-    0x0800175e   0x00000108   Code   RO          259    i._ZN10WifiMemory4SaveEPcS0_  wifi_memory.o
-    0x08001866   0x00000012   Code   RO          260    i._ZN10WifiMemoryC1ER6Memory  wifi_memory.o
-    0x08001878   0x00000090   Code   RO          896    i._ZN11TaskManager4TimeEv  taskmanager.o
-    0x08001908   0x0000003c   Code   RO          897    i._ZN11TaskManager6DelaySEt  taskmanager.o
-    0x08001944   0x0000004c   Code   RO          898    i._ZN11TaskManager7DelayMsEt  taskmanager.o
-    0x08001990   0x00000052   Code   RO          900    i._ZN11TaskManager9ClockToolERdd  taskmanager.o
-    0x080019e2   0x00000002   PAD
-    0x080019e4   0x00000024   Code   RO          901    i._ZN11TaskManagerC1Ev  taskmanager.o
-    0x08001a08   0x0000007e   Code   RO          162    i._ZN12Transmission13GetStateOrderER5USART  transmission.o
-    0x08001a86   0x0000003c   Code   RO          163    i._ZN12Transmission14CommandParsingEPh  transmission.o
-    0x08001ac2   0x0000001a   Code   RO          164    i._ZN12Transmission14requestWarningEhh  transmission.o
-    0x08001adc   0x00000018   Code   RO          165    i._ZN12Transmission18MonitoringToServerEh  transmission.o
-    0x08001af4   0x0000002e   Code   RO          166    i._ZN12Transmission19MonitoringToWarningEh  transmission.o
-    0x08001b22   0x00000002   PAD
-    0x08001b24   0x000000ac   Code   RO          167    i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART  transmission.o
-    0x08001bd0   0x00000088   Code   RO          168    i._ZN12Transmission22ListeningWarmingModuleER5USART  transmission.o
-    0x08001c58   0x00000076   Code   RO          169    i._ZN12Transmission9GetReplayER5USART  transmission.o
-    0x08001cce   0x00000024   Code   RO          171    i._ZN12TransmissionC1Ev  transmission.o
-    0x08001cf2   0x00000002   PAD
-    0x08001cf4   0x00000228   Code   RO          348    i._ZN3ADCC1Ehhhhhhhhhh  adc.o
-    0x08001f1c   0x0000004c   Code   RO          349    i._ZN3ADCixEh       adc.o
-    0x08001f68   0x0000001a   Code   RO          314    i._ZN3Key3IRQEv     key.o
-    0x08001f82   0x00000002   PAD
-    0x08001f84   0x00000190   Code   RO          315    i._ZN3KeyC1EP12GPIO_TypeDefhhhh  key.o
-    0x08002114   0x000000a0   Code   RO          605    i._ZN4GPIO17RCC_ConfigurationEv  gpio.o
-    0x080021b4   0x00000020   Code   RO          607    i._ZN4GPIO8GetLevelEv  gpio.o
-    0x080021d4   0x00000030   Code   RO          608    i._ZN4GPIO8SetLevelEh  gpio.o
-    0x08002204   0x00000044   Code   RO          609    i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef  gpio.o
-    0x08002248   0x00000018   Code   RO          664    i._ZN4hintC1E4GPIOS0_  hint.o
-    0x08002260   0x00000028   Code   RO          970    i._ZN5USART15GetReceivedDataEPht  usart.o
-    0x08002288   0x0000000e   Code   RO          971    i._ZN5USART17ReceiveBufferSizeEv  usart.o
-    0x08002296   0x0000000e   Code   RO          972    i._ZN5USART18ClearReceiveBufferEv  usart.o
-    0x080022a4   0x000000d0   Code   RO          973    i._ZN5USART3IrqEv   usart.o
-    0x08002374   0x00000086   Code   RO          974    i._ZN5USART6DmaIrqEv  usart.o
-    0x080023fa   0x00000002   PAD
-    0x080023fc   0x000000d4   Code   RO          976    i._ZN5USART8SendDataEPhj  usart.o
-    0x080024d0   0x00000398   Code   RO          977    i._ZN5USARTC1Ehjbhhhhhttt  usart.o
-    0x08002868   0x00000050   Code   RO          978    i._ZN5USARTD1Ev     usart.o
-    0x080028b8   0x00000024   Code   RO          979    i._ZN5USARTlsEPKc   usart.o
-    0x080028dc   0x000000cc   Code   RO          981    i._ZN5USARTlsEd     usart.o
-    0x080029a8   0x0000005e   Code   RO          982    i._ZN5USARTlsEi     usart.o
-    0x08002a06   0x00000064   Code   RO          824    i._ZN6Memory4ReadEttPc  memory.o
-    0x08002a6a   0x0000004c   Code   RO          825    i._ZN6Memory4ReadEttPtt  memory.o
-    0x08002ab6   0x00000028   Code   RO          826    i._ZN6Memory5ClearEt  memory.o
-    0x08002ade   0x000000be   Code   RO          829    i._ZN6Memory5WriteEttPc  memory.o
-    0x08002b9c   0x000000a8   Code   RO          830    i._ZN6Memory5WriteEttPtt  memory.o
-    0x08002c44   0x00000016   Code   RO          831    i._ZN6MemoryC1Ejb   memory.o
-    0x08002c5a   0x000000aa   Code   RO          384    i._ZN7esp826610recvStringEPKcS1_f  esp8266.o
-    0x08002d04   0x000000a4   Code   RO          385    i._ZN7esp826610recvStringEPKcf  esp8266.o
-    0x08002da8   0x000000b4   Code   RO          386    i._ZN7esp826613ConnectServerEPcS0_i  esp8266.o
-    0x08002e5c   0x0000005c   Code   RO          390    i._ZN7esp826615setOprToStationEv  esp8266.o
-    0x08002eb8   0x00000088   Code   RO          393    i._ZN7esp826621ConnectNetwork_clientEPcS0_S0_i  esp8266.o
-    0x08002f40   0x00000054   Code   RO          399    i._ZN7esp82664SendEiPh  esp8266.o
-    0x08002f94   0x00000030   Code   RO          400    i._ZN7esp82664kickEv  esp8266.o
-    0x08002fc4   0x000000a4   Code   RO          401    i._ZN7esp82666joinAPEPcS0_  esp8266.o
-    0x08003068   0x00000034   Code   RO          402    i._ZN7esp82667restartEv  esp8266.o
-    0x0800309c   0x00000044   Code   RO          403    i._ZN7esp82667setEchoEh  esp8266.o
-    0x080030e0   0x0000002a   Code   RO          404    i._ZN7esp82668recvFindEPKcf  esp8266.o
-    0x0800310a   0x0000002c   Code   RO          405    i._ZN7esp82668rx_emptyEv  esp8266.o
-    0x08003136   0x0000001a   Code   RO          407    i._ZN7esp8266C1ER5USART  esp8266.o
-    0x08003150   0x00000010   Code   RO          579    i._ZSt6strstrPcPKc  esp8266.o
-    0x08003160   0x00000032   Code   RO         2968    i.__aeabi_atexit    cpprt_w.l(aeabi_atexit.o)
-    0x08003192   0x00000042   Code   RO         3128    i.__cxa_finalize    cpprt_w.l(cxa_finalize.o)
-    0x080031d4   0x00000010   Code   RO          902    i.__sti___15_TaskManager_cpp_tskmgr  taskmanager.o
-    0x080031e4   0x00000010   Code   RO          172    i.__sti___16_transmission_cpp_4ab4cfbc  transmission.o
-    0x080031f4   0x0000018c   Code   RO            6    i.__sti___8_main_cpp_SstCom  main.o
-    0x08003380   0x000004f4   Code   RO            7    i.main              main.o
-    0x08003874   0x00000034   Code   RO          561    t._ZN10FIFOBufferIcLt1000EE3PutERKc  esp8266.o
-    0x080038a8   0x00000006   Code   RO          567    t._ZN10FIFOBufferIcLt1000EE4SizeEv  esp8266.o
-    0x080038ae   0x0000000a   Code   RO          573    t._ZN10FIFOBufferIcLt1000EE5ClearEv  esp8266.o
-    0x080038b8   0x00000010   Code   RO          555    t._ZN10FIFOBufferIcLt1000EEC1Ev  esp8266.o
-    0x080038c8   0x00000030   Code   RO         1094    t._ZN10FIFOBufferIhLt50EE3GetERh  usart.o
-    0x080038f8   0x00000034   Code   RO         1088    t._ZN10FIFOBufferIhLt50EE3PutERKh  usart.o
-    0x0800392c   0x0000003e   Code   RO         1106    t._ZN10FIFOBufferIhLt50EE4GetsEPht  usart.o
-    0x0800396a   0x00000042   Code   RO         1100    t._ZN10FIFOBufferIhLt50EE4PutsEPht  usart.o
-    0x080039ac   0x00000006   Code   RO         1112    t._ZN10FIFOBufferIhLt50EE4SizeEv  usart.o
-    0x080039b2   0x0000000a   Code   RO         1118    t._ZN10FIFOBufferIhLt50EE5ClearEv  usart.o
-    0x080039bc   0x0000000e   Code   RO         1082    t._ZN10FIFOBufferIhLt50EEC1Ev  usart.o
-    0x080039ca   0x00000002   PAD
-    0x080039cc   0x00000150   Code   RO         2971    x$fpl$dadd          fz_ws.l(daddsub_clz.o)
-    0x08003b1c   0x00000018   Code   RO         3131    x$fpl$dcmpinf       fz_ws.l(dcmpi.o)
-    0x08003b34   0x000002b0   Code   RO         2978    x$fpl$ddiv          fz_ws.l(ddiv.o)
-    0x08003de4   0x00000078   Code   RO         2981    x$fpl$deqf          fz_ws.l(deqf.o)
-    0x08003e5c   0x0000005a   Code   RO         2983    x$fpl$dfixu         fz_ws.l(dfixu.o)
-    0x08003eb6   0x00000026   Code   RO         2987    x$fpl$dfltu         fz_ws.l(dflt_clz.o)
-    0x08003edc   0x00000078   Code   RO         2993    x$fpl$dleqf         fz_ws.l(dleqf.o)
-    0x08003f54   0x00000154   Code   RO         2995    x$fpl$dmul          fz_ws.l(dmul.o)
-    0x080040a8   0x0000009c   Code   RO         3133    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
-    0x08004144   0x0000000c   Code   RO         3135    x$fpl$dretinf       fz_ws.l(dretinf.o)
-    0x08004150   0x0000006c   Code   RO         2997    x$fpl$drleqf        fz_ws.l(drleqf.o)
-    0x080041bc   0x000001d4   Code   RO         2973    x$fpl$dsub          fz_ws.l(daddsub_clz.o)
-    0x08004390   0x00000056   Code   RO         2999    x$fpl$f2d           fz_ws.l(f2d.o)
-    0x080043e6   0x0000008c   Code   RO         3137    x$fpl$fnaninf       fz_ws.l(fnaninf.o)
-    0x08004472   0x00000000   Code   RO         3139    x$fpl$usenofp       fz_ws.l(usenofp.o)
-    0x08004472   0x00000002   PAD
-    0x08004474   0x00000014   Data   RO          318    .constdata          key.o
-    0x08004488   0x00000020   Data   RO          616    .constdata          gpio.o
-    0x080044a8   0x00000020   Data   RO         3283    Region$$Table       anon$$obj.o
-    0x080044c8   0x00000004   Data   RO           14    .init_array         main.o
-    0x080044cc   0x00000004   Data   RO          185    .init_array         transmission.o
-    0x080044d0   0x00000004   Data   RO          912    .init_array         taskmanager.o
-    0x080044d4   0x00000000   Data   RO         2963    .init_array         c_w.l(init_aeabi.o)
+    0x08001584   0x00000044   Code   RO           46    i._ZN10WifiMemory12ClearAllDataEv  wifi_memory.o
+    0x080015c8   0x00000064   Code   RO           47    i._ZN10WifiMemory12LoadSaveInfoEv  wifi_memory.o
+    0x0800162c   0x00000040   Code   RO           48    i._ZN10WifiMemory14UpdataSaveInfoEv  wifi_memory.o
+    0x0800166c   0x00000012   Code   RO           51    i._ZN10WifiMemoryC1ER6Memory  wifi_memory.o
+    0x0800167e   0x00000002   PAD
+    0x08001680   0x00000090   Code   RO          206    i._ZN11TaskManager4TimeEv  taskmanager.o
+    0x08001710   0x0000003c   Code   RO          207    i._ZN11TaskManager6DelaySEt  taskmanager.o
+    0x0800174c   0x0000004c   Code   RO          208    i._ZN11TaskManager7DelayMsEt  taskmanager.o
+    0x08001798   0x00000052   Code   RO          210    i._ZN11TaskManager9ClockToolERdd  taskmanager.o
+    0x080017ea   0x00000002   PAD
+    0x080017ec   0x00000024   Code   RO          211    i._ZN11TaskManagerC1Ev  taskmanager.o
+    0x08001810   0x0000007e   Code   RO           18    i._ZN12Transmission13GetStateOrderER5USART  transmission.o
+    0x0800188e   0x0000003c   Code   RO           19    i._ZN12Transmission14CommandParsingEPh  transmission.o
+    0x080018ca   0x0000001a   Code   RO           20    i._ZN12Transmission14requestWarningEhh  transmission.o
+    0x080018e4   0x00000018   Code   RO           21    i._ZN12Transmission18MonitoringToServerEh  transmission.o
+    0x080018fc   0x0000002e   Code   RO           22    i._ZN12Transmission19MonitoringToWarningEh  transmission.o
+    0x0800192a   0x00000002   PAD
+    0x0800192c   0x000000ac   Code   RO           23    i._ZN12Transmission22GetWifiNameAndPasswordEPcS0_R5USART  transmission.o
+    0x080019d8   0x00000088   Code   RO           24    i._ZN12Transmission22ListeningWarmingModuleER5USART  transmission.o
+    0x08001a60   0x00000076   Code   RO           25    i._ZN12Transmission9GetReplayER5USART  transmission.o
+    0x08001ad6   0x00000024   Code   RO           27    i._ZN12TransmissionC1Ev  transmission.o
+    0x08001afa   0x00000002   PAD
+    0x08001afc   0x00000228   Code   RO           70    i._ZN3ADCC1Ehhhhhhhhhh  adc.o
+    0x08001d24   0x0000004c   Code   RO           71    i._ZN3ADCixEh       adc.o
+    0x08001d70   0x0000001a   Code   RO           62    i._ZN3Key3IRQEv     key.o
+    0x08001d8a   0x00000002   PAD
+    0x08001d8c   0x00000190   Code   RO           63    i._ZN3KeyC1EP12GPIO_TypeDefhhhh  key.o
+    0x08001f1c   0x000000a0   Code   RO          126    i._ZN4GPIO17RCC_ConfigurationEv  gpio.o
+    0x08001fbc   0x00000020   Code   RO          128    i._ZN4GPIO8GetLevelEv  gpio.o
+    0x08001fdc   0x00000030   Code   RO          129    i._ZN4GPIO8SetLevelEh  gpio.o
+    0x0800200c   0x00000044   Code   RO          130    i._ZN4GPIOC1EP12GPIO_TypeDeft16GPIOMode_TypeDef17GPIOSpeed_TypeDef  gpio.o
+    0x08002050   0x00000018   Code   RO          145    i._ZN4hintC1E4GPIOS0_  hint.o
+    0x08002068   0x00000028   Code   RO          230    i._ZN5USART15GetReceivedDataEPht  usart.o
+    0x08002090   0x0000000e   Code   RO          231    i._ZN5USART17ReceiveBufferSizeEv  usart.o
+    0x0800209e   0x0000000e   Code   RO          232    i._ZN5USART18ClearReceiveBufferEv  usart.o
+    0x080020ac   0x000000d0   Code   RO          233    i._ZN5USART3IrqEv   usart.o
+    0x0800217c   0x00000086   Code   RO          234    i._ZN5USART6DmaIrqEv  usart.o
+    0x08002202   0x00000002   PAD
+    0x08002204   0x000000d4   Code   RO          236    i._ZN5USART8SendDataEPhj  usart.o
+    0x080022d8   0x00000398   Code   RO          237    i._ZN5USARTC1Ehjbhhhhhttt  usart.o
+    0x08002670   0x00000050   Code   RO          238    i._ZN5USARTD1Ev     usart.o
+    0x080026c0   0x00000024   Code   RO          239    i._ZN5USARTlsEPKc   usart.o
+    0x080026e4   0x000000cc   Code   RO          241    i._ZN5USARTlsEd     usart.o
+    0x080027b0   0x0000005e   Code   RO          242    i._ZN5USARTlsEi     usart.o
+    0x0800280e   0x0000004c   Code   RO          186    i._ZN6Memory4ReadEttPtt  memory.o
+    0x0800285a   0x00000028   Code   RO          187    i._ZN6Memory5ClearEt  memory.o
+    0x08002882   0x000000a8   Code   RO          191    i._ZN6Memory5WriteEttPtt  memory.o
+    0x0800292a   0x00000016   Code   RO          192    i._ZN6MemoryC1Ejb   memory.o
+    0x08002940   0x00000018   Code   RO           79    i._ZN7esp826611ClearBufferEv  esp8266.o
+    0x08002958   0x000000aa   Code   RO           81    i._ZN7esp826614ReceiveAndWaitEPKcS1_h  esp8266.o
+    0x08002a02   0x00000002   PAD
+    0x08002a04   0x000000f0   Code   RO           83    i._ZN7esp826617CreateConnectModeEPcsa  esp8266.o
+    0x08002af4   0x0000004c   Code   RO           88    i._ZN7esp82664SendEiPh  esp8266.o
+    0x08002b40   0x00000088   Code   RO           90    i._ZN7esp82666JoinAPEPcS0_  esp8266.o
+    0x08002bc8   0x00000024   Code   RO           96    i._ZN7esp82668RecvFindEPKcS1_h  esp8266.o
+    0x08002bec   0x00000004   Code   RO           98    i._ZN7esp8266C1ER5USART  esp8266.o
+    0x08002bf0   0x00000010   Code   RO          120    i._ZSt6strstrPcPKc  esp8266.o
+    0x08002c00   0x00000032   Code   RO          589    i.__aeabi_atexit    cpprt_w.l(aeabi_atexit.o)
+    0x08002c32   0x00000042   Code   RO          703    i.__cxa_finalize    cpprt_w.l(cxa_finalize.o)
+    0x08002c74   0x00000010   Code   RO          212    i.__sti___15_TaskManager_cpp_tskmgr  taskmanager.o
+    0x08002c84   0x00000010   Code   RO           28    i.__sti___16_transmission_cpp_4ab4cfbc  transmission.o
+    0x08002c94   0x0000018c   Code   RO            6    i.__sti___8_main_cpp_SstCom  main.o
+    0x08002e20   0x000004f8   Code   RO            7    i.main              main.o
+    0x08003318   0x00000030   Code   RO          265    t._ZN10FIFOBufferIhLt50EE3GetERh  usart.o
+    0x08003348   0x00000034   Code   RO          263    t._ZN10FIFOBufferIhLt50EE3PutERKh  usart.o
+    0x0800337c   0x0000003e   Code   RO          269    t._ZN10FIFOBufferIhLt50EE4GetsEPht  usart.o
+    0x080033ba   0x00000042   Code   RO          267    t._ZN10FIFOBufferIhLt50EE4PutsEPht  usart.o
+    0x080033fc   0x00000006   Code   RO          271    t._ZN10FIFOBufferIhLt50EE4SizeEv  usart.o
+    0x08003402   0x0000000a   Code   RO          273    t._ZN10FIFOBufferIhLt50EE5ClearEv  usart.o
+    0x0800340c   0x0000000e   Code   RO          261    t._ZN10FIFOBufferIhLt50EEC1Ev  usart.o
+    0x0800341a   0x00000002   PAD
+    0x0800341c   0x00000150   Code   RO          591    x$fpl$dadd          fz_ws.l(daddsub_clz.o)
+    0x0800356c   0x00000018   Code   RO          705    x$fpl$dcmpinf       fz_ws.l(dcmpi.o)
+    0x08003584   0x000002b0   Code   RO          595    x$fpl$ddiv          fz_ws.l(ddiv.o)
+    0x08003834   0x00000078   Code   RO          596    x$fpl$deqf          fz_ws.l(deqf.o)
+    0x080038ac   0x0000005a   Code   RO          597    x$fpl$dfixu         fz_ws.l(dfixu.o)
+    0x08003906   0x00000026   Code   RO          599    x$fpl$dfltu         fz_ws.l(dflt_clz.o)
+    0x0800392c   0x00000078   Code   RO          602    x$fpl$dleqf         fz_ws.l(dleqf.o)
+    0x080039a4   0x00000154   Code   RO          603    x$fpl$dmul          fz_ws.l(dmul.o)
+    0x08003af8   0x0000009c   Code   RO          706    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
+    0x08003b94   0x0000000c   Code   RO          707    x$fpl$dretinf       fz_ws.l(dretinf.o)
+    0x08003ba0   0x0000006c   Code   RO          604    x$fpl$drleqf        fz_ws.l(drleqf.o)
+    0x08003c0c   0x000001d4   Code   RO          593    x$fpl$dsub          fz_ws.l(daddsub_clz.o)
+    0x08003de0   0x00000000   Code   RO          709    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x08003de0   0x00000014   Data   RO           66    .constdata          key.o
+    0x08003df4   0x00000020   Data   RO          137    .constdata          gpio.o
+    0x08003e14   0x00000020   Data   RO          798    Region$$Table       anon$$obj.o
+    0x08003e34   0x00000004   Data   RO           14    .init_array         main.o
+    0x08003e38   0x00000004   Data   RO           41    .init_array         transmission.o
+    0x08003e3c   0x00000004   Data   RO          222    .init_array         taskmanager.o
+    0x08003e40   0x00000000   Data   RO          585    .init_array         c_w.l(init_aeabi.o)
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000d30, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00000d28, Max: 0x00005000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x00000014   Data   RW           13    .data               main.o
-    0x20000014   0x00000014   Data   RW          353    .data               adc.o
-    0x20000028   0x0000000c   Data   RW          734    .data               interrupt.o
+    0x20000014   0x00000014   Data   RW           75    .data               adc.o
+    0x20000028   0x0000000c   Data   RW          180    .data               interrupt.o
     0x20000034   0x00000004   PAD
-    0x20000038   0x00000020   Data   RW          911    .data               taskmanager.o
-    0x20000058   0x00000003   Data   RW         1000    .data               usart.o
-    0x2000005b   0x00000014   Data   RW         1963    .data               stm32f10x_rcc.o
+    0x20000038   0x00000020   Data   RW          221    .data               taskmanager.o
+    0x20000058   0x00000003   Data   RW          260    .data               usart.o
+    0x2000005b   0x00000014   Data   RW          434    .data               stm32f10x_rcc.o
     0x2000006f   0x00000001   PAD
-    0x20000070   0x00000620   Zero   RW           12    .bss                main.o
-    0x20000690   0x00000011   Zero   RW          184    .bss                transmission.o
-    0x200006a1   0x00000001   PAD
-    0x200006a2   0x00000028   Zero   RW          352    .bss                adc.o
-    0x200006ca   0x00000002   PAD
-    0x200006cc   0x00000060   Zero   RW         3141    .bss                c_w.l(libspace.o)
-    0x2000072c   0x00000004   PAD
-    0x20000730   0x00000200   Zero   RW         2893    HEAP                startup_stm32f10x_md.o
-    0x20000930   0x00000400   Zero   RW         2892    STACK               startup_stm32f10x_md.o
+    0x20000070   0x0000061c   Zero   RW           12    .bss                main.o
+    0x2000068c   0x00000011   Zero   RW           40    .bss                transmission.o
+    0x2000069d   0x00000001   PAD
+    0x2000069e   0x00000028   Zero   RW           74    .bss                adc.o
+    0x200006c6   0x00000002   PAD
+    0x200006c8   0x00000060   Zero   RW          711    .bss                c_w.l(libspace.o)
+    0x20000728   0x00000200   Zero   RW          562    HEAP                startup_stm32f10x_md.o
+    0x20000928   0x00000400   Zero   RW          561    STACK               startup_stm32f10x_md.o
 
 
 ==============================================================================
@@ -2435,109 +2293,107 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       628         50          0         20         40       2268   adc.o
-      1370        222          0          0          0      12545   esp8266.o
-       308         44         32          0          0       2632   gpio.o
-        24          0          0          0          0        488   hint.o
-       392         36          0         12          0       6778   interrupt.o
-       426         44         20          0          0       2452   key.o
-      1932        412          4         20       1568     256069   main.o
-       596          0          0          0          0       4640   memory.o
-       132         22          0          0          0     260971   misc.o
-        64         26        236          0       1536        824   startup_stm32f10x_md.o
-       390         10          0          0          0       7633   stm32f10x_adc.o
-       516         36          0          0          0       5270   stm32f10x_dma.o
-       200         18          0          0          0       2240   stm32f10x_exti.o
-       394         42          0          0          0       6244   stm32f10x_flash.o
-       512         10          0          0          0       5292   stm32f10x_gpio.o
-       332         44          0         20          0       5705   stm32f10x_rcc.o
-       490          6          0          0          0       7630   stm32f10x_usart.o
-       328         28          0          0          0       2037   system_stm32f10x.o
-       446         62          4         32          0       4143   taskmanager.o
-       760         12          4          0         17       7508   transmission.o
-      2214         94          0          3          0      11952   usart.o
-       756          0          0          0          0       4372   wifi_memory.o
+       628         50          0         20         40          0   adc.o
+       702        120          0          0          0          0   esp8266.o
+       308         44         32          0          0          0   gpio.o
+        24          0          0          0          0          0   hint.o
+       392         36          0         12          0          0   interrupt.o
+       426         44         20          0          0          0   key.o
+      1936        444          4         20       1564          0   main.o
+       306          0          0          0          0          0   memory.o
+       132         22          0          0          0          0   misc.o
+        64         26        236          0       1536          0   startup_stm32f10x_md.o
+       390         10          0          0          0          0   stm32f10x_adc.o
+       516         36          0          0          0          0   stm32f10x_dma.o
+       200         18          0          0          0          0   stm32f10x_exti.o
+       394         42          0          0          0          0   stm32f10x_flash.o
+       512         10          0          0          0          0   stm32f10x_gpio.o
+       332         44          0         20          0          0   stm32f10x_rcc.o
+       490          6          0          0          0          0   stm32f10x_usart.o
+       328         28          0          0          0          0   system_stm32f10x.o
+       446         62          4         32          0          0   taskmanager.o
+       760         12          4          0         17          0   transmission.o
+      2214         94          0          3          0          0   usart.o
+       250          0          0          0          0          0   wifi_memory.o
 
     ----------------------------------------------------------------------
-     13232       1218        332        112       3164     619693   Object Totals
+     11776       1148        332        112       3160          0   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        22          0          0          5          3          0   (incl. Padding)
+        26          0          0          5          3          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
-         8          0          0          0          0         68   __main.o
+         8          0          0          0          0          0   __main.o
          0          0          0          0          0          0   __rtentry.o
         12          0          0          0          0          0   __rtentry2.o
          6          0          0          0          0          0   __rtentry4.o
         52          8          0          0          0          0   __scatter.o
         26          0          0          0          0          0   __scatter_copy.o
         28          0          0          0          0          0   __scatter_zi.o
-        40          0          0          0          0         80   calloc.o
-        10          0          0          0          0         68   defsig_exit.o
-        50          0          0          0          0         88   defsig_general.o
-        80         58          0          0          0         76   defsig_rtmem_inner.o
-        14          0          0          0          0         80   defsig_rtmem_outer.o
-        12          0          0          0          0         72   exit.o
-        94          0          0          0          0         80   h1_alloc.o
-        52          0          0          0          0         68   h1_extend.o
-        78          0          0          0          0         80   h1_free.o
-        14          0          0          0          0         84   h1_init.o
-         6          0          0          0          0        152   heapauxi.o
-         4          0          0          0          0        136   hguard.o
+        40          0          0          0          0          0   calloc.o
+        10          0          0          0          0          0   defsig_exit.o
+        50          0          0          0          0          0   defsig_general.o
+        80         58          0          0          0          0   defsig_rtmem_inner.o
+        14          0          0          0          0          0   defsig_rtmem_outer.o
+        12          0          0          0          0          0   exit.o
+        94          0          0          0          0          0   h1_alloc.o
+        52          0          0          0          0          0   h1_extend.o
+        78          0          0          0          0          0   h1_free.o
+        14          0          0          0          0          0   h1_init.o
+         6          0          0          0          0          0   heapauxi.o
+         4          0          0          0          0          0   hguard.o
          0          0          0          0          0          0   indicate_semi.o
-        36         10          0          0          0         80   init_aeabi.o
-       138          0          0          0          0        168   init_alloc.o
+        36         10          0          0          0          0   init_aeabi.o
+       138          0          0          0          0          0   init_alloc.o
          2          0          0          0          0          0   libinit.o
         14          0          0          0          0          0   libinit2.o
          2          0          0          0          0          0   libshutdown.o
          8          0          0          0          0          0   libshutdown2.o
-         8          4          0          0         96         68   libspace.o
+         8          4          0          0         96          0   libspace.o
          0          0          0          0          0          0   maybetermalloc1.o
-         8          4          0          0          0         68   rt_ddtor_pointer_addr_intlibspace.o
-         8          4          0          0          0         68   rt_heap_descriptor_intlibspace.o
-        68          0          0          0          0         68   rt_memclr.o
-        78          0          0          0          0         80   rt_memclr_w.o
-       100          0          0          0          0         80   rt_memcpy_w.o
+         8          4          0          0          0          0   rt_ddtor_pointer_addr_intlibspace.o
+         8          4          0          0          0          0   rt_heap_descriptor_intlibspace.o
+        68          0          0          0          0          0   rt_memclr.o
+        78          0          0          0          0          0   rt_memclr_w.o
+       100          0          0          0          0          0   rt_memcpy_w.o
          2          0          0          0          0          0   rtexit.o
         10          0          0          0          0          0   rtexit2.o
-        36          0          0          0          0         80   strstr.o
-        12          4          0          0          0         68   sys_exit.o
-        74          0          0          0          0         80   sys_stackheap_outer.o
-        14          0          0          0          0         76   sys_wrch.o
-         2          0          0          0          0         68   use_no_semi.o
-        50          0          0          0          0         84   aeabi_atexit.o
-        66          0          0          0          0         84   cxa_finalize.o
-       804         16          0          0          0        272   daddsub_clz.o
-        24          0          0          0          0         68   dcmpi.o
-       688        140          0          0          0        208   ddiv.o
-       120          4          0          0          0         92   deqf.o
-        90          4          0          0          0         92   dfixu.o
-        38          0          0          0          0         68   dflt_clz.o
-       120          4          0          0          0         92   dleqf.o
-       340         12          0          0          0        104   dmul.o
-       156          4          0          0          0         92   dnaninf.o
-        12          0          0          0          0         68   dretinf.o
-       108          0          0          0          0         80   drleqf.o
-        86          4          0          0          0         84   f2d.o
-       140          4          0          0          0         84   fnaninf.o
+        36          0          0          0          0          0   strstr.o
+        12          4          0          0          0          0   sys_exit.o
+        74          0          0          0          0          0   sys_stackheap_outer.o
+        14          0          0          0          0          0   sys_wrch.o
+         2          0          0          0          0          0   use_no_semi.o
+        50          0          0          0          0          0   aeabi_atexit.o
+        66          0          0          0          0          0   cxa_finalize.o
+       804         16          0          0          0          0   daddsub_clz.o
+        24          0          0          0          0          0   dcmpi.o
+       688        140          0          0          0          0   ddiv.o
+       120          4          0          0          0          0   deqf.o
+        90          4          0          0          0          0   dfixu.o
+        38          0          0          0          0          0   dflt_clz.o
+       120          4          0          0          0          0   dleqf.o
+       340         12          0          0          0          0   dmul.o
+       156          4          0          0          0          0   dnaninf.o
+        12          0          0          0          0          0   dretinf.o
+       108          0          0          0          0          0   drleqf.o
          0          0          0          0          0          0   usenofp.o
 
     ----------------------------------------------------------------------
-      4056        284          0          0        100       3756   Library Totals
-         8          0          0          0          4          0   (incl. Padding)
+      3828        276          0          0         96          0   Library Totals
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      1206         92          0          0         96       2184   c_w.l
-       116          0          0          0          0        168   cpprt_w.l
-      2726        192          0          0          0       1404   fz_ws.l
+      1206         92          0          0         96          0   c_w.l
+       116          0          0          0          0          0   cpprt_w.l
+      2500        184          0          0          0          0   fz_ws.l
 
     ----------------------------------------------------------------------
-      4056        284          0          0        100       3756   Library Totals
+      3828        276          0          0         96          0   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2546,15 +2402,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     17288       1502        332        112       3264     614137   Grand Totals
-     17288       1502        332        112       3264     614137   ELF Image Totals
-     17288       1502        332        112          0          0   ROM Totals
+     15604       1424        332        112       3256          0   Grand Totals
+     15604       1424        332        112       3256          0   ELF Image Totals
+     15604       1424        332        112          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                17620 (  17.21kB)
-    Total RW  Size (RW Data + ZI Data)              3376 (   3.30kB)
-    Total ROM Size (Code + RO Data + RW Data)      17732 (  17.32kB)
+    Total RO  Size (Code + RO Data)                15936 (  15.56kB)
+    Total RW  Size (RW Data + ZI Data)              3368 (   3.29kB)
+    Total ROM Size (Code + RO Data + RW Data)      16048 (  15.67kB)
 
 ==============================================================================
 

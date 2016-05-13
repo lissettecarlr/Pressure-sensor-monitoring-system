@@ -22,7 +22,7 @@
 ".\objects\stm32f10x_usart.o"
 ".\objects\startup_stm32f10x_md.o"
 ".\objects\system_stm32f10x.o"
---strict --scatter ".\Objects\pressure.sct"
+--nodebug --strict --scatter ".\Objects\pressure.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\pressure.map" -o .\Objects\pressure.axf

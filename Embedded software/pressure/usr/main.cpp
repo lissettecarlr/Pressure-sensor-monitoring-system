@@ -21,7 +21,7 @@
 
 /*状态*/
 
-#define SERVER_IP				"113.250.101.228"                      //"120.27.119.115"
+#define SERVER_IP				"113.250.96.222"                      //"120.27.119.115"
 #define SERVER_COM 			9999    
 
 /*状态判断的阀值*/
@@ -90,26 +90,33 @@ int main(){
 
 /*开机WIFI模式选择*****************************************************************/
 		tskmgr.DelayS(2);
-	if(wifimemory.getWifiSum()!=0)//判断表中是否已经保存wifi信息
-	{
-		while( wifimemory.Load(WifiName,WifiPassword) )
-		 {
-				SstCom<<"connet "<<WifiName<<"\n";
-			  if(wifi.ConnectNetwork_client(WifiName,WifiPassword,SERVER_IP,SERVER_COM)) //每次连接历时20秒
-				{
-					SstCom<<"connet succeed"<<"\n";
-					network=true;  
-					break;
-				}
-				else
-					SstCom<<"connet fail!"<<"\n";
-		 }
-		 if(network ==false) {
-		 }
-	}
-  else
-	{
-	}
+//	if(wifimemory.getWifiSum()!=0)//判断表中是否已经保存wifi信息
+//	{
+//		while( wifimemory.Load(WifiName,WifiPassword) )
+//		 {
+//				SstCom<<"connet "<<WifiName<<"\n";
+//			  if(wifi.ConnectNetwork_client(WifiName,WifiPassword,SERVER_IP,SERVER_COM)) //每次连接历时20秒
+//				{
+//					SstCom<<"connet succeed"<<"\n";
+//					network=true;  
+//					break;
+//				}
+//				else
+//					SstCom<<"connet fail!"<<"\n";
+//		 }
+//		 if(network ==false) {
+//		 }
+//	}
+//  else
+//	{
+//	}
+		
+		if(wifi.CreateConnectMode(SERVER_IP,SERVER_COM))
+		{
+			SstCom<<"connet succeed"<<"\n";
+			network=true;  
+		}
+	
 	
 /*END*********************************************************************************/	
 	
@@ -137,8 +144,9 @@ int main(){
 		
 		order=CMCT_Tool.GetStateOrder(SstCom);//监控设置模式
 		
-	if(tskmgr.ClockTool(record_getModuleState,10)) //一秒检查一次
-		warmingModuleState=CMCT_Tool.ListeningWarmingModule(SeriaNet); //监控预警模块状态
+		if(tskmgr.ClockTool(record_getModuleState,10)) //一秒检查一次
+		if(!network)	//如果没网
+			warmingModuleState=CMCT_Tool.ListeningWarmingModule(SeriaNet); //监控预警模块状态
 	
 		if(warning.LeaveState == true && warmingModuleState ==3)//当检测到需要报警且报警模块处于待机状态
 		{
@@ -152,16 +160,24 @@ int main(){
 //					tskmgr.DelayS(5);
 				}
 			}
+			else
+			{
+				
+			}
 
 		}
 		
 		if(warning.LeaveState == false && warmingModuleState ==2)//当检测到解除报警且报警模块处于报警状态
 		{
-				if(network)
+			if(network)
 			{
 				u8 tempRelay2 = SendWaring(2,3);
 				if(tempRelay2 == 2 ||tempRelay2 ==1) //如果被拒绝
 					warmingModuleState =3; //标记为待机状态
+			}
+			else
+			{
+				
 			}
 		}
 		
@@ -195,8 +211,12 @@ int main(){
 						if(CMCT_Tool.GetWifiNameAndPassword(WifiName,WifiPassword,SstCom) )
 						{
 							//保存WIFI账号密码
-							wifimemory.Save(WifiName,WifiPassword);
-							SstCom<<"save wifi massage :"<<WifiName<<"\n";
+//							wifimemory.Save(WifiName,WifiPassword);
+							SstCom<<"send success ,please wait . . . ."<<"\n";
+							if(wifi.JoinAP(WifiName,WifiPassword))
+									SstCom<<"join wifi success :"<<WifiName<<"\n";
+							else
+									SstCom<<"join wifi fail :"<<WifiName<<"\n";
 							break;
 						}
 						if(tskmgr.ClockTool(record_getwifi,30)) //超时60秒退出
