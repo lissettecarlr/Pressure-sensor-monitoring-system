@@ -21,7 +21,7 @@
 
 /*状态*/
 
-#define SERVER_IP				"113.250.96.222"                      //"120.27.119.115"
+#define SERVER_IP				"113.250.102.151"                      //"120.27.119.115"
 #define SERVER_COM 			9999    
 
 /*状态判断的阀值*/
@@ -162,7 +162,7 @@ int main(){
 			}
 			else
 			{
-				
+				SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(2),6);
 			}
 
 		}
@@ -177,7 +177,7 @@ int main(){
 			}
 			else
 			{
-				
+				SeriaNet.SendData(CMCT_Tool.MonitoringToWarning(2),6);
 			}
 		}
 		
